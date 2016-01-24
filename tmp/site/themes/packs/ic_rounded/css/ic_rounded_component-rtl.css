@@ -1,0 +1,160 @@
+/*
+ * COM_ICAGENDA
+ * iCagenda by JoomliC
+ * Theme Pack Official
+ * iC Rounded Theme - component
+ *
+ * @name		ic_rounded - RTL Styles
+ * @author		Lyr!C (JoomliC)
+ * @version 	3.4.0 2014-12-01
+ * @since		3.4.0
+ */
+
+
+/*
+ * Common Styles
+ */
+
+/* Align styles */
+.ic-align-left {
+	text-align: right;
+}
+.ic-align-right {
+	text-align: left;
+}
+
+/* Float styles */
+.ic-float-left {
+	float: right;
+}
+.ic-float-right {
+	float: left;
+}
+
+/* Table styles */
+.ic-divCell {
+	float: right; /* fix for buggy browsers */
+}
+
+/* Feature Icons */
+/* Event Detail */
+.event-header > .ic-features-container {
+	float: left;
+	margin-right: auto;
+	margin-left: -5px;
+}
+.ic-feature-icon {
+	float: left;
+}
+
+/* Buttons (print, Add to Cal, ...) */
+.ic-buttons {
+	float: left;
+}
+.ic-icon {
+	margin-left: auto;
+	margin-right: 7px;
+}
+div.ic-tip-link {
+	text-align: right;
+}
+div.ic-tip-link img {
+	margin-right: auto;
+	margin-left: 5px;
+}
+
+
+/*
+ * List of Events
+ */
+
+/* Box Date */
+.ic-box-date {
+	float: right;
+}
+
+/* Box Content */
+.ic-content {
+	float: right;
+}
+
+
+/*
+ * Event Details
+ */
+
+/* Back button */
+.ic-back {
+	text-align: right;
+}
+
+/* Description */
+.ic-detail-desc {
+	text-align: right;
+}
+
+/* Content Box */
+.ic-info-box-content {
+	text-align: right;
+}
+
+/* File attachment */
+.ic-info-box-file {
+	float: left;
+}
+
+/* List of Participants */
+#icagenda .panel h3.pane-toggler a {
+	background: #f5f5f5 url(../images/pluslist.png) 1% 50% no-repeat;
+}
+#icagenda .panel h3.pane-toggler-down a {
+	background: #f5f5f5 url(../images/minuslist.png) 1% 50% no-repeat;
+}
+#icagenda .pane-slider {
+	margin-right: -1px;
+}
+#icagenda .list_table {
+	float: right;
+}
+
+
+/*
+ * Form
+ */
+
+/* Label */
+.ic-control-label {
+	float: right;
+}
+
+/* Radio Buttons */
+.btn-group > .btn:first-child,
+.radio.btn-group > label:first-of-type {
+	border-radius: 4px 0 0 4px !important;
+}
+.btn-group > .btn:last-child {
+	border-radius: 0 4px 4px 0 !important;
+}
+
+/* Google Maps */
+.icmap-label {
+	float: right !important;
+	text-align: right !important;
+}
+.icmap-input {
+	text-align: right;
+}
+#geo_label {
+	float: right !important;
+}
+
+/*
+ * STYLES for classes not presents in Theme Pack php files, but in iCagenda core php files
+ */
+
+/* Header - List of Categories */
+#icagenda .cat_header_title {
+	float: right;
+	margin: 3px 0 -2px 10px;
+}
+

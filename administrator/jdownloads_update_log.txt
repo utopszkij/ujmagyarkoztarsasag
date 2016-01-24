@@ -1,0 +1,8 @@
+2015-01-18 10:31:31
+ 
+DB table 'jdownloads_config': 110 settings imported
+DB table 'jdownloads_licence': 7 licences imported
+DB table 'jdownloads_templates': 9 templates imported
+DB table 'jdownloads_cats': 61 categories imported
+DB table 'jdownloads_files': 42 Downloads imported
+The Data Update import process has finished. Please note that because of configuration differences not all the settings from your older configuration will have been stored in this new one.<br />We recommend you check the configuration settings and also the access permission settings for your categories and downloads.

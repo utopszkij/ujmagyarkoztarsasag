@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.1" type="template" client="site">
+	<name>basetemplate-joomla3</name>
+	<version>1.0</version>
+	<creationDate>8-2015</creationDate>
+	<author>Joomla-CSS</author>
+	<authorEmail>info@joomla-css.nl</authorEmail>
+	<copyright>Joomla CSS</copyright>
+	<description>Base Template Joomla 3</description>
+
+	<files>
+		<filename>component.php</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+	</files>
+
+	<positions>
+		<position>position-0</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>messageIE</position>	
+		<position>debug</position>
+	</positions>
+
+	<languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.tpl_basetemplate-joomla3.ini</language>
+        <language tag="en-GB">en-GB/en-GB.tpl_basetemplate-joomla3.sys.ini</language>
+    </languages>
+
+</extension>

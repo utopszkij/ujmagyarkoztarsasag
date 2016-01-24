@@ -1,0 +1,77 @@
+Jan 03 18:06:00  [info] $Fatal Error Details = Array
+(
+    [message] =>  is not of the type Positive
+    [code] => 
+)
+
+
+Jan 03 18:06:00  [info] $backTrace = #0 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Error.php(324): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Utils\Type.php(229): CRM_Core_Error::fatal(" is not of the type Positive")
+#2 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Contact\Page\AJAX.php(927): CRM_Utils_Type::escape(NULL, "Positive")
+#3 [internal function](): CRM_Contact_Page_AJAX::dashboard((Array:3))
+#4 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(293): call_user_func((Array:2), (Array:3))
+#5 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(76): CRM_Core_Invoke::runItem((Array:12))
+#6 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(52): CRM_Core_Invoke::_invoke((Array:3))
+#7 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm.php(116): CRM_Core_Invoke::invoke((Array:3))
+#8 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm.php(40): civicrm_invoke()
+#9 E:\www\ujmagyarkoztarsasag\libraries\cms\component\helper.php(391): require_once("E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm.php")
+#10 E:\www\ujmagyarkoztarsasag\libraries\cms\component\helper.php(371): JComponentHelper::executeComponent("E:\www\ujmagyarkoztarsasag\administrator/components/com_civicrm/civicrm.php")
+#11 E:\www\ujmagyarkoztarsasag\libraries\cms\application\administrator.php(98): JComponentHelper::renderComponent("com_civicrm")
+#12 E:\www\ujmagyarkoztarsasag\libraries\cms\application\administrator.php(152): JApplicationAdministrator->dispatch()
+#13 E:\www\ujmagyarkoztarsasag\libraries\cms\application\cms.php(252): JApplicationAdministrator->doExecute()
+#14 E:\www\ujmagyarkoztarsasag\administrator\index.php(42): JApplicationCms->execute()
+#15 {main}
+
+
+Jan 03 19:05:28  [info] $Fatal Error Details = Array
+(
+    [message] => Nincs hozzáférési joga ehhez az oldalhoz.
+    [code] => 
+)
+
+
+Jan 03 19:05:28  [info] $backTrace = #0 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Error.php(324): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Utils\System\Joomla.php(574): CRM_Core_Error::fatal("Nincs hozzáférési joga ehhez az oldalhoz.")
+#2 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Utils\System.php(232): CRM_Utils_System_Joomla->permissionDenied()
+#3 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(248): CRM_Utils_System::permissionDenied()
+#4 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(76): CRM_Core_Invoke::runItem((Array:14))
+#5 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(52): CRM_Core_Invoke::_invoke((Array:2))
+#6 E:\www\ujmagyarkoztarsasag\components\com_civicrm\civicrm.php(86): CRM_Core_Invoke::invoke((Array:2))
+#7 E:\www\ujmagyarkoztarsasag\components\com_civicrm\civicrm.php(11): civicrm_invoke()
+#8 E:\www\ujmagyarkoztarsasag\libraries\cms\component\helper.php(391): require_once("E:\www\ujmagyarkoztarsasag\components\com_civicrm\civicrm.php")
+#9 E:\www\ujmagyarkoztarsasag\libraries\cms\component\helper.php(371): JComponentHelper::executeComponent("E:\www\ujmagyarkoztarsasag/components/com_civicrm/civicrm.php")
+#10 E:\www\ujmagyarkoztarsasag\libraries\cms\application\site.php(191): JComponentHelper::renderComponent("com_civicrm")
+#11 E:\www\ujmagyarkoztarsasag\libraries\cms\application\site.php(230): JApplicationSite->dispatch()
+#12 E:\www\ujmagyarkoztarsasag\libraries\cms\application\cms.php(252): JApplicationSite->doExecute()
+#13 E:\www\ujmagyarkoztarsasag\index.php(68): JApplicationCms->execute()
+#14 {main}
+
+
+Jan 04 06:41:15  [info] $Fatal Error Details = Array
+(
+    [message] => Az &lt;a href=&quot;/ujmagyarkoztarsasag/administrator/?option=com_civicrm&amp;amp;task=civicrm/admin/mailSettings&amp;amp;reset=1&quot;&gt;alapértelmezett mail&lt;/a&gt; még nincs beállítva. Itt találhat &lt;a href=&quot;http://book.civicrm.org/user/advanced-configuration/email-system-configuration/&quot;&gt;több információt erről az online felhasználó és adminisztrátor útmutatóban &lt;/a&gt;
+    [code] => 
+)
+
+
+Jan 04 06:41:15  [info] $backTrace = #0 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Error.php(324): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Mailing\Form\Group.php(57): CRM_Core_Error::fatal("Az <a href=\"/ujmagyarkoztarsasag/administrator/?option=com_civicrm&amp;task=...")
+#2 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Form.php(351): CRM_Mailing_Form_Group->preProcess()
+#3 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\QuickForm\Action\Display.php(93): CRM_Core_Form->buildForm()
+#4 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\packages\HTML\QuickForm\Controller.php(203): CRM_Core_QuickForm_Action_Display->perform(Object(CRM_Mailing_Form_Group), "display")
+#5 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\packages\HTML\QuickForm\Page.php(103): HTML_QuickForm_Controller->handle(Object(CRM_Mailing_Form_Group), "display")
+#6 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Controller.php(339): HTML_QuickForm_Page->handle("display")
+#7 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(327): CRM_Core_Controller->run((Array:3), NULL)
+#8 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(76): CRM_Core_Invoke::runItem((Array:14))
+#9 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm\CRM\Core\Invoke.php(52): CRM_Core_Invoke::_invoke((Array:3))
+#10 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm.php(116): CRM_Core_Invoke::invoke((Array:3))
+#11 E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm.php(40): civicrm_invoke()
+#12 E:\www\ujmagyarkoztarsasag\libraries\cms\component\helper.php(391): require_once("E:\www\ujmagyarkoztarsasag\administrator\components\com_civicrm\civicrm.php")
+#13 E:\www\ujmagyarkoztarsasag\libraries\cms\component\helper.php(371): JComponentHelper::executeComponent("E:\www\ujmagyarkoztarsasag\administrator/components/com_civicrm/civicrm.php")
+#14 E:\www\ujmagyarkoztarsasag\libraries\cms\application\administrator.php(98): JComponentHelper::renderComponent("com_civicrm")
+#15 E:\www\ujmagyarkoztarsasag\libraries\cms\application\administrator.php(152): JApplicationAdministrator->dispatch()
+#16 E:\www\ujmagyarkoztarsasag\libraries\cms\application\cms.php(252): JApplicationAdministrator->doExecute()
+#17 E:\www\ujmagyarkoztarsasag\administrator\index.php(42): JApplicationCms->execute()
+#18 {main}
+
+

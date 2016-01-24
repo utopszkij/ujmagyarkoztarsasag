@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_SITEMAP_MENU">
+		<message>
+			COM_SITEMAP_PARAM_MESSAGE
+		</message>
+	</layout>
+
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="id"
+				   type="text"
+				   label="COM_SITEMAP_PARAM_LABEL_ID"
+				   description="COM_SITEMAP_PARAM_LABEL_ID_DESC"
+				   required="required" />
+		</fieldset>
+	</fields>
+</metadata>

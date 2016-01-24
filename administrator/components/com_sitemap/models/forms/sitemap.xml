@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+	<fieldset>
+		<field name="id" type="text" label="COM_SITEMAP_LABEL_ID" readonly="true" class="readonly" />
+
+		<field name="title" type="text" description="COM_SITEMAP_LABEL_TITLE_DESC"
+			label="COM_SITEMAP_LABEL_TITLE" required="true" class="inputbox" size="50" />
+
+		<field name="alias" type="text" description="COM_SITEMAP_LABEL_ALIAS_DESC"
+			label="COM_SITEMAP_LABEL_ALIAS" required="false" class="inputbox" size="50" />
+
+		<field name="published" type="list" description="COM_SITEMAP_LABEL_STATUS_DESC" label="COM_SITEMAP_LABEL_STATUS" class="jform_state" default="0">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+	</fieldset>
+
+	<fieldset>
+		<field name="priority" type="list" default="0.5"
+			description="Priority is how important the menu item is, in comparison to the home page. 1 being the highest and 0.1 being the lowest."
+			label="Priority">
+			<option value="1.0">1</option>
+			<option value="0.9">0.9</option>
+			<option value="0.8">0.8</option>
+			<option value="0.7">0.7</option>
+			<option value="0.6">0.6</option>
+			<option value="0.5">0.5</option>
+			<option value="0.4">0.4</option>
+			<option value="0.3">0.3</option>
+			<option value="0.2">0.2</option>
+			<option value="0.1">0.1</option>
+		</field>
+
+		<field name="update_freq" type="list" default="weekly"
+			description="How often the menu item is updated. 'Never' should be used for archived items and always should only be used for items that change every time they are accessed"
+			label="Update Frequency">
+			<option value="always">Always</option>
+			<option value="hourly">Hourly</option>
+			<option value="daily">Daily</option>
+			<option value="weekly">Weekly</option>
+			<option value="monthly">Monthly</option>
+			<option value="yearly">Yearly</option>
+			<option value="never">Never</option>
+		</field>
+	</fieldset>
+</form>

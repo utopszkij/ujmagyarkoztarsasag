@@ -1,0 +1,4 @@
+# Having a .htaccess prevents users from directly
+# accessing the files in your /images/uddeimfiles folder
+#
+deny from all

@@ -1,0 +1,99 @@
+/**
+ *------------------------------------------------------------------------------
+ *	CSS iCagenda - Joomla 2.5
+ *------------------------------------------------------------------------------
+ * @package     com_icagenda
+ * @copyright   Copyright (c)2012-2015 Cyril Rezé, Jooml!C - All rights reserved
+ *
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ * @author      Cyril Rezé (Lyr!C)
+ * @link        http://www.joomlic.com
+ *
+ * @version     3.4.0 2014-07-23
+ * @since       3.0
+ *------------------------------------------------------------------------------
+*/
+
+
+/** general **/
+.clr {
+	clear:both;
+}
+
+/** admin forms **/
+/*
+.control-group {
+	height: 35px;
+}
+*/
+
+fieldset select {
+	max-width: 220px;
+}
+
+/* -- BUTTON STYLES ----------------------------- */
+.btn-group {
+	height: 35px;
+}
+
+.btn-group label:not(.active) {
+	width: auto;
+	line-height:24px;
+	padding: 0px 10px !important;
+	margin: 3px -3px 3px 2px !important;
+	}
+.btn-primary {
+	width: auto !important;
+	line-height:24px !important;
+	padding: 0px 10px !important;
+	margin: 3px -3px 3px 2px !important;
+	}
+.btn-danger {
+	width: auto !important;
+	line-height:24px !important;
+	padding: 0px 10px !important;
+	margin: 3px -3px 3px 2px !important;
+	}
+.btn-success {
+	width: auto !important;
+	line-height:24px !important;
+	padding: 0px 10px !important;
+	margin: 3px -3px 3px 2px !important;
+	}
+
+/* -- TOOLTIP STYLES ----------------------------- */
+.tip {
+	background: none !important;
+	border: 0px !important;
+	}
+
+.tip-title {
+	background: none !important;
+	}
+
+.tip-text {
+	font-size: 1em;
+	margin: 0;
+	}
+
+/* -- ADMIN ----------------------------- */
+.lead {
+	margin-bottom: 18px;
+	font-size: 20px !important;
+	font-weight: 200;
+	line-height: 27px;
+	}
+
+.input-xxlarge {
+    width: 460px;
+    font-size: 12px;
+}
+
+div.control-label label{
+    margin-top: 0px !important;
+}
+
+textarea {
+	float: none !important; /* admin j2.5 */
+	width: 98%;
+}

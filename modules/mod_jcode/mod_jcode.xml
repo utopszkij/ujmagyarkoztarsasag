@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.0" type="module" method="upgrade">
+<name>JCode</name>
+<creationDate>16 02 2012</creationDate>
+<version>1.0</version>
+<author>Iacopo Guarneri</author>
+<authorEmail>iacopo.guarneri@alice.it</authorEmail>
+<authorUrl>http://www.the-html-tool.com/</authorUrl>
+
+	<files>
+		<filename module="mod_jcode">mod_jcode.php</filename>
+		<filename>mod_jcode.xml</filename>
+		<filename>index.html</filename>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="general" group="general" label="General Settings">
+				<field name="file_name" type="text" default="file_name.php" label="file name" description="" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

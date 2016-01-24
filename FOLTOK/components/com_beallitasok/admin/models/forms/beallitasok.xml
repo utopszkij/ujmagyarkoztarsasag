@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+							
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="temakor_felvivo"
+			name="temakor_felvivo"
+			type="list"
+			required="false"
+			label="TEMAKOR_FELVIVO"
+			description="KI_VEHET_FEL_UJ_TEMAKORT"
+			class="inputbox"
+			size="1">
+      <option value="1">REGISZTRALTAK</option>
+      <option value="2">ADMINOK</option>
+    </field>  						
+								
+								
+	</fields>	
+		
+</form>	

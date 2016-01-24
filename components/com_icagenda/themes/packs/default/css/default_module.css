@@ -1,0 +1,523 @@
+/*
+ * MOD_ICCALENDAR
+ * iCagenda by JoomliC
+ * Theme Pack Official
+ * Default Theme - module calendar
+ *
+ * @name		default
+ * @author		Lyr!C (JoomliC)
+ * @version 	3.5.7 2015-07-14
+ * @since		1.0
+ */
+
+
+/* Clear Float div */
+.ic-clearfix {
+	*zoom: 1;
+}
+.ic-clearfix:before,
+.ic-clearfix:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.ic-clearfix:after {
+	clear: both;
+}
+
+/*
+ * CALENDAR STYLES
+ */
+
+/* General Calendar */
+.iccalendar {
+	display: block;
+	margin: auto !important;
+	padding: 3px !important;
+}
+.iccalendar div {
+	padding: 0px !important;
+	margin: 0px !important;
+	border: 0px;
+	text-align: center;
+}
+
+/* General Table */
+.iccalendar table {
+	padding: 1% !important;
+	margin: 0px !important;
+	border:0px;
+}
+.iccalendar table th {
+	font-size: 10px;
+	font-weight: 500;
+	padding: 0px !important;
+	margin: 0px !important;
+	text-align: center;
+	border: 0px;
+}
+.iccalendar table tr {
+	padding: 0px !important;
+	margin: 0px !important;
+	border: 0px;
+}
+
+
+/*
+ * DAYS STYLES
+ */
+
+/* General */
+.iccalendar table td {
+	padding: 3px !important;
+	margin: 0px !important;
+	border: 0px;
+}
+.iccalendar table td div {
+	text-align: center;
+	font-size: 10px;
+	border-radius: 3px;
+	line-height: 20px;
+	border: 0px solid #DDDDDD;
+	width: auto !important;
+}
+
+/* Styles for days (today or else) */
+.iccalendar table td div.style_Today {
+	border: 1px solid #777;
+	line-height: 18px;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px #777;
+	box-shadow: 0px 0px 5px #999;
+}
+.iccalendar table td div.style_Day {
+	border: none;
+}
+
+/* In case of no event */
+.iccalendar .no-event {
+}
+
+/* In case of event */
+.iccalendar table td .icevent a {
+	display: block;
+	text-align: center;
+	height: 100%;
+	color: #fff;
+	text-decoration: none;
+}
+.iccalendar table td .icevent a:hover,
+.iccalendar table td .icevent a:focus {
+	border-radius: 3px;
+	background: #333;
+}
+
+/* Dark background */
+.ic-dark {
+	color: #fff !important;
+}
+/* Bright background */
+.ic-bright {
+	color: #111 !important;
+}
+.iccalendar table td .icevent a .ic-bright {
+	display: block;
+	text-align: center;
+	height: 100%;
+	color: #111 !important;
+	text-decoration: none;
+}
+.iccalendar table td .icevent a:hover .ic-bright,
+.iccalendar table td .icevent a:focus .ic-bright {
+	border-radius: 3px;
+	color: #fff !important;
+	background: #333;
+}
+
+/* In case of multi-event day */
+.iccalendar table td .icmulti a {
+	background: url(../images/plus.png) top right no-repeat;
+	display: block;
+	text-align: center;
+	height: 100%;
+	color: #fff !important;
+	text-decoration: none;
+	border-radius: 3px;
+}
+.iccalendar table td .icmulti a:hover,
+.iccalendar table td .icevent a:focus {
+	background: #333;
+}
+
+/* In case of multi-event day (bright background) */
+.iccalendar table td .icmulti a .bright {
+	background: url(../images/plus.png) top right no-repeat;
+	display: block;
+	text-align: center;
+	height: 100%;
+	color: #111 !important;
+	text-decoration: none;
+	border-radius: 3px;
+}
+.iccalendar table td .icmulti a:hover .bright,
+.iccalendar table td .icevent a:focus .bright {
+	color: #fff !important;
+	background: #333;
+}
+
+/* Loading... */
+.icloading_box {
+	display: block;
+	height: 172px;
+	font-size: 10px;
+}
+.icloading_img {
+	display: block;
+	width: 100%;
+	height: 172px;
+	background: url(../images/ic_load.gif) 50% 50% no-repeat
+}
+
+
+/*
+ * SCRIPT FUNCTION (Dates with event)
+ */
+
+/* General */
+.icevent,
+.icmulti {}
+
+/* Text (Don't modify it!) */
+.icevent .spanEv,
+.icmulti .spanEv {
+	display: none !important;
+}
+
+/* Date (Don't modify it!) */
+.icevent .date,
+.icmulti .date {
+	display: none !important;
+}
+
+/* Link */
+.icevent a,
+.icmulti a {
+	cursor: pointer;
+}
+
+
+/*
+ * NAVIGATOR
+ */
+
+/* Arrows General */
+.icagendabtn {
+	font-family: arial;
+}
+
+/* Navigator General */
+.icnav {
+	font-size: 10px;
+	padding: 0px !important;
+	margin: 0px !important;
+	min-height: 24px;
+}
+
+/* Arrows General */
+.icnav .backicY,
+.icnav .backic,
+.icnav .nextic,
+.icnav .nexticY {
+	display: block;
+	text-decoration: none;
+	color: #555555;
+}
+.icnav .backicY {
+	letter-spacing: -3px;
+	margin-right: 2px !important;
+}
+.icnav .backic {
+	letter-spacing: 0px;
+	margin-right: 2px !important;
+	margin-left: 3px !important;
+}
+.icnav .nextic {
+	letter-spacing: 0px;
+	margin-left: 2px !important;
+}
+.icnav .nexticY {
+	letter-spacing: -3px;
+	margin-right: 2px !important;
+	margin-left: 2px !important;
+}
+
+/* Arrows Back Month and Year (Left) */
+.icnav .backic,
+.icnav .backicY {
+	float: left !important;
+}
+
+/* Arrows Next Month and Year (Right) */
+.icnav .nextic,
+.icnav .nexticY {
+	float: right !important;
+}
+
+/* Arrows Back and Next - Month */
+.icnav .backic,
+.icnav .nextic {
+	background: none;
+	font-size: 12px;
+	width: auto !important;
+	cursor: pointer;
+}
+
+/* Arrows Back and Next - Year */
+.icnav .backicY,
+.icnav .nexticY {
+	background: none;
+	font-size: 12px;
+	width: auto !important;
+	cursor: pointer;
+}
+
+/* Arrows Over */
+.icnav .backic:hover,
+.icnav .nextic:hover,
+.icnav .backicY:hover,
+.icnav .nexticY:hover {
+	background: none;
+	color: #333333;
+	cursor: pointer;
+}
+
+/* Navigator Title (month and year) */
+.icnav .titleic {
+	font-size: 12px;
+	text-align: center;
+	width: auto !important;
+}
+
+
+/*
+ * INFO TIP
+ */
+
+/* General */
+#ictip {
+	font-family: arial;
+	text-align: left;
+	background: #ffffff;
+	background: rgba(255,255,255,1);
+	border: 1px solid #ccc;
+	padding: 15px;
+	width: auto;
+	min-width: 350px;
+	border-radius: 7px;
+	z-index: 10000;
+	max-height: 100%;
+	overflow-y: auto;
+}
+#ictip .ictip-event {
+	display: block;
+	float: left;
+	width: 100%;
+	padding: 15px 0;
+	border-top: 1px solid #eee;
+}
+#ictip span {
+	margin: 10px;
+	font-size: 0.8em;
+}
+#ictip a {
+	display: block;
+	font-size: 1.2em;
+	text-decoration: none;
+	background: none;
+}
+
+/* Date Header */
+#ictip .ictip-date {
+}
+#ictip span.ictip-date-lbl {
+	font-variant: small-caps;
+}
+#ictip span.ictip-date-format {
+	font-size: 1em;
+}
+
+/* Close "X" */
+#ictip a.close {
+	position: absolute;
+	display: block;
+	width: auto;
+	top: 15px;
+	right: 15px;
+	color: red;
+	text-decoration: none !important;
+}
+#ictip a.close:hover {
+	background: none !important;
+	color: black;
+	cursor: pointer;
+}
+
+/* Event Div */
+#ictip div.linkTo {
+	color: #333;
+	background: none;
+	text-decoration: none;
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+}
+#ictip div.linkTo:hover {
+	color: #111;
+	background: rgba(0,0,0,0.1);
+	border-radius: 5px;
+}
+
+/* Contener of the image */
+#ictip span.img {
+	display: block;
+	width: 100px;
+	float: left;
+	text-align: center;
+	padding: 3px;
+	border-radius: 3px;
+	box-sizing: content-box;
+}
+
+/* Image Thumb */
+#ictip span.img img {
+	width: 100px;
+	border: 0px solid #ccc;
+	border-radius: 3px;
+	opacity: 1 !important; /* Added due to override of some site templates (Shape5 vertex, ...) */
+}
+
+/* no-image */
+#ictip div.noimg {
+	color: #FFFFFF;
+	font-size: 10px;
+	text-align: center;
+	padding: 3px;
+}
+#ictip .bright {
+	color: #111111 !important;
+}
+
+/* Event Title */
+#ictip .ictip-event-title {
+	display: block;
+	min-width: 200px;
+	font-weight: bold;
+	padding: 8px 5px 3px 5px;
+}
+
+/* Event Info */
+#ictip .ictip-info {
+	display: block;
+	min-width: 200px;
+	font-size: 12px;
+	padding: 0 8px 2px 8px;
+}
+#ictip .ictip-time {
+	font-size: 14px;
+	padding: 0 8px;
+}
+#ictip .ictip-location {
+	font-size: 12px;
+	padding: 0 8px 3px 8px;
+}
+#ictip .ictip-desc {
+	font-size: 12px;
+	color: #555;
+	line-height: 14px;
+}
+
+/* Contener of the description */
+#ictip span.bloc {
+	display: block;
+	width: 300px;
+	float: left;
+	margin: 3px;
+}
+
+/* Registration Infos */
+#ictip div.regButtons {
+	text-align: center;
+	padding: 5px 1px;
+}
+#ictip span.iCreg {
+	display: inline-block;
+	font-size: 11px;
+	margin: 0 3px;
+	padding: 1px 5px;
+	text-align: center;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 1px #333;
+/*	cursor: pointer; */
+}
+#ictip span.iCreg.available,
+#ictip span.iCreg.closed {
+	color: black;
+	background: white;
+}
+#ictip span.iCreg.ticketsleft {
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #5bb75b;
+	background-image: -moz-linear-gradient(top,#62c462,#51a351);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#62c462),to(#51a351));
+	background-image: -webkit-linear-gradient(top,#62c462,#51a351);
+	background-image: -o-linear-gradient(top,#62c462,#51a351);
+	background-image: linear-gradient(to bottom,#62c462,#51a351);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+	border-color: #51a351 #51a351 #387038;
+	*background-color: #51a351;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+#ictip span.iCreg.registered {
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #1d6cb0;
+	background-image: -moz-linear-gradient(top,#2384d3,#15497c);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#2384d3),to(#15497c));
+	background-image: -webkit-linear-gradient(top,#2384d3,#15497c);
+	background-image: -o-linear-gradient(top,#2384d3,#15497c);
+	background-image: linear-gradient(to bottom,#2384d3,#15497c);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2384d3', endColorstr='#ff15497c', GradientType=0);
+	border-color: #15497c #15497c #0a223b;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+	*background-color: #15497c;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* End function clear <div> */
+#ictip .clr {
+	clear: both;
+	display: block;
+}
+
+/* Features */
+#ictip .ic-features-container {
+	margin: 2px 8px 2px 2px;
+}
+#ictip .ic-feature-icon {
+	float: right;
+	margin: 0px 0.5px;
+}
+
+/* Messages Info */
+.ic-msg-no-event {
+	font-size: 0.8em;
+	text-align: center;
+}

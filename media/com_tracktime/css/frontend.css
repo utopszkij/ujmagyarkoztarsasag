@@ -1,0 +1,21 @@
+#tracktime table tr, #tracktime table td{border:none}
+#tracktime table.minpadding td{padding:2px}
+
+#FOFHeaderHolder h1{float:left;margin: 0}
+#FOFHeaderHolder h2{float:left;margin: 0}
+#FOFHeaderHolder .buttonsHolder{float:right}
+
+#FOFHeaderHolder div.toolbar-list {float: right;padding: 0;text-align: right;}
+#FOFHeaderHolder div.toolbar-list ul {margin: 0;padding: 0;}
+#FOFHeaderHolder div.toolbar-list li {color: #666666;float: left;height: 48px;list-style: none outside none;padding: 1px 1px 3px 4px;text-align: center;}
+#FOFHeaderHolder div.toolbar-list li.divider {border-right: 1px solid #C7C7C7;width: 2px;}
+#FOFHeaderHolder div.toolbar-list a {border: 1px solid #F4F4F4;cursor: pointer;display: block;float: left;padding: 1px 5px;white-space: nowrap;}
+#FOFHeaderHolder div.toolbar-list span {display: block;float: none;height: 32px;margin: 0 auto;width: 32px;}
+#FOFHeaderHolder div.toolbar-list a:hover,
+#FOFHeaderHolder div.toolbar-list a:focus,
+#FOFHeaderHolder div.toolbar-list a:active {background:none;border-left: 1px solid #eee;border-top: 1px solid #eee;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;text-decoration: none;color: #0B55C4;}
+
+#tracktime .pagination ul{text-align:center!important}
+div.akeeba-bootstrap #tracktime .pagination ul {margin:10px}
+div.akeeba-bootstrap #tracktime .pagination ul > li {display: inline-block; margin:0; padding: 0}
+div.akeeba-bootstrap #tracktime .pagination li.pagination-start span {padding: 4px 12px}

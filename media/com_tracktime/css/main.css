@@ -1,0 +1,71 @@
+@CHARSET "ISO-8859-1";
+
+#tracktime .hidden{display:none}
+#tracktime .noflt{float:none}
+#tracktime .bold{font-weight:bold}
+#tracktime .center{text-align:center}
+#tracktime .txt-right{text-align:right}
+#tracktime .italic{font-style:italic}
+#tracktime .underline{text-decoration:underline}
+#tracktime .pointer{cursor:pointer}
+
+#tracktime .w10{width:10px}
+#tracktime .w15{width:15px}
+#tracktime .w30{width:30px}
+#tracktime .w40{width:40px}
+#tracktime .w45{width:45px}
+#tracktime .w50{width:50px}
+#tracktime .w60{width:60px}
+#tracktime .w65{width:65px}
+#tracktime .w70{width:70px}
+#tracktime .w75{width:75px}
+#tracktime .w80{width:80px}
+#tracktime .w90{width:90px}
+#tracktime .w100{width:100px}
+#tracktime .w110{width:110px}
+#tracktime .w120{width:120px}
+#tracktime .w125{width:125px}
+#tracktime .w130{width:130px}
+#tracktime .w140{width:140px}
+#tracktime .w150, #adminForm .w150{width:150px}
+#tracktime .w160{width:160px}
+#tracktime .w170{width:170px}
+#tracktime .w180{width:180px}
+#tracktime .w200{width:200px}
+#tracktime .w210{width:210px}
+#tracktime .w220{width:220px}
+#tracktime .w250{width:250px}
+#tracktime .w300{width:300px}
+#tracktime .w350{width:350px}
+#tracktime .w400{width:400px}
+#tracktime .w500{width:500px}
+#tracktime .w540{width:540px}
+#tracktime .w625{width:625px}
+
+#tracktime .h60{height:60px}
+#tracktime .h100{height:100px}
+#tracktime .h120{height:120px}
+
+#tracktime .lh140{line-height:140%}
+
+#tracktime .w5_{width:5%}
+#tracktime .w10_{width:10%}
+#tracktime .w15_{width:15%}
+#tracktime .w20_{width:20%}
+#tracktime .w25_{width:25%}
+#tracktime .w30_{width:30%}
+#tracktime .w33_{width:33%}
+#tracktime .w40_{width:40%}
+#tracktime .w45_{width:45%}
+#tracktime .w47_{width:47%}
+#tracktime .w49_{width:49%}
+#tracktime .w50_{width:50%}
+#tracktime .w55_{width:55%}
+#tracktime .w60_{width:60%}
+#tracktime .w69_{width:69%}
+#tracktime .w70_{width:70%}
+#tracktime .w75_{width:75%}
+#tracktime .w80_{width:80%}
+#tracktime .w90_{width:90%}
+#tracktime .w95_{width:95%}
+#tracktime .w100_{width:100%}

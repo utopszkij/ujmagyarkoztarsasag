@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="1.6">
+	<name>##Name##</name>
+	<creationDate>##date##</creationDate>
+	<packagename>##alias##</packagename>
+	<version>##version##</version>
+	<packager>##author##</packager>
+	<packagerurl>##packagerurl##</packagerurl>
+	<description><![CDATA[##description##]]></description>
+	<update>##updateurl##</update>
+	<files folder="packages">
+##files##
+	</files>
+</extension>

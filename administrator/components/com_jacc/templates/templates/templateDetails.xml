@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="1.6" type="template" client="site">
+	<name>##Template##</name>
+	<creationDate>##date##</creationDate>
+	<author>##author##</author>
+	<authorEmail>##email##</authorEmail>
+	<authorUrl>##website##</authorUrl>
+	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>	
+	<license>##license##</license>
+	<version>##version##</version>
+	<description>
+	<![CDATA[
+	##description##
+	]]> 
+	</description>
+<files>
+  <filename>index.php</filename>
+  <filename>index.html</filename>
+  <filename>templateDetails.xml</filename>
+  <filename>template_thumbnail.png</filename>
+  <filename>template_preview.png</filename>
+  <filename>component.php</filename>
+  <folder>js</folder>
+  <folder>css</folder>
+  <folder>images</folder>
+  <folder>html</folder>  
+  <folder>language</folder>
+</files>
+<positions>                          
+  <position>position-1</position>
+  <position>position-2</position>
+  <position>position-3</position>
+  <position>position-4</position>
+  <position>position-5</position>
+  <position>position-6</position>
+  <position>position-7</position>
+</positions>
+<languages folder="language">
+	<language tag="en-GB">en-GB/en-GB.tpl_##template##.ini</language>
+	<language tag="de-DE">de-DE/de-DE.tpl_##template##.ini</language>
+</languages>          
+<config>
+  <fields name="params">
+    <fieldset name="basic">
+       <field name="pageWidth" type="text" default="980" label="TPL_##Template##_FIELD_PAGEWIDTH_LABEL" description="TPL_##Template##_FIELD_PAGEWIDTH_DESC" />
+       <field name="rightColumnWidth" type="text" default="200" label="TPL_##Template##_FIELD_RIGHTWIDTH_LABEL" description="TPL_##Template##_FIELD_RIGHTWIDTH_DESC" />
+       <field name="leftColumnWidth" type="text" default="200" label="TPL_##Template##_FIELD_LEFTWIDTH_LABEL" description="TPL_##Template##_FIELD_LEFTWIDTH_DESC" />
+    </fieldset>
+  </fields>
+</config>
+</extension>

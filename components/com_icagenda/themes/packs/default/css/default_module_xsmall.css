@@ -1,0 +1,11 @@
+/*
+ * MOD_ICCALENDAR
+ * Extra small devices (usually a mobile phone)
+ * 0 < SCREEN WIDTH < ('Small Screen Threshold' - 1)
+ * Default : 0 < SCREEN WIDTH < 480
+ */
+
+/* Close "X" */
+	#ictip a.close {
+		padding-right:15px;
+	}

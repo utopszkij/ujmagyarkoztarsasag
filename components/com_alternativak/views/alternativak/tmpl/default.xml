@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Alternativak">
+		<help
+			key = "Alternativak_DESC"
+		/>
+		<message>
+			<![CDATA[Alternativak_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Alternativak Layout</name>
+		<description>Alternativak Layout_DESC</description>	
+		<url addpath="/administrator/components/com_alternativak/elements">
+			<param name="id" type="alternativak" default="0" label="Select Alternativak" description="A Alternativak" />
+		</url>
+		<params>
+		</params>
+	</state>
+	
+	<!-- Fields for Joomla > 1.5. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_alternativak/models/fields"
+		>
+			<field name="id"
+				type="alternativakalternativak"
+				description="Alternativak_SELECT_DESC"
+				label="Select Alternativak"
+				required="true"
+			/>
+		</fieldset>
+	</fields>	
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

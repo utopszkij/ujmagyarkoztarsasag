@@ -1,0 +1,441 @@
+Logiai adatmodel
+================
+
+program 
+  record beallitasok
+    megnevezes
+    leiras
+    start
+    letrehozo
+    dmin
+    temakorinditas
+  array userek
+    id
+    name
+    username
+    admin
+    email
+  array of kepviselojelolt kepvielojeloltek 
+  array of kepviselo kepviselok
+  array adminok 
+    user 
+  array of temakor temakorok
+  array of komment kommentek
+
+temakor
+  id
+  megnevezes
+  leiras
+  allapot (tervezett, aktiv, lezart)
+  start 
+  letrehozo
+  admin
+  nyitottsag (mindenki látja, minden regisztralt tag látja, csak a bejelentett tagok látják)
+  szavazok (minden regisztrált tag, csak a bejelentett szavazók)
+  szavazasinditas (minden regisztrált tag, minden bejelentett tag, csak az adott témakör szavazat_inditok, csak a temakor_adminok)
+  array tagok
+    id
+    name
+    username
+    email
+    jogok
+  array of kepviselojelolt kepviselojeloltek
+  array of kepviselo kepviselok
+  array of szavazas szavazasok
+  array of komment kommentek
+
+kepviselojelolt
+    id
+    temakor
+    szavazas
+    user
+    array of komment kommentek
+
+kepviselo
+    temakor
+    szavazas
+    id
+    user
+    kepviselo
+    start
+    stop
+    
+szavazas  
+   id
+   temakor
+   megnevezes
+   leiras
+   allapot (tervezett, vita1, vita2, szavazas, lezárt)
+   letrehozva
+   letrehozo 
+   vita1start
+   vita2start
+   szavazasstart
+   szavazasend
+   nyitottsag  (nyitott, titkos, szigoritott_titkos)
+   kepviseletlehet
+   alternativafelvitel (minden regisztrált tag, minden bejelentett szavazó, csak a szavazas_adminok)
+   array alternativak
+     id
+     megnevezes
+     leiras
+     letrehozo
+     letrehozva
+  array of kepviselojelolt kepviselojeloltek
+  array of kepviselo kepviselok
+  array of szavazat 
+  array leszavaztak
+    user 
+  array of komment kommentek
+     
+szavazat
+     id
+     user1  (tetkos és szigoritott titkos szavazás esetén nem visszafejthető de userenként egyedi kód)
+     user2  (képviselők esetén a valódi userid)
+     alternativa
+     pozicio
+     kepviselo (ha közvetlenül szavazott akkor 0)
+     idopont
+  
+komment
+    id
+    temakor
+    szavazas
+    kepviselo
+    time
+    user
+    txt  
+    
+titkosito
+    id auto_increment
+    szavazas
+    work
+
+Fizikai adatbázis
+=================
+
+ programopciok
+  id
+  megnevezes
+  leiras
+  start
+  letrehozo
+  admin
+  temakorinditas (minden regisztralt tag, csak temakor_inditok)
+
+ adminok   (ez a joomla jogosultságokban is megoldható)
+  user
+  jogok (temakor_indito, rendszeradmin)
+ 
+ temakorok
+  id
+  megnevezes
+  leiras
+  allapot (tervezett, aktiv, lezart)
+  start 
+  letrehozo
+  admin
+  nyitottsag (mindenki látja, minden regisztralt tag látja, csak a bejelentett tagok látják)
+  szavazok (minden regisztrált tag, csak a bejelentett szavazók)
+  szavazasinditas (minden regisztrált tag, minden bejelentett tag, csak az adott témakör szavazat_inditok, csak a temakor_adminok)
+  
+ temakortagok
+   id
+   temakor
+   user
+   jogok (szavazo, temakor_admin, szavazas_indito)
+     
+ szavazasok
+   id
+   temakor
+   megnevezes
+   leiras
+   allapot (tervezett, vita1, vita2, szavazas, lezárt)
+   letrehozva
+   letrehozo 
+   vita1start
+   vita2start
+   szavazasstart
+   szavazasend
+   nyitottsag  (nyitott, titkos, szigoritott_titkos)
+   kepviseletlehet
+   alternativafelvitel (minden regisztrált tag, minden bejelentett szavazó, csak a szavazas_adminok)
+   array alternativak
+     id
+     szavazas
+     megnevezes
+     leiras
+     letrehozo
+     letrehozva
+ szavazasadminok
+     id
+     szavazas
+     user  
+ szavazatok  
+     id
+     szavazas   
+     user1  (tetkos és szigoritott titkos szavazás esetén
+             - közvetlen szavazatoknál nem visszafejthető de userenként egyedi kód
+     user2  (képviselők esetén és nyilt szavazásnál a valódi userid)
+     alternativa
+     pozicio
+     kepviselo (ha közvetlenül szavazott akkor 0)
+ leszavaztak  (ha ez a rekord létezik akkor a user már szavazott ebben a szavazásban)
+     szavazat
+     user
+     kepviselo  (0 ha közvetlenül szavazott)
+   
+ kommentek
+   id
+   temakor    (lehet nulla, ez esetben progrm szintű komment)
+   szavazas   (lehet nulla, ez esetben témakör komment)
+   kepviselo  (lehet nulla ha nem adott kepviselőnek szoló komment)
+   user
+   szoveg  
+
+ szavazasadminok
+   szavazas
+   user
+    
+ szavazatok
+   id  
+   szavazas
+   user1  (tetkos és szigoritott titkos szavazás esetén nem visszafejthető de userenként egyedi kód)
+   user2  (képviselők esetén a valódi userid)
+   alternativa
+   pozicio
+   kepviselo (ha közvetlenül szavazott akkor 0)
+   idopont
+   
+ leszavaztak  (ha ez a rekord létezik akkor a user már szavazott ebben a szavazásban)
+   user
+   szavazas
+   kepviselo  (0 ha közvetlenül szavazott)
+   idopont    datetime
+   
+ kepviselojeloltek
+   id
+   user
+   temakor    (lehet 0 is)
+   szavazas   (lehet 0 is)
+   leiras
+   
+ kepviselok
+   id
+   temakor
+   szavazas
+   user
+   kepviselo
+   start
+   stop
+   
+  
+szavazás lezáró algoritmus
+===========================
+(meghatalmazások kezelése)
+
+kiinduló paraméterek {szavazas} {temakor}
+FIGYELEM!  normál szavazásnál a user1 adatot úgy kell képezni, hogy az ne 
+ütközhessen a tényleges user.id -kel (pld. negativ számok)
+
+1. szavazat szintű meghatalmazások kezelése
+-------------------------------------------
+
+    /* szavazas szintü meghatalmazottak szavazatának sokszorozása */
+    insert into szavazasok
+    select 
+     0,  
+     {szavazas},
+     w.user,
+     w.user,  
+     w.alternativa,
+     w.pozicio,
+     w.kepviselo,
+     now()
+   from 
+    ( select k.kepviselo, tk.user, sz.alternativa, sz.pozicio, k.kepviselo  
+      from temakortagok tk
+      left outer join leszavaztak lsz 
+        on lsz.szavazas = {szavazas} and lsz.user = tk.user 
+      left outer join kepviselojeloltek kj0
+       on kj0.szavazas = {szavazas} and kj0.user = tk.user
+      left outer join kepviselojeloltek kj1
+       on kj1.temakor = {temakor} and kj1.szavazas = 0 and kj1.user = tk.user
+      left outer join kepviselojeloltek kj2
+       on kj2.temakor = 0 and kj2.szavazas = 0 and  and kj1.user = tk.user
+      left outer join kepviselok k
+       on k.szavazas = {szavazas} and k.user = tk.user and
+          k.start <= now() and k.stop >= now()
+      left outer join szavazatok sz
+       on sz.szavazas={szavazas} and sz.user2 = k.kepviselo   
+      where tk.id = {temakor} and
+            lsz.ido is null and 
+            kj0.user is null and kj1 is null and kj2.user is null;
+    ) w;
+    
+    /* leszavaztak táblába írás */
+    insert into leszavaztak
+     select distinct 0, {szavazat}, sz.user2, sz.kepviselo, now
+     from szavazatok sz
+     inner join kepviselo k
+       on k.szavazas = {szavazas} and k.kepviselo = sz.kepviselo
+     where sz.id = {szavazas} and sz.user <> sz.kepviselo and sz.kepviselo <> 0;
+     
+   
+2. témakör szintű meghatalmazások kezelése
+-------------------------------------------
+
+    /* temakor szintü meghatalmazottak szavazatának sokszorozása */
+    insert into szavazasok
+    select 
+     0,  
+     {szavazas},
+     w.user,
+     w.user,  
+     w.alternativa,
+     w.pozicio,
+     w.kepviselo,
+     now()
+   from 
+    ( select k.kepviselo, tk.user, sz.alternativa, sz.pozicio, k.kepviselo  
+      from temakortagok tk
+      left outer join leszavaztak lsz 
+        on lsz.szavazas = {szavazas} and lsz.user = tk.user 
+      left outer join kepviselojeloltek kj0
+       on kj0.szavazas = {szavazas} and kj0.user = tk.user
+      left outer join kepviselojeloltek kj1
+       on kj1.temakor = {temakor} and kj1.szavazas = 0 and kj1.user = tk.user
+      left outer join kepviselojeloltek kj2
+       on kj2.temakor = 0 and kj2.szavazas = 0 and  and kj1.user = tk.user
+      left outer join kepviselok k
+       on k.temakor = {temakor} and k.szavazas = 0 and k.user = tk.user and
+          k.start <= now() and k.stop >= now()
+      left outer join szavazatok sz
+       on sz.szavazas={szavazas} and sz.user2 = k.kepviselo   
+      where tk.id = {temakor} and
+            lsz.ido is null and 
+            kj0.user is null and kj1 is null and kj2.user is null;
+    ) w;
+    
+    /* leszavaztak táblába írás */
+    insert into leszavaztak
+     select distinct 0, {szavazat}, sz.user2, sz.kepviselo, now
+     from szavazatok sz
+     inner join kepviselo k
+       on k.temakor = {temakor} and k.kepviselo = sz.kepviselo
+     where sz.id = {szavazas} and sz.user <> sz.kepviselo and sz.kepviselo <> 0;
+     
+  
+3. általános meghatalmazások kezelése
+--------------------------------------
+
+    /* általános meghatalmazottak szavazatának sokszorozása */
+    insert into szavazasok
+    select 
+     0,  
+     {szavazas},
+     w.user,
+     w.user,  
+     w.alternativa,
+     w.pozicio,
+     w.kepviselo,
+     now()
+   from 
+    ( select k.kepviselo, tk.user, sz.alternativa, sz.pozicio, k.kepviselo  
+      from temakortagok tk
+      left outer join leszavaztak lsz 
+        on lsz.szavazas = {szavazas} and lsz.user = tk.user 
+      left outer join kepviselojeloltek kj0
+       on kj0.szavazas = {szavazas} and kj0.user = tk.user
+      left outer join kepviselojeloltek kj1
+       on kj1.temakor = {temakor} and kj1.szavazas = 0 and kj1.user = tk.user
+      left outer join kepviselojeloltek kj2
+       on kj2.temakor = 0 and kj2.szavazas = 0 and  and kj1.user = tk.user
+      left outer join kepviselok k
+       on k.temakor=0 and k.szavazas = 0 and k.user = tk.user and
+          k.start <= now() and k.stop >= now()
+      left outer join szavazatok sz
+       on sz.szavazas={szavazas} and sz.user2 = k.kepviselo   
+      where tk.id = {temakor} and
+            lsz.ido is null and 
+            kj0.user is null and kj1 is null and kj2.user is null;
+    ) w;
+    
+    /* leszavaztak táblába írás */
+    insert into leszavaztak
+     select distinct 0, {szavazat}, sz.user2, sz.kepviselo, now
+     from szavazatok sz
+     inner join kepviselo k
+       on k.temakor = 0 and k.szavazas = 0 and k.kepviselo = sz.kepviselo
+     where sz.id = {szavazas} and sz.user <> sz.kepviselo and sz.kepviselo <> 0;
+     
+     
+4. user1 mező titkositása (ezek az sql-ek futnak a közvetlen szabvazásoknál is)
+   akár insert trigger is lehet
+   ---------------------------------------------------------------------------- 
+      
+   insert into tikosit
+   select distinct 0, szavazas, user1
+   from szavazatok where szavazas = {szavazas} and user1 > 0;
+   update szavazatok sz, titkosito t
+   set sz.user1 = 0 - t.id
+   where t.szavazas = sz.szavazas and t.work = sz.user1;
+   update titkosito
+   set work = 0;
+      
+     
+5. titkos szavazásnál a user2 mező törlése 
+   ---------------------------------------
+
+   update szavazasok sz
+   set user2 = 0
+   where sz.id = {szavazas} and sz.user2 <> sz.kepviselo and 
+         sz.kepviselo > 0 and sz.user2 > 0;
+   
+      
+Érvényes meghatalmazások lekérdezése
+====================================
+
+1. általános szint
+------------------
+select k.kepviselo
+form kepviselok k
+left outer join kepviselojeloltek kj
+  on kj.user = {user} and kj.temakor = 0 and kj.szavazas = 0
+where k.temakor = 0 and k.szavazas = 0 and kj.user is null
+
+2. témakör szint
+----------------  
+select k.kepviselo
+form kepviselok k
+left outer join kepviselojeloltek kj0
+  on kj0.user = {user} and kj0.temakor = 0 and kj0.szavazas = 0
+left outer join kepviselojeloltek kj1
+  on kj0.user = {user} and kj1.temakor = {temakor} and kj1.szavazas = 0
+where k.temakor = {temakor} and k.szavazas = 0 and 
+      kj0.user is null and kj1 is null
+union all
+a fenti általános szintű képviselő lekérdező sql
+        
+3. szavazas szint
+-----------------
+select k.kepviselo
+form kepviselok k
+left outer join kepviselojeloltek kj0
+  on kj0.user = {user} and kj0.temakor = 0 and kj0.szavazas = 0
+left outer join kepviselojeloltek kj1
+  on kj0.user = {user} and kj1.temakor = {temakor} and kj1.szavazas = 0
+left outer join kepviselojeloltek kj2
+  on kj2.user = {user} and kj2.temakor = {temakor} and kj2.szavazas = {szavazas}
+where k.temakor = {temakor} and k.szavazas = {szavazas} and 
+      kj0.user is null and kj1 is null
+union all
+a fenti témakör szintű képviselő lekérdező sql
+union all
+a fenti általános szintű képviselő lekérdező sql
+      
+a lekérdezések első sor az érvényes meghatalmazás        
+   
+   
+   
+        

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+							
+														
+		<field
+			id="user_id"
+			name="user_id"
+			type="sql"
+			required="true"
+			label="User_id"
+			description="user_id_Desc"
+      query="select id,name from #__users order by 2"
+      key_field="id"
+      value_field="name"
+			class="inputbox"
+      readonly="false"
+			size="1"/>						
+														
+		<field
+			id="temakor_id"
+			name="temakor_id"
+			type="sql"
+			required="false"
+			label="Temakor_id"
+			description="temakor_id_Desc"
+			class="inputbox"
+      query="select id,megnevezes from #__temakorok union all select 0,' Álltalanos' order by 2"
+      key_field="id"
+      value_field="megnevezes"
+      readonly="false"
+			size="1"/>						
+														
+		<field
+			id="szavazas_id"
+			name="szavazas_id"
+			type="hidden"
+			required="false"
+			label="Szavazas_id"
+			description="szavazas_id_Desc"
+			class="inputbox"
+      default="0"
+			size="40"/>						
+								
+						
+		<field
+			id="leiras"
+			name="leiras"
+			type="editor"
+			label="Leiras"
+			description="leiras_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+									
+	</fields>	
+		
+</form>	

@@ -1,0 +1,206 @@
+<?php
+/**
+ *------------------------------------------------------------------------------
+ *  iC Library - Library by Jooml!C, for Joomla!
+ *------------------------------------------------------------------------------
+ * @package     iC Library
+ * @subpackage  Globalize
+ *
+ * @version     1.3.2 2015-08-12
+ * @since       1.3.2
+ *
+ * Original Jalali to Gregorian (and vice versa) convertor:
+ * Copyright (C)2000 Roozbeh Pournader and Mohammad Toossi
+ *
+ * @method gregorian_to_jalali ($g_y, $g_m, $g_d,$str)       return gregorian to jalali converted date
+ * @method jalali_to_gregorian($j_y, $j_m, $j_d,$str)        return jalali to gregorian converted date
+ *
+ * @author     Roozbeh Baabakaan
+ * @license    http://opensource.org/licenses/mit-license.php The MIT License
+ * @link       https://github.com/roozbeh360/Gregorian-Jalali-Date-Convertor
+ * version     SVN: $Id: gregorian_jalali 1 2012-12-20 19:07:0
+ *
+ * The MIT License (MIT)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * 1- The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * 2- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ *
+ *------------------------------------------------------------------------------
+*/
+
+// No direct access to this file
+defined('_JEXEC') or die();
+
+/**
+ * class iCGlobalizeConvert
+ */
+class iCGlobalizeConvert
+{
+	/**
+	 * Function to process division
+	 *
+	 * @since   1.3.2
+	 */
+	static public function div($a, $b)
+	{
+    	return (int) ($a / $b);
+	}
+
+
+    /**
+     * Gregorian to Jalali Conversion
+     * Copyright (C) 2000  Roozbeh Pournader and Mohammad Toossi
+     *
+     * @since 1.3.2
+     */
+	static public function gregorianToJalali($g_y, $g_m, $g_d, $str)
+	{
+		$g_days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+		$j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
+
+  		$gy = $g_y-1600;
+		$gm = $g_m-1;
+		$gd = $g_d-1;
+
+		$g_day_no = 365*$gy+self::div($gy+3,4)-self::div($gy+99,100)+self::div($gy+399,400);
+
+		for ($i=0; $i < $gm; ++$i)
+			$g_day_no += $g_days_in_month[$i];
+		if ($gm>1 && (($gy%4==0 && $gy%100!=0) || ($gy%400==0)))
+		/* leap and after Feb */
+		$g_day_no++;
+		$g_day_no += $gd;
+
+		$j_day_no = $g_day_no-79;
+
+		$j_np = self::div($j_day_no, 12053); /* 12053 = 365*33 + 32/4 */
+		$j_day_no = $j_day_no % 12053;
+
+		$jy = 979+33*$j_np+4*self::div($j_day_no,1461); /* 1461 = 365*4 + 4/4 */
+
+		$j_day_no %= 1461;
+
+		if ($j_day_no >= 366)
+		{
+			$jy += self::div($j_day_no-1, 365);
+			$j_day_no = ($j_day_no-1)%365;
+		}
+
+		for ($i = 0; $i < 11 && $j_day_no >= $j_days_in_month[$i]; ++$i)
+			$j_day_no -= $j_days_in_month[$i];
+		$jm = $i+1;
+		$jd = $j_day_no+1;
+
+		if ($str)
+		{
+			return $jy . '-' . $jm . '-' . $jd;
+		}
+
+		return array($jy, $jm, $jd);
+	}
+
+    /**
+     * Jalali to Gregorian Conversion
+     * Copyright (C) 2000  Roozbeh Pournader and Mohammad Toossi
+     *
+     * @since 1.3.2
+     */
+	static public function jalaliToGregorian($j_y, $j_m, $j_d, $str)
+	{
+		$g_days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+		$j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
+
+		$jy = (int)($j_y)-979;
+		$jm = (int)($j_m)-1;
+		$jd = (int)($j_d)-1;
+
+		$j_day_no = 365*$jy + self::div($jy, 33)*8 + self::div($jy%33+3, 4);
+
+		for ($i=0; $i < $jm; ++$i)
+			$j_day_no += $j_days_in_month[$i];
+
+		$j_day_no += $jd;
+
+		$g_day_no = $j_day_no+79;
+
+		$gy = 1600 + 400*self::div($g_day_no, 146097); /* 146097 = 365*400 + 400/4 - 400/100 + 400/400 */
+		$g_day_no = $g_day_no % 146097;
+
+        $leap = true;
+
+		if ($g_day_no >= 36525) /* 36525 = 365*100 + 100/4 */
+		{
+			$g_day_no--;
+			$gy += 100*self::div($g_day_no,  36524); /* 36524 = 365*100 + 100/4 - 100/100 */
+			$g_day_no = $g_day_no % 36524;
+
+			if ($g_day_no >= 365)
+				$g_day_no++;
+			else
+				$leap = false;
+		}
+
+		$gy += 4*self::div($g_day_no, 1461); /* 1461 = 365*4 + 4/4 */
+		$g_day_no %= 1461;
+
+		if ($g_day_no >= 366)
+		{
+			$leap = false;
+
+			$g_day_no--;
+			$gy += self::div($g_day_no, 365);
+			$g_day_no = $g_day_no % 365;
+		}
+
+		for ($i = 0; $g_day_no >= $g_days_in_month[$i] + ($i == 1 && $leap); $i++)
+			$g_day_no -= $g_days_in_month[$i] + ($i == 1 && $leap);
+		$gm = $i+1;
+		$gd = $g_day_no+1;
+
+		if ($str)
+		{
+			return $gy . '-' . $gm . '-' . $gd;
+		}
+
+		return array($gy, $gm, $gd);
+	}
+
+
+	function comparedate($_date_mix_jalaly, $_date_mix_gregorian)
+	{
+		$_date_arr_jalaly = explode('/', $_date_mix_jalaly);
+		$_date_arr_gregorian = explode('/', $_date_mix_gregorian);
+
+		$arr_jtg = self::jalali_to_gregorian($_date_arr_jalaly[0],$_date_arr_jalaly[1],$_date_arr_jalaly[2]);
+
+		if ($_date_arr_gregorian[0]> $arr_jtg[0])
+		{
+			return  false;
+		}
+		elseif ($_date_arr_gregorian[0]== $arr_jtg[0] && $_date_arr_gregorian[1]>$arr_jtg[1])
+		{
+			return false;
+		}
+		elseif ($_date_arr_gregorian[0]== $arr_jtg[0] && $_date_arr_gregorian[1]==$arr_jtg[1] && $_date_arr_gregorian[2]>$arr_jtg[2])
+		{
+			return false;
+		}
+
+		return true ;
+	}
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="extension_id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="name"
+			name="name"
+			type="text"
+			required="true"
+			label="Name"
+			description="name_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="published"
+			name="published"
+			type="list"
+			class="inputbox"
+			default="1"
+			size="1"
+			label="JField_Published_Label"
+			description="JField_Published_Desc">
+			<option
+				value="1">
+				JOption_Published</option>
+			<option
+				value="0">
+				JOption_UnPublished</option>
+			<option
+				value="-1">
+				JOption_Archived</option>
+			<option
+				value="-2">
+				JOption_Trashed</option>
+		</field>
+                          
+		<field
+			name="checked_out"
+			type="hidden"
+			filter="unset"/>						  
+							
+		<field
+			name="checked_out_time"
+			type="hidden"
+			filter="unset"/>						  
+							
+		<field
+			name="access"
+			type="hidden"
+			filter="unset"/>						  
+							
+		<field
+			name="ordering"
+			type="hidden"
+			filter="unset"/>						  
+															
+		<field
+			id="type"
+			name="type"
+			type="text"
+			required="false"
+			label="Type"
+			description="type_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="element"
+			name="element"
+			type="text"
+			required="false"
+			label="Element"
+			description="element_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="folder"
+			name="folder"
+			type="text"
+			required="false"
+			label="Folder"
+			description="folder_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="client_id"
+			name="client_id"
+			type="text"
+			required="false"
+			label="Client_id"
+			description="client_id_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="enabled"
+			name="enabled"
+			type="text"
+			required="false"
+			label="Enabled"
+			description="enabled_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="protected"
+			name="protected"
+			type="text"
+			required="false"
+			label="Protected"
+			description="protected_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="manifest_cache"
+			name="manifest_cache"
+			type="editor"
+			label="Manifest_cache"
+			description="manifest_cache_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+							
+		<field
+			id="custom_data"
+			name="custom_data"
+			type="editor"
+			label="Custom_data"
+			description="custom_data_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+							
+		<field
+			id="system_data"
+			name="system_data"
+			type="editor"
+			label="System_data"
+			description="system_data_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+									
+	</fields>	
+		
+	<fields name="params">
+		<fieldset
+			name="basic">		
+			<field
+				name="example_param"
+				type="list"
+				default=""
+				label="Params_Example_Label"
+				description="Params_Example_Desc">
+				<option
+					value="0">No</option>
+				<option
+					value="1">Yes</option>
+			</field>
+		</fieldset>
+	</fields>
+		
+</form>	

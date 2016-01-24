@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_ICAGENDA_SUBMIT_VIEW_DEFAULT_TITLE">
+		<message>COM_ICAGENDA_SUBMIT_VIEW_DEFAULT_DESC</message>
+	</layout>
+
+	<fields id="params" name="params" type="fields" label="params" addfieldpath="/administrator/components/com_icagenda/models/fields">
+
+		<fieldset name="ICAGENDA" label="COM_ICAGENDA_MENU_OPTIONS" addfieldpath="/administrator/components/com_icagenda/assets/elements">
+
+			<field type="Title" label="COM_ICAGENDA_LOGO" class="styleblanck" />
+
+			<field
+				name="template"
+				type="modal_template"
+				label="COM_ICAGENDA_LBL_TEMPLATE"
+				description="COM_ICAGENDA_DESC_TEMPLATE"
+				size="40"
+				class="inputbox"
+				default="default"
+			/>
+
+			<field name="Title2" type="TitleImg" label="COM_ICAGENDA_FORM_LABEL"
+				class="stylebox lead input-xxlarge" icimage="iconicagenda16.png"/>
+
+			<field
+				name="orderby_catlist"
+				type="list"
+				label="COM_ICAGENDA_CATEGORY_ORDER_LABEL"
+				description="COM_ICAGENDA_CATEGORY_SELECT_LIST_ORDER_DESC"
+				default="alpha"
+				>
+				<option
+					value="none">JGLOBAL_NO_ORDER</option>
+				<option
+					value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+				<option
+					value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+				<option
+					value="order">JGLOBAL_CATEGORY_MANAGER_ORDER</option>
+			</field>
+			<field
+				name="default_catlist"
+				type="modal_cat"
+				label="COM_ICAGENDA_CATEGORY_SELECT_LIST_DEFAULT_LABEL"
+				description="COM_ICAGENDA_CATEGORY_SELECT_LIST_DEFAULT_DESC"
+				class="inputbox"
+				/>
+			<field
+				name="submit_imageDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_imageMaxSize"
+				type="text"
+				label="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_MAX_SIZE_LABEL"
+				description="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_MAX_SIZE_MENU_DESC"
+				class="inputbox input-mini"
+				default=""
+				/>
+			<field
+				name="submit_periodDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_PERIOD_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_PERIOD_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_weekdaysDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_WEEKDAYS_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_WEEKDAYS_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_datesDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_DATES_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_DATES_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_displaytimeDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_shortdescDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_SHORTDESC_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_SHORTDESC_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_descDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_DESCRIPTION_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_DESCRIPTION_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_metadescDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_METADESCRIPTION_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_METADESCRIPTION_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_venueDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_VENUE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_VENUE_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_emailDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_EMAIL_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_EMAIL_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_phoneDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_PHONE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_PHONE_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_websiteDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_WEBSITE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_WEBSITE_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_customfieldsDisplay"
+				type="radio"
+				label="COM_ICAGENDA_CUSTOMFIELDS"
+				description="COM_ICAGENDA_SUBMIT_CUSTOMFIELDS_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_fileDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_ATTACHMENT_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_ATTACHMENT_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_gmapDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_GMAP_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_GMAP_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<field
+				name="submit_regoptionsDisplay"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_REGISTRATION_OPTIONS_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_REGISTRATION_OPTIONS_DISPLAY_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<!--field
+				name="submit_captcha"
+				type="plugins"
+				folder="captcha"
+				default=""
+				label="COM_ICAGENDA_CAPTCHA_LABEL"
+				description="COM_ICAGENDA_MENU_SUBMIT_CAPTCHA_DESC"
+				filter="cmd" >
+				<option
+					value="">JGLOBAL_USE_GLOBAL</option>
+				<option
+					value="0">COM_ICAGENDA_NONE_SELECTED</option>
+			</field-->
+			<field
+				name="submit_captcha"
+				type="radio"
+				label="COM_ICAGENDA_CAPTCHA"
+				description="COM_ICAGENDA_SUBMIT_CAPTCHA_DESC"
+				class="btn-group"
+				labelclass="control-label"
+				default=""
+				>
+				<option
+					value="">JGLOBAL_USE_GLOBAL</option>
+				<option
+					value="0">JHIDE</option>
+				<option
+					value="1">JSHOW</option>
+			</field>
+			<field
+				name="submitReturn"
+				type="modal_iclink_type"
+				label="COM_ICAGENDA_SUBMIT_RETURN_LBL"
+				description="COM_ICAGENDA_SUBMIT_RETURN_DESC"
+				labelclass="control-label"
+				default=""
+				/>
+			<field
+				name="submitReturn_Article"
+				type="modal_iclink_article"
+				label=" "
+				class="inputbox"
+				/>
+			<field
+				name="submitReturn_Url"
+				type="modal_iclink_url"
+				label=" "
+				class="inputbox"
+				hint="http://www.example.com"
+				/>
+
+			<!--field type="TitleImg" label="COM_ICAGENDA_DATE_FORMAT_NOTE1"
+				class="stylenote alert alert-info input-xxlarge" icimage="info.png"
+			/-->
+			<field type="Title" label="COM_ICAGENDA_SHORT_DESCRIPTION_LBL" class="stylesub" />
+			<field
+				name="char_limit_short_description"
+				type="text"
+				label="COM_ICAGENDA_LBL_LIMIT"
+				description="COM_ICAGENDA_SHORT_DESCRIPTION_LIMIT_DESC"
+				class="inputbox input-mini"
+				size="5"
+				/>
+			<field type="Title" label="COM_ICAGENDA_META_DESCRIPTION_LBL" class="stylesub" />
+			<field
+				name="char_limit_meta_description"
+				type="text"
+				label="COM_ICAGENDA_LBL_LIMIT"
+				description="COM_ICAGENDA_META_DESCRIPTION_LIMIT_DESC"
+				class="inputbox input-mini"
+				size="5"
+				/>
+
+			<field type="Title" label="COM_ICAGENDA_FOOTER" class="styleblanck input-xxlarge" />
+		</fieldset>
+	</fields>
+
+</metadata>

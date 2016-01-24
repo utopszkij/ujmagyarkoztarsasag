@@ -1,0 +1,31 @@
+/*
+ * MOD_ICCALENDAR
+ * iCagenda by JoomliC
+ * Theme Pack Official
+ * Default Theme - module calendar
+ *
+ * @name		default - RTL
+ * @author		Lyr!C (JoomliC)
+ * @version 	3.4.0 2014-12-01
+ * @since		3.4.0
+ */
+
+
+#ictip {
+	text-align: right;
+}
+#ictip span.bloc {
+	float: right;
+}
+#ictip a.close {
+	right: auto;
+	left: 15px;
+}
+#ictip span.img {
+	float: right;
+}
+
+/* Features */
+#ictip .ic-feature-icon {
+	float: left;
+}

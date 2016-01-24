@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Kepviseloklist">
+		<help
+			key = "KepviselokLIST_DESC"
+		/>
+		<message>
+			<![CDATA[KepviselokLIST_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Kepviselok List Layout</name>
+		<description>Kepviselok List Layout_DESC</description>	
+		<params>
+		</params>
+	</state>
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

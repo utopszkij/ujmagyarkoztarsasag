@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<extension type="component" version="2.5" method="upgrade">
+
+	<name>COM_SITEMAP</name>
+	<description>COM_SITEMAP_DESCRIPTION</description>
+	<version>1.0</version>
+	<author>Jon Boutell</author>
+	<authorUrl>www.qlue.co.uk</authorUrl>
+	<authorEmail>support@qlue.info</authorEmail>
+	<creationDate>October 2012</creationDate>
+	<license>GNU/GPL</license>
+	<copyright>All rights reserved to Qlue Ltd.</copyright>
+
+	<install>
+
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.sitemap.sql</file>
+		</sql>
+
+	</install>
+
+
+
+	<uninstall>
+
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.sitemap.sql</file>
+		</sql>
+
+	</uninstall>
+
+
+
+	<files folder="site">
+
+		<filename>index.html</filename>
+		<filename>sitemap.php</filename>
+		<filename>controller.php</filename>
+
+		<folder>models</folder>
+		<folder>views</folder>
+		<folder>language</folder>
+
+	</files>
+
+	<languages>
+		
+	</languages>
+
+	<administration>
+
+		<menu>COM_SITEMAP</menu>
+
+
+
+		<files folder="administrator">
+
+			<filename>sitemap.php</filename>
+			<filename>index.html</filename>
+			<filename>controller.php</filename>
+
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+
+		</files>
+
+		<languages folder="administrator">
+			<language tag="en-GB">language/en-GB/en-GB.com_sitemap.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_sitemap.sys.ini</language>
+		</languages>
+
+	</administration>
+
+
+
+	
+
+</extension>

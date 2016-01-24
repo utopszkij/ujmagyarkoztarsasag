@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.6" method="upgrade">
+	<name>iCagenda</name>
+	<creationDate>2015-12-05</creationDate>
+	<copyright>Copyright (c)2012-2015 Cyril Rezé, Jooml!C - All rights reserved</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<author>Jooml!C</author>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorUrl>www.joomlic.com</authorUrl>
+	<version>3.5.13</version>
+	<description>COM_ICAGENDA_DESC</description>
+
+	<scriptfile>script.icagenda.php</scriptfile>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install/mysql/icagenda.install.sql</file>
+			<file driver="mysql">sql/install/mysql/icagenda.install.sql</file>
+			<file driver="mysqli" charset="utf8">sql/install/mysql/icagenda.install.sql</file>
+			<file driver="mysqli">sql/install/mysql/icagenda.install.sql</file>
+		</sql>
+	</install>
+
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall/mysql/icagenda.uninstall.sql</file>
+			<file driver="mysql">sql/uninstall/mysql/icagenda.uninstall.sql</file>
+			<file driver="mysqli" charset="utf8">sql/uninstall/mysql/icagenda.uninstall.sql</file>
+			<file driver="mysqli">sql/uninstall/mysql/icagenda.uninstall.sql</file>
+		</sql>
+	</uninstall>
+
+	<update> <!-- Runs on update -->
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+
+	<libraries>
+		<library folder="libraries" library="ic_library" name="iC Library" element="lib_ic_library" />
+	</libraries>
+
+	<modules>
+		<module folder="modules" module="mod_iccalendar" name="iCagenda - Calendar" />
+	</modules>
+
+	<plugins>
+		<plugin folder="plugins" plugin="ic_library" name="System - iC Library" group="system" element="ic_library" />
+		<plugin folder="plugins" plugin="icagenda" name="Search - iCagenda" group="search" element="ic_search" />
+		<plugin folder="plugins" plugin="ic_autologin" name="System - iCagenda :: Autologin" group="system" element="ic_autologin" />
+	</plugins>
+
+	<files folder="site">
+		<!-- FILE -->
+		<filename>index.html</filename>
+		<filename>icagenda.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<!-- FOLDER -->
+		<folder>add</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>themes</folder>
+		<folder>views</folder>
+	</files>
+
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB/en-GB.com_icagenda.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.com_icagenda.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.com_icagenda.ini</language>
+	</languages>
+
+	<media destination="com_icagenda" folder="media">
+		<filename>index.html</filename>
+		<folder>css</folder>
+		<folder>icicons</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+	</media>
+
+	<administration>
+
+		<menu link="option=com_icagenda&amp;view=icagenda" img='../media/com_icagenda/images/iconicagenda16.png'>COM_ICAGENDA_MENU</menu>
+		<submenu>
+			<menu link="option=com_icagenda&amp;view=icagenda" view="icagenda" img='../media/com_icagenda/images/iconicagenda16.png' alt="iCagenda/Home">COM_ICAGENDA_TITLE_ICAGENDA</menu>
+			<menu link="option=com_icagenda&amp;view=categories" view="categories" img='../media/com_icagenda/images/all_cats-16.png' alt="iCagenda/Categories">COM_ICAGENDA_MENU_CATEGORIES</menu>
+			<menu link="option=com_icagenda&amp;view=events" view="events" img='../media/com_icagenda/images/all_events-16.png' alt="iCagenda/Events">COM_ICAGENDA_EVENTS</menu>
+			<menu link="option=com_icagenda&amp;view=registrations" view="registrations" img='../media/com_icagenda/images/registration-16.png' alt="iCagenda/Registrations">COM_ICAGENDA_REGISTRATION</menu>
+			<menu link="option=com_icagenda&amp;view=mail&amp;layout=edit" view="mail" img='../media/com_icagenda/images/newsletter-16.png' alt="iCagenda/Newsletter">COM_ICAGENDA_MAIL</menu>
+			<menu link="option=com_icagenda&amp;view=customfields" view="customfields" img='../media/com_icagenda/images/customfields-16.png' alt="iCagenda/Newsletter">COM_ICAGENDA_MENU_CUSTOMFIELDS</menu>
+			<menu link="option=com_icagenda&amp;view=features" view="features" img='../media/com_icagenda/images/features-16.png' alt="iCagenda/Newsletter">COM_ICAGENDA_MENU_FEATURES</menu>
+			<menu link="option=com_icagenda&amp;view=themes" view="themes" img='../media/com_icagenda/images/themes-16.png' alt="iCagenda/themes">COM_ICAGENDA_THEMES</menu>
+			<menu link="option=com_icagenda&amp;view=info" view="info" img='../media/com_icagenda/images/info-16.png' alt="iCagenda/info">COM_ICAGENDA_INFO</menu>
+		</submenu>
+
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>CHANGELOG.php</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>icagenda.php</filename>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>liveupdate</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>utilities</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_icagenda.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_icagenda.sys.ini</language>
+			<language tag="fr-FR">language/fr-FR/fr-FR.com_icagenda.ini</language>
+			<language tag="fr-FR">language/fr-FR/fr-FR.com_icagenda.sys.ini</language>
+			<language tag="it-IT">language/it-IT/it-IT.com_icagenda.ini</language>
+			<language tag="it-IT">language/it-IT/it-IT.com_icagenda.sys.ini</language>
+		</languages>
+	</administration>
+
+</extension>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade" version="1.6">
+	<name>##Component##</name>
+	<creationDate>##date##</creationDate>
+	<author>##author##</author>
+	<authorEmail>##email##</authorEmail>
+	<authorUrl>##website##</authorUrl>
+	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>	
+	<license>##license##</license>
+	<version>##version##</version>
+	<description>##description##</description>
+	<installfile></installfile>
+	<uninstallfile></uninstallfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+		</sql>
+	</uninstall>
+	<files folder="site">
+			<filename>##component##.php</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>			
+			<filename>router.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>assets</folder>			
+	</files>	
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.com_##component##.ini</language>
+    	<language tag="de-DE">language/de-DE.com_##component##.ini</language>            
+	</languages>
+	<administration>
+		<menu link="index.php?option=com_##component##">##Component##</menu>
+##submenu##
+		<files folder="admin">
+			<filename>config.xml</filename>
+			<filename>##component##.php</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>access.xml</filename>			
+			<folder>assets</folder>
+			<folder>elements</folder>				
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>			
+			<folder>tables</folder>
+			<folder>views</folder>									
+		</files>	
+        <languages folder="admin">
+        	<language tag="en-GB">language/en-GB.com_##component##.ini</language>
+            <language tag="de-DE">language/de-DE.com_##component##.ini</language>
+        	<language tag="en-GB">language/en-GB.com_##component##.sys.ini</language>
+            <language tag="de-DE">language/de-DE.com_##component##.sys.ini</language>                           
+		</languages>		
+	</administration>
+</extension>

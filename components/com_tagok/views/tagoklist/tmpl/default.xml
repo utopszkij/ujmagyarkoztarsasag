@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Tagoklist">
+		<help
+			key = "TagokLIST_DESC"
+		/>
+		<message>
+			<![CDATA[TagokLIST_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Tagok List Layout</name>
+		<description>Tagok List Layout_DESC</description>	
+		<params>
+		</params>
+	</state>
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

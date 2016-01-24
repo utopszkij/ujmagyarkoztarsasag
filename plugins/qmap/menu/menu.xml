@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="qmap" version="2.5" method="upgrade">
+	<name>QMap - Menu</name>
+	<author>Jon B</author>
+	<authorUrl>http://google.com</authorUrl>
+	<authorEmail>Hello@Hello.com</authorEmail>
+	<creationDate>18/10/2012</creationDate>
+	<copyright>Copyright Info</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0</version>
+	<description>OnAfterAlias Description</description>
+	<files>
+		<filename plugin="menu">menu.php</filename>
+	</files>
+</extension>

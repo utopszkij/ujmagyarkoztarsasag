@@ -1,0 +1,128 @@
+Minden kérdésben minden szavazásra jososult tag közvetlenül szavazhat, 
+függetlenül attól, hogy van-eaz adott szavazásra érvényes meghatalmazott 
+képviselője.
+
+A szavazásokat egyszintű témakörökbe csoportosítjuk.
+
+A képviseleti meghatalmazás történhet általános érvénnyel, vagy témakörönként, 
+de akár egy adott szavazásra érvényessen is. Egy választó polgár a különböző 
+témakörökben, illetve szavazásokban más-más képviselőt bízhat meg a képviseletével.
+
+A szavazás "Borda rendszerü" (másnéven: preferenciális) szavazás, kiértékelése a 
+"Shulze - Holz" matematikai módszerrel történik.
+
+Képviseletre csak az erre a feladatra önként jelentkezők közül választott 
+személyt lehet meghatalmazni.
+
+Képviselőt a szavazásra jogosult  adott időtartamra hatalmaz meg,
+adott szavazásra, adott témakörre vagy általános érvénnyel.
+
+Ha a választó polgár egy kérdésben közvetlenül szavaz, akkor az adott szavazás
+kiértékelésénél az Ő szavazata számít,függetlenül attól van-e
+meghatalmazott képviselője.
+
+Ha a szavazópolgár egy kérdésben közvetlenül nem szavazaott, de kijelölt
+szavazás szintű képviselőt, akkor a kiértékelés úgy tekinti, hogy a szavazó 
+polgár azonossan szavazott a képviselőjével (más megfogalmazásban: a képviselő 
+szavazatát plusz eggyel növelt "súllyal" vesszük figyelembe)
+
+Ha a szavazópolgár egy kérdésben közvetlenül nem szavazaott, nincs szavazás 
+szintű képviselője, de kijelölt témakör szintű képviselőt, akkor a kiértékelés 
+úgy tekinti, hogy a szavazó polgár azonossan szavazott a képviselőjével 
+(más megfogalmazásban: a képviselő szavazatát plusz eggyel növelt "súllyal" 
+vesszük figyelembe)
+
+Ha a szavazópolgár egy kérdésben közvetlenül nem szavazaott, nincs szavazás 
+szintű képviselője, nincs témakör szintű képviselője, de kijelölt általános 
+képviselőt, akkor a kiértékelés úgy tekinti, hogy a szavazó polgár azonossan 
+szavazott a képviselőjével (más megfogalmazásban: a képviselő szavazatát plusz
+eggyel növelt "súllyal" vesszük figyelembe)
+
+Tehát a "képviselők" szavazata többszörössen lesz figyelembe véve, attól függően, 
+hogy az adott szavazásban hány szavazó polgárt képvisel. Mivel minden szavazópolgár
+bármikor dönthet, úgy, hogy közvetlenül szavaz, valamint képviseleti megbízásait
+bármikor visszavonhatja, megváltoztathatja; a képviselők szavazatának "sulya"
+szavazásonként eltérő, folyamatosan változik, tükrözve, hogy a megbízói mennyire 
+elégedettek a képviselői tevékenységével.
+
+Természetesen a képviselő szavazata a "saját nevében" is beszámmításra kerül.
+
+Azok akik egy adott szavazáson képviseletet vállalnak azok az adott szavazásban 
+a szavazati jogukat tovább már nem ruházhatják át, tehát ebban szavazásban 
+nem hatalmazhatnak fel másokat a képviseletükre (más szavazásokban, témakörökben
+lehet képviselőjük).
+
+Azok akik egy adott témakörben képviseletet vállalnak azok az adott témakörben
+a szavazati jogukat tovább már nem ruházhatják át, tehát ebban témakörben nem 
+hatalmazhatnak fel másokat a képviseletükre (más témakörökben lehet képviselőjük).
+
+Azok akik általános képviseletet vállalnak azok a szavazati jogukat tovább már 
+nem ruházhatják át, tehát nem hatalmazhatnak fel másokat a képviseletükre.
+
+(képviselet vállalás felvitele automatikusan törli a képviselő jelölt 
+meglévő felhatalmazásai közül a képviselőséggel összeférhetetleneket)
+
+Ha valaki képviseletet vállalt, ezt a válallását csak akkor mondhatja le, ha
+senki nem hatalmazta őt fel arra, hogy a nevében szavazzon. Ha van érvényes 
+meghatalmazás akkor a képviselői státuszról nem mondhat le (e-mailben kérheti a
+meghatalmazóit, hogy vonják vissza a meghatalmazásukat)
+
+Ha valaki közvetlenül nem szavazott és az általa felhatalmazott 
+képviselő/képviselők közül sem szavazott egyik sem, akkor sajnos az adott
+választó véleménye a szavazás kiértékelésbe nem lesz figyelembe véve.
+Ezért is célszerü nyomon követni a képviselők tevékenységét, és ha a képviselő
+gyakran mulasztja el a szavazást, akkor megvonni tőle a felhatalmazást.
+
+Nézzünk egy egszerü példát a szavazat kiértékelésre
+===================================================
+"A" és "B" vállalt képviselőséget az adott szavazással kapcsolatban.
++----------------+-------------+-----------------+----------------+-----------+
+| szavazó polgár | közvetlenül | szavazás szintü | témakör szintü | általános |
+|                |  szavazott  |    képviselője  |   képviselője  |képviselője|
++----------------+-------------+-----------------+----------------+-----------+
+|  A             |   igen      |                 |                |           |
++----------------+-------------+-----------------+----------------+-----------+
+|  B             |   igen      |                 |                |           |
++----------------+-------------+-----------------+----------------+-----------+
+|  C             |   igen      |                 |                |     A     |
++----------------+-------------+-----------------+----------------+-----------+
+|  D             |   nem       |      A          |                |           |
++----------------+-------------+-----------------+----------------+-----------+
+|  E             |   nem       |                 |      B         |     A     |
++----------------+-------------+-----------------+----------------+-----------+
+|  F             |   nem       |                 |                |     A     |
++----------------+-------------+-----------------+----------------+-----------+
+|  G             |   igen      |                 |                |     A     |
++----------------+-------------+-----------------+----------------+-----------+
+
+Szavazaot "súlya":
+"A"  3  (saját maga + "D" és "F" képviseletében)
+"B"  2  (saját maga + "E" képviseletében)
+"C"  1  csak saját maga
+
+PROGRAMOZÁSNÁL FIGYELNI!
+  a meghatalmazás kiértékelésnél meg kell nézni, hogy az adott user nem 
+  "képviselő jelölt"-e az adott szavazásban, témakörben vagy általánosan?
+  Mert ha igen akkor a meghatalmazásai érvénytelenek.
+
+
+Nyilt szavazás esetén a szavazó polgárok megnézheti minden szavazást leadó 
+személy szavazatát.
+
+Titkos szavazásnál a csak saját nevükben szvazók (nem képviselők) szavazata nem 
+kérdezhető le (még informatikai szakemberek, adminisztrátorok, hekkerek sem 
+férhetnek hozzá), de a képviseletet vállalók szavazata ez esetben 
+is nyilvános. Ez azért szükséges, hogy a képviseltek figyelemmel tudják kisérni
+a képviselők tevékenységét és megalapozottan dönthessenek a képviseleti jóg 
+fentartásáról, megvonásáról, áthelyezéséről.
+
+Szigoruan titkos szavazás esetén a képviselők szavazata sem kérdezhető le.
+(még informatikai szakemberek, adminisztrátorok, hekkerek sem 
+férhetnek hozzá). Ez a likvid demokrácia filozófiájával nem teljesen áll 
+öszhangban, ezért az ilyen szavazások kiirását ncsak nagyon indokolt esetben 
+javasoljuk.
+
+
+
+
+

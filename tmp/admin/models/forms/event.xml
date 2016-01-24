@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset addfieldpath="/administrator/components/com_icagenda/models/fields" >
+		<field
+			name="id"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC"
+			class="readonly"
+			size="10"
+			readonly="true"
+			default="0"
+			/>
+		<field
+			name="title"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_TITLE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_TITLE"
+			class="input-xlarge"
+			size="30"
+			required="true"
+			/>
+		<field
+			name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC"
+			/>
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="span12 small"
+			filter="intval"
+			size="1"
+			default="1"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+			<option value="-2">JTRASHED</option>
+		</field>
+		<field
+			name="approval"
+			type="list"
+			label="COM_ICAGENDA_EVENTS_APPROVAL"
+			description="COM_ICAGENDA_EVENTS_APPROVAL_DESC"
+			class="span12 small"
+			filter="intval"
+			size="1"
+			default="0"
+			>
+			<option value="0">COM_ICAGENDA_APPROVED</option>
+			<option value="1">COM_ICAGENDA_UNAPPROVED</option>
+		</field>
+		<field
+			name="site_itemid"
+			type="test"
+			label="COM_ICAGENDA_FORM_FRONTEND_SUBMIT_ITEMID_LBL"
+			description="COM_ICAGENDA_FORM_FRONTEND_SUBMIT_ITEMID_DESC"
+			size="3"
+			class="inputbox"
+			readonly="true"
+			default="0"
+			/>
+		<field
+			name="access"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="COM_ICAGENDA_ACCESS_DESC"
+			class="span12 small"
+			size="1"
+			default="1"
+		/>
+		<field
+			name="language"
+			type="contentlanguage"
+			label="JFIELD_LANGUAGE_LABEL"
+			description="COM_ICAGENDA_FORM_DESC_LANGUAGE"
+			class="span12 small"
+			>
+			<option value="*">JALL</option>
+		</field>
+		<field
+			name="created"
+			type="calendar"
+			label="JGLOBAL_FIELD_CREATED_LABEL"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+			/>
+		<field
+			name="created_by"
+			type="user"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_DESC"
+			/>
+		<field
+			name="created_by_alias"
+			type="text"
+			label="JGLOBAL_FIELD_CREATED_BY_ALIAS_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox"
+			size="20"
+			/>
+		<field
+			name="username"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_USERNAME"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_USERNAME"
+			size="40"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="modified"
+			type="calendar"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL"
+			class="readonly"
+			size="22"
+			readonly="true"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+			/>
+		<field
+			name="modified_by"
+			type="user"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+			description="JGLOBAL_FIELD_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+			/>
+		<field name="checked_out" type="hidden" filter="unset" />
+		<field name="checked_out_time" type="hidden" filter="unset" />
+		<field
+			name="catid"
+			type="modal_cat"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_CATID"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_CATID"
+			class="inputbox"
+			required="true"
+			/>
+		<field
+			name="image"
+			type="media"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_IMAGE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_IMAGE"
+			filter="safehtml"
+			/>
+		<field
+			name="file"
+			type="modal_icfile"
+			class="inputbox"
+			id="upload_file"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_FILE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_FILE"
+			/>
+		<field
+			name="displaytime"
+			type="radio"
+			class="btn-group"
+			label="COM_ICAGENDA_DISPLAY_TIME_LABEL"
+			description="COM_ICAGENDA_DISPLAY_TIME_DESC"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+		<field
+			name="dates"
+			type="modal_date"
+			class="inputbox"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_DATES"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_DATES"
+			default="0000-00-00 00:00"
+			/>
+		<!--field
+			name="eventDates"
+			type="modal_ic_singledates"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_DATES"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_DATES"
+			class="inputbox"
+			/-->
+		<field
+			name="startdate"
+			type="modal_startdate"
+			size="40"
+			class="inputbox"
+			label="COM_ICAGENDA_FORM_LBL_EVENTPERIOD_START"
+			description="COM_ICAGENDA_FORM_DESC_EVENTPERIOD_START"
+			/>
+		<field
+			name="enddate"
+			type="modal_enddate"
+			size="40"
+			class="inputbox"
+			label="COM_ICAGENDA_FORM_LBL_EVENTPERIOD_END"
+			description="COM_ICAGENDA_FORM_DESC_EVENTPERIOD_END"
+			/>
+		<field
+			name="weekdays"
+			type="list"
+			label="COM_ICAGENDA_FORM_LBL_WEEK_DAYS"
+			description="COM_ICAGENDA_FORM_WEEK_DAYS_INFO_DESC"
+			multiple="true"
+			default=""
+			>
+			<option value="0">SUNDAY</option>
+			<option value="1">MONDAY</option>
+			<option value="2">TUESDAY</option>
+			<option value="3">WEDNESDAY</option>
+			<option value="4">THURSDAY</option>
+			<option value="5">FRIDAY</option>
+			<option value="6">SATURDAY</option>
+		</field>
+		<!--field
+			name="weekdays_filter"
+			type="modal_icfilter_weekdays"
+			label="COM_ICAGENDA_FORM_LBL_WEEK_DAYS"
+			description="COM_ICAGENDA_FORM_DESC_WEEK_DAYS"
+			multiple="true"
+			default=""
+			/-->
+		<field
+			name="next"
+			type="hidden"
+			class="inputbox"
+			default="0000-00-00 00:00:00"
+			/>
+		<field
+			name="email"
+			type="email"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_EMAIL"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_EMAIL"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="phone"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_PHONE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_PHONE"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="website"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_WEBSITE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_WEBSITE"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="features"
+			type="sql"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_FEATURES"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_FEATURES"
+			query="SELECT id AS value, title AS features FROM #__icagenda_feature WHERE state=1 AND icon IS NOT NULL AND icon!='' ORDER BY features"
+			multiple="true"
+			class="inputbox"
+			/>
+		<!--field
+			name="features"
+			type="modal_features"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_FEATURES"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_FEATURES"
+			multiple="true"
+			class="inputbox"
+			/-->
+		<field
+			name="custom_fields"
+			type="hidden"
+			class="inputbox"
+			default=""
+			/>
+		<field
+			name="place"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_VENUE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_VENUE"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="coordinate"
+			type="modal_coordinate"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_MAP"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			class="inputbox"
+			/>
+		<field
+			name="address"
+			type="text"
+			label="COM_ICAGENDA_GOOGLE_MAPS_ADDRESS_LBL"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_LOCATION"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="city"
+			type="icmap_city"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_CITY"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_CITY"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="country"
+			type="icmap_country"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_COUNTRY"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_COUNTRY"
+			class="inputbox"
+			filter="safehtml"
+			labelclass="control-label"
+			/>
+		<field
+			name="lat"
+			type="icmap_lat"
+			label="LATITUDE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			class="inputbox"
+			/>
+		<field
+			name="lng"
+			type="icmap_lng"
+			label="LONGITUDE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			class="inputbox"
+			/>
+		<field
+			name="shortdesc"
+			type="modal_ictextarea_counter"
+			label="COM_ICAGENDA_FORM_EVENT_SHORT_DESCRIPTION_LBL"
+			description="COM_ICAGENDA_FORM_EVENT_SHORT_DESCRIPTION_DESC"
+			class="span-12"
+			row="3"
+			cols="80"
+			/>
+		<field
+			name="desc"
+			type="editor"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_DESC"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_DESC"
+			buttons="true"
+			hide="readmore,pagebreak,helix_shortcode"
+			class="inputbox"
+			filter="JComponentHelper::filterText"
+			/>
+		<field
+			name="metadesc"
+			type="modal_ictextarea_counter"
+			label="COM_ICAGENDA_FORM_EVENT_METADESC_LBL"
+			description="COM_ICAGENDA_FORM_EVENT_METADESC_DESC"
+			class="span-12"
+			row="3"
+			cols="80"
+			/>
+	</fieldset>
+	<fields name="params">
+
+		<!-- Registrations Tab - Individual Params -->
+		<fieldset name="registrations"
+			addfieldpath="/administrator/components/com_icagenda/assets/elements"
+			>
+			<field type="TitleHeader" label="COM_ICAGENDA_REGISTRATION_LABEL" />
+			<field
+				name="statutReg"
+				type="radio"
+				label="COM_ICAGENDA_REGISTRATION_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_DESC"
+				labelclass="control-label"
+				class="btn-group"
+				default=""
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JOFF</option>
+				<option value="1">JON</option>
+			</field>
+			<field
+				name="accessReg"
+				type="accesslevel"
+				label="JFIELD_ACCESS_LABEL"
+				description="JFIELD_ACCESS_DESC"
+				class="inputbox"
+				size="1"
+				default=""
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+			</field>
+			<field type="TitleHeader" label="COM_ICAGENDA_REGISTRATION_FORM_OPTIONS_LABEL" />
+			<field
+				name="typeReg"
+				type="list"
+				label="COM_ICAGENDA_TYPE_REG_LABEL"
+				description="COM_ICAGENDA_TYPE_REG_DESC"
+				default="1"
+				>
+				<option value="1">COM_ICAGENDA_ADMIN_REGISTRATION_BY_INDIVIDUAL_DATE</option>
+				<option value="2">COM_ICAGENDA_ADMIN_REGISTRATION_FOR_ALL_DATES</option>
+			</field>
+			<!--field type="Title" label="COM_ICAGENDA_MAX_REGISTRATIONS_DESC"
+				class="styleblanck"/-->
+			<!--field
+				name="maxRegGlobal"
+				type="radio"
+				label="JGLOBAL_USE_GLOBAL"
+				description="JGLOBAL_USE_GLOBAL"
+				default="1"
+				>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field-->
+			<field
+				name="maxReg"
+				type="text"
+				label="COM_ICAGENDA_MAX_REGISTRATIONS_LABEL"
+				description="COM_ICAGENDA_MAX_REGISTRATIONS_DESC"
+				size="3"
+				default=""
+				/>
+			<field
+				name="maxRlistGlobal"
+				type="radio"
+				label="COM_ICAGENDA_MAX_PER_REGISTRATION_LABEL"
+				description="COM_ICAGENDA_MAX_PER_REGISTRATION_DESC"
+				labelclass="control-label"
+				class="btn-group"
+				default=""
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="2">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+			</field>
+			<field
+				name="maxRlist"
+				type="text"
+				label="COM_ICAGENDA_LBL_CUSTOM_VALUE"
+				description="COM_ICAGENDA_DESC_CUSTOM_VALUE"
+				size="2"
+				default=""
+				/>
+			<field type="TitleHeader" label="COM_ICAGENDA_REGISTRATION_BUTTON" />
+			<!--field
+				name="maxRlistGlobal"
+				type="radio"
+				label="COM_ICAGENDA_MAX_PER_REGISTRATION_LABEL"
+				description="COM_ICAGENDA_MAX_PER_REGISTRATION_DESC"
+				labelclass="control-label"
+				class="btn-group"
+				default=""
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="2">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+			</field-->
+			<field
+				name="RegButtonText"
+				type="modal_ph_regbt"
+				label="COM_ICAGENDA_REGISTRATION_BUTTON_TEXT"
+				description="COM_ICAGENDA_REGISTRATION_BUTTON_TEXT_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+			<field
+				name="RegButtonLink"
+				type="modal_iclink_type"
+				label="COM_ICAGENDA_REGISTRATION_LINK_LBL"
+				description="COM_ICAGENDA_REGISTRATION_LINK_DESC"
+				labelclass="control-label"
+				default=""
+				/>
+			<field
+				name="RegButtonLink_Article"
+				type="modal_iclink_article"
+				label=" "
+				class="inputbox"
+				/>
+			<field
+				name="RegButtonLink_Url"
+				type="modal_iclink_url"
+				label=" "
+				class="inputbox"
+				/>
+			<field
+				name="RegButtonTarget"
+				type="list"
+				label="COM_ICAGENDA_BROWSER_TARGET"
+				description="COM_ICAGENDA_REGISTRATION_LINK_BROWSER_TARGET_DESC"
+				default="0"
+				filter="options"
+				class="inputbox"
+				>
+				<option value="0">JBROWSERTARGET_PARENT</option>
+				<option value="1">JBROWSERTARGET_NEW</option>
+			</field>
+			<field type="Title" label=" "
+				class="styleblanck"/>
+		</fieldset>
+
+		<!-- Registrations Tab - Actions -->
+		<fieldset name="registration_actions">
+		</fieldset>
+
+		<!-- Option Tab - Options -->
+		<fieldset name="options">
+			<field type="Title" label="COM_ICAGENDA_ADDTHIS"
+				class="styleblanck"/>
+			<field
+				name="atevent"
+				type="radio"
+				label="COM_ICAGENDA_ADDTHIS_DISPLAY_SHARING"
+				description="COM_ICAGENDA_ADDTHIS_EVENT_DESC"
+				class="btn-group"
+				default=""
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+			<!--field
+				name="mapTypeId"
+				type="list"
+				label="mapTypeId"
+				description="mapTypeId"
+				filter="safehtml"
+				default="ROADMAP"
+				>
+				<option value="ROADMAP">ROADMAP</option>
+				<option value="TERRAIN">TERRAIN</option>
+				<option value="SATELLITE">SATELLITE</option>
+				<option value="HYBRID">HYBRID</option>
+			</field-->
+		</fieldset>
+	</fields>
+</form>

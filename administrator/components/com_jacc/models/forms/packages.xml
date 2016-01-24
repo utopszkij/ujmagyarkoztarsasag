@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+		
+		<field
+			id="alias"
+			name="alias"
+			type="hidden"/>
+															
+		<field
+			id="name"
+			name="name"
+			type="text"
+			required="true"
+			label="Package"
+			description="package_Desc"
+			class="inputbox"
+			size="40"/>						
+						
+		<field
+			id="description"
+			name="description"
+			type="textarea"
+			label="Description"
+			description="description_Desc"
+			rows="3"
+			cols="40"
+			/>
+							
+		<field
+			id="published"
+			name="published"
+			type="list"
+			class="inputbox"
+			default="1"
+			size="1"
+			label="JField_Published_Label"
+			description="JField_Published_Desc">
+			<option
+				value="1">
+				JOption_Published</option>
+			<option
+				value="0">
+				JOption_UnPublished</option>
+			<option
+				value="-1">
+				JOption_Archived</option>
+			<option
+				value="-2">
+				JOption_Trashed</option>
+		</field>
+                          
+		<field
+			id="created"
+			name="created"
+			type="calendar"
+			required="false"
+			label="Creation Time"
+			description="created_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+							
+		<field
+			name="ordering"
+			type="hidden"
+			filter="unset"/>						  
+															
+		<field
+			id="version"
+			name="version"
+			type="text"
+			required="true"
+			label="Version"
+			description="version_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="packagerurl"
+			name="packagerurl"
+			type="text"
+			required="false"
+			label="Packagerurl"
+			description="packagerurl_Desc"
+			class="inputbox"
+			size="40"/>						
+
+				
+														
+		<field
+			id="updateurl"
+			name="updateurl"
+			type="text"
+			required="false"
+			label="Updateurl"
+			description="updateurl_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+								
+	</fields>	
+		
+	<fields name="params">
+		<fieldset
+			name="basic">		
+		<field
+			id="extensions"
+			name="extensions"
+			type="jaccextensions"
+			label="Extensions"
+			description="Extensions_Desc"
+			class="inputbox"
+			size="50"/>		
+		</fieldset>
+	</fields>
+		
+</form>	

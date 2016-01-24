@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu" dir="ltr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<h2>li-de API teszt program</h2>
+<form name="form1">
+<div>
+  <label>sended data:</label>
+  {<input type="text" name="iData" id="iData" size="128" value="" />}
+  <br />
+  <button name="btnSend" id="btnSend" type="button">Send</button>
+  <br />Result:<br />
+  <textarea name="oData" id="oData" cols="80" rows="20" readonly="readonly"></textarea>
+</div>
+<div
+<h2>Legend</h2>
+<pre><code>
+  accepted inputs:
+  {"task":"login", "usr":"szám", "psw":"str"}
+  {"task":"logout"}  
+  {"task":"getPoll","poll_id":"szám"}
+  ("task":"getSimpleResult","poll_id":"szám")
+  {"task":"setSimpleVoks","poll_id":"szám","alt_id":"szám","voter_id":"szám"}
+  ("task":"getResult","poll_id":"szám")
+  {"task":"setVoks","poll_id":"szám","voter_id":"szám","voks":[{"alt_id":"szám", "position":"szám"},...]}
+</code>
+</pre>
+</div>
+
+</form>
+
+
+<script type="text/javascript">
+$( document ).ready(function() {
+
+   
+
+   $('#iData').val('"task":"getPoll", "poll_id":120');
+   $('#btnSend').click(
+     function() {
+        jQuery.support.cors = true;
+        var params = {url: "http://robitc/li-de/lideapi.php", tiemout:30000, datatype:"txt"};
+        params.data = "{"+ document.forms.form1.iData.value +"}";
+        params.success = function(data, txtStatus) {
+          // process data (data is string. It is a JSON encoded object)
+          $('#oData').val(data);
+        };
+        params.error = function(jqXHR, textStatus, ex) {
+          // process ajax comunication' error event
+          $('#oData').val("error "+textStatus);
+        };
+        $.ajax(params);
+     } // btn Click function
+   )
+   
+}); // document.ready function
+
+</script>
+</body>
+</html>
+
+ 

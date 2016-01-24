@@ -1,0 +1,34 @@
+  .grid {border-style:solid; border-width: 0 0 1px 1px; padding:0px;}
+  .grid th {background-color:blue; border-style:solid; border-width:1px 1px 0px 0px; padding:0.5mm; margin:0; cursor:pointer; color:white}
+  .grid th label {cursor:pointer; color:white}
+  .grid th .ordering {background-image:url(asc.png); background-repeat:no-repeat; height:20px; padding: 2px 2px 2px 20px; color:orange;}
+  .grid th .orderingdesc {background-image:url(desc.png); background-repeat:no-repeat; height:20px; padding: 2px 2px 2px 20px; color:yellow}
+  .grid .row0 {margin:0; padding:0; background-color:white}
+  .grid .row1 {margin:0; padding:0; background-color:#F0F0FF}
+  .grid td {border-style:solid; border-width: 1px 1px 0 0; padding:0.5mm; margin:0; cursor:pointer}
+  .grid .selected {background-color:cyan}
+  
+  .formButtons {text-align:right; padding:5px;}
+  .btnOK {background-image:url(ok_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  .btnCancel {background-image:url(cancel_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  .btnAdd {background-image:url(add_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  .btnEdit {background-image:url(edit_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  .btnDelete {background-image:url(delete_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  .btnShow {background-image:url(show_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  .btnBack {background-image:url(back_32x32.png); background-repeat:no-repeat; height:36px; padding:2px 2px 2px 34px; }
+  /* jobba igazitott oszlopok, oszlop szélességek beállítása 
+     például: .grid .col_parent {text-align:righ; width:1cm}
+  */
+  
+  .tabs {width:100%; margin:0px; background-color:#D0F0D0}
+  .tabs b {border-style:solid; border-width:1px 1px 0px 1px; border-color:#D0F0D0; 
+           background-color:white; padding:2px; margin:0px;}
+  .tabs a {border-style:solid; border-width:1px 1px 1px 1px; border-color:#D0F0D0; 
+           background-color:#D0D0D0; padding:2px; margin:0px; cursor:pointer}
+  .tabs_body {border-style:solid; border-width:0px 1px 1px 1px; border-color:#D0F0D0; 
+           background-color:white; padding:2px; margin:0px;}
+  
+  #adminform label {float:left; width:100px; text-align:right; padding:2px}
+  #adminform input {float:left; width:auto; text-align:left; padding:2px}
+  #adminform select {float:left; width:auto; text-align:left; padding:2px}
+  #adminform textarea {float:left; width:450px; text-align:left; padding:2px} 

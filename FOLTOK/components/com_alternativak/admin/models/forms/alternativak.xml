@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="megnevezes"
+			name="megnevezes"
+			type="text"
+			required="true"
+			label="Megnevezes"
+			description="megnevezes_Desc"
+			class="inputbox"
+			size="40"/>						
+						
+		<field
+			id="temakor_id"
+			name="temakor_id"
+			type="sql"
+			required="false"
+			label="TEMAKOR_ID"
+			description="TEMAKOR_ID_DESC"
+			class="inputbox"
+      query="select id,megnevezes from #__temakorok order by 2"
+      key_filed="id"
+      value_field="megnevezes"
+			size="1"/>						
+								
+														
+		<field
+			id="szavazas_id"
+			name="szavazas_id"
+			type="sql"
+			required="false"
+			label="Szavazas_id"
+			description="szavazas_id_Desc"
+			class="inputbox"
+      query="select id,megnevezes from #__szavazasok order by 2"
+      key_filed="id"
+      value_field="megnevezes"
+			size="1"/>						
+								
+						
+		<field
+			id="leiras"
+			name="leiras"
+			type="editor"
+			label="Leiras"
+			description="leiras_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+															
+		<field
+			id="letrehozo"
+			name="letrehozo"
+			type="text"
+			required="false"
+			label="Letrehozo"
+			description="letrehozo_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="letrehozva"
+			name="letrehozva"
+			type="calendar"
+			required="false"
+			label="Letrehozva"
+			description="letrehozva_Desc"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+									
+	</fields>	
+		
+</form>	

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+	<name>Jacc</name>
+	<creationDate>2011-07-13</creationDate>
+	<author>Michael Liebler</author>
+	<authorEmail>michael-liebler@janguo.de</authorEmail>
+	<authorUrl>http://www..janguo.de</authorUrl>
+	<copyright>Copyright (C) 2010 mliebler Open Source Matters. All rights
+		reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>2.0.1</version>
+	<description>Just another component creator</description>
+	<installfile></installfile>
+	<uninstallfile></uninstallfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</install>
+	<scriptfile>script.jacc.php</scriptfile>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+	<administration>
+		<menu link="index.php?option=com_jacc">Jacc</menu>
+		<submenu>
+			<menu link="option=com_jacc&amp;view=jacc">Components</menu>
+			<menu link="option=com_jacc&amp;view=modules">Modules</menu>
+			<menu link="option=com_jacc&amp;view=plugins">Plugins</menu>
+			<menu link="option=com_jacc&amp;view=templates">Templates</menu>
+			<menu link="option=com_jacc&amp;view=packages">Packages</menu>
+			<menu link="option=com_jacc&amp;view=howto">Howto</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>config.xml</filename>
+			<filename>jacc.php</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>assets</folder>
+			<folder>templates</folder>
+			<folder>archives</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_jacc.ini</language>
+			<language tag="de-DE">language/de-DE.com_jacc.ini</language>
+			<language tag="en-GB">language/en-GB.com_jacc.sys.ini</language>
+			<language tag="de-DE">language/de-DE.com_jacc.sys.ini</language>
+			<language tag="de-DE">language/de-DE.com_jacc.menu.ini</language>
+		</languages>
+
+	</administration>
+	<updateservers>
+		<server type="extension" priority="1" name="Jacc Update Site">http://janguo.de/jacc/update/jacc-update.xml</server>
+	</updateservers>
+</extension>
+

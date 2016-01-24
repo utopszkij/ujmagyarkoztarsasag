@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<!--fields addfieldpath="/administrator/components/com_icagenda/models/fields"-->
+	<fieldset addfieldpath="/administrator/components/com_icagenda/models/fields">
+		<field
+			name="id"
+			type="text"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC"
+			size="10"
+			default="0"
+			readonly="true"
+		/>
+
+		<field
+ 			name="title"
+ 			type="text"
+ 			label="COM_ICAGENDA_FORM_LBL_CATEGORY_TITLE"
+			description="COM_ICAGENDA_FORM_DESC_CATEGORY_TITLE"
+			size="30"
+			required="true"
+		/>
+
+		<field
+			name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC"
+		/>
+
+		<field
+			name="color"
+			type="color"
+			size="40"
+			class="inputbox"
+			label="COM_ICAGENDA_FORM_LBL_CATEGORY_COLOR"
+			description="COM_ICAGENDA_FORM_DESC_CATEGORY_COLOR"
+			default="#bdbdbd"
+		/>
+
+		<field
+			name="desc"
+			type="editor"
+			buttons="readmore,pagebreak"
+			class="inputbox"
+			filter="JComponentHelper::filterText"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_DESC"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_DESC"
+		/>
+
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="span12 small"
+			filter="intval"
+			size="1"
+			default="1">
+				<option value="1">JPUBLISHED</option>
+				<option value="0">JUNPUBLISHED</option>
+		</field>
+
+		<field name="checked_out" type="hidden" filter="unset" />
+		<field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+</form>

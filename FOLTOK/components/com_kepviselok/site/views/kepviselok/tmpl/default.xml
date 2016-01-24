@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Kepviselok">
+		<help
+			key = "Kepviselok_DESC"
+		/>
+		<message>
+			<![CDATA[Kepviselok_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Kepviselok Layout</name>
+		<description>Kepviselok Layout_DESC</description>	
+		<url addpath="/administrator/components/com_kepviselok/elements">
+			<param name="id" type="kepviselok" default="0" label="Select Kepviselok" description="A Kepviselok" />
+		</url>
+		<params>
+		</params>
+	</state>
+	
+	<!-- Fields for Joomla > 1.5. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_kepviselok/models/fields"
+		>
+			<field name="id"
+				type="kepviselokkepviselok"
+				description="Kepviselok_SELECT_DESC"
+				label="Select Kepviselok"
+				required="true"
+			/>
+		</fieldset>
+	</fields>	
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

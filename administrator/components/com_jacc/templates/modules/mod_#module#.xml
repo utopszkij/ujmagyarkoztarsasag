@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6" method="upgrade">
+	<name>##Module##</name>
+	<creationDate>##date##</creationDate>
+	<author>##author##</author>
+	<authorEmail>##email##</authorEmail>
+	<authorUrl>##website##</authorUrl>
+	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>	
+	<license>##license##</license>
+	<version>##version##</version>
+	<description>##description##</description>
+	<files>
+		<filename module="mod_##module##">mod_##module##.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_##module##.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_##module##.ini</language>
+    	<language tag="de-DE">language/de-DE.mod_##module##.ini</language>            
+	</languages>
+	<params>
+		<param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
+			</fieldset>
+		</fields>
+	</config>			
+</extension>

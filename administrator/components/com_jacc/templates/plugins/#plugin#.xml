@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.5"  method="upgrade" type="plugin" group="##folder##">
+	<name>##Plugin##</name>
+	<creationDate>##date##</creationDate>
+	<author>##author##</author>
+	<authorEmail>##email##</authorEmail>
+	<authorUrl>##website##</authorUrl>
+	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>	
+	<license>##license##</license>
+	<version>##version##</version>
+	<description>##description##</description>
+	<files>
+		<filename plugin="##plugin##">##plugin##.php</filename>
+		<filename>index.html</filename>
+	</files>
+</extension>

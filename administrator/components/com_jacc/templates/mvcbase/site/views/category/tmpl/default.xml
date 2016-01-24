@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="##Component## Category">
+		<help
+			key = "##Component##_DESC"
+		/>
+		<message>
+			<![CDATA[##Component##_DESC]]>
+		</message>
+	</layout>
+	<url addpath="/administrator/components/com_##component##/elements">
+			<param name="id" type="##component##category"  default="0" label="Select Category" description="A ##component## category" />
+	</url>
+<!-- For Joomla > 1.5. -->
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_##component##/models/fields"
+		>
+
+			<field name="id" type="##component##category"
+				description="##Component## Category"
+				label="Category"
+				required="true"
+			/>
+		</fieldset>
+	</fields>
+	<fields name="params">
+	</fields>
+</metadata>

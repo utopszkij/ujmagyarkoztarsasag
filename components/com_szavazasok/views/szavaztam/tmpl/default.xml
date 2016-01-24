@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Szavazasoklist">
+		<help
+			key = "SzavazasokLIST_DESC"
+		/>
+		<message>
+			<![CDATA[SzavazasokLIST_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Szavazasok List Layout</name>
+		<description>Szavazasok List Layout_DESC</description>	
+		<params>
+		</params>
+	</state>
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

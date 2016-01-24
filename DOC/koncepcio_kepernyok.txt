@@ -1,0 +1,188 @@
+Témakörök listája (kezdő képernyő)
+===================
+   szűrő form
+      szürési lehetőség: szöveg részlet
+   témakör lista
+      oszlopok: id, cím, állapot, 
+                összes szavazások száma, aktív szavazások száma
+                aktiv képviselő (rekurziv kiértékelés, képviselő összeférhetetlenséget is nézve!)
+   komment lista
+   komment form
+   
+   akciók:
+      Új felvitel (csak jogosultaknak)
+      Módosítás   (csak jogosultaknak)
+      Törlés      (csak jogosultaknak)
+      Szavazó polgárok
+      Megnyitás
+      Összes aktív szavazás amiben szavazhatok
+      Általános érvényű képviselő meghatalmazás (ált. képviselők számára tiltott)
+      Általános érvényű képviseletet vállalok
+      Program opciók (csak super adminnoknak)
+      témakör szürés
+      témakör lista lapozás
+      Komment lapozás
+      Komment írás
+      (később: file könyvtár, határidő napló)
+      
+Témakör oldal
+=============
+   A témakör leírása
+   Ha van érvényes képviselő akkor annak kiirása (rekurziv, összeférhetetlenségre is figyelni!)
+   szűrő form
+      (szöveg részlet és/vagy csak az aktívak
+   A témakörhöz tartozó szavazások listája
+     oszlopok: id, megnevezés, állapot, szavazás vége, képviselő neve
+      (user_status: szavazhat,  van aktív képviselője)      
+   komment lista
+   komment form
+      
+   akciók:
+      Új felvitel (csak jogosultaknak)
+      Módosítás   (csak jogosultaknak)
+      Törlés      (csak jogosultaknak)
+      Szavazó polgárok
+      Megnyitás
+      Témakör szintű képviselő meghatalmazás (adott témakör képviselők számára tiltott)
+      Témakör szintű képviseletet vállalok
+      szavazás lista lapozás
+      szavazás szürés
+      Komment lapozás
+      Komment írás
+      vissza a témakör listához
+      (később: file könyvtár, határidő napló)
+
+Szavazás oldal
+==============
+  Témakör kiirása
+  Ha van érvényes képviselő akkor annak kiirása (rekurzis, összeférhetetlenségre is figyelni!)
+  megnevezés
+  leírás
+  státusz
+  határidők
+  akciók:
+      Új felvitel (csak jogosultaknak)
+      Módosítás   (csak jogosultaknak)
+      Törlés      (csak jogosultaknak)
+      Szavazó polgárok
+      Szavazok    (csak jogosultaknak, statusztól is függ, csak ha még nem szavazott)
+      Új alternatívát javaslok (csak jogosultaknak, statusztól is függ)
+      Eredmény lekérése (statusztól is függ)
+      Szavazás szintű képviselő meghatalmazás (ha megengedett, adott szavazás képviselők számára tiltott)
+      Szavazás szintű képviseletet vállalok (ha megengedett)
+      Komment lapozás
+      Komment írás
+      vissza a témakör oldalra
+      vissza a témakörök listájához
+      (később: file könyvtár)
+  
+
+Képviselő meghatalmazása oldal
+==============================
+  a képviseleti szint kiirása (általános, adott témakör, adott szavazás)
+  az aktív képviselő adatainak kiirása
+  szürő form
+    témakör/szavazás szöveg részlet, dátum
+  Komment lista
+  Komment form
+  Akciók:
+      Új képviselő meghatalmazása (csak ha nincs az adott szinten még képviselő 
+          és  szavazásnál ha megengedett, képviselő jelölteknek tiltott)
+      Képviselő meghatalmazásának törlése
+      Képviseleő meghatalmazás érvényességének modosítása
+      Képviselő eddigi szavazatinak megtekintése
+      Komment/Üzenet lapozás
+      Komment/Üzenet írás
+      Vissza a hívó oldalra (témakör lista, témakör oldal, szavazás oldal)
+      Vissza a témakör listához
+    
+Képviselő jelölt adatlap
+========================
+
+kiirva milyen szintű képviseletről van sz (általános, adott témakör, adott szavazás)
+leirás
+Kommentek/üzenetek listája  (mergelve a meghatalmazók ide címzett üzenetei)
+Komment írása
+
+Akciók:
+  Rendben
+  e-mail a meghatalmazóimnak
+  Képviseletet at ovábbiakban nem vállalok (csak ha nincs aktiv meghatalmazás)
+  eddigi szavazatok megtekintése  --> popup ablakban lapozható, kereshető, rendezhető lista
+  Mégsem = vissza a hívó oldalra (szavazás, temaör, kezdőlap)
+  Vissza a témakör listához
+      
+  
+Új képviselet oldal
+===================
+az adott szint kiirása (általános, adott témakör, adott szavazás)
+a képviselet érvényessége inputbox
+szűrő képernyő
+lista az adott szinten képviseletet vállalókról
+  oszlopok: id,név,[info]
+Akciók:
+  képviselőnek választ
+  infot kér --> popup ablak a képviselő adatlappal
+  vissza a hívó képernyőre (kezdőlap, témakör oldal, szavazás oldal)  
+  Vissza a témakör listához
+
+szavazás eredmény oldal
+=======================
+témakör kiirása
+szavazás kiirása
+szavazás condorce - shilze módszerrel kiértékelt sorrendje
+
+Akciók:
+  részletesebb eredmény levezetés
+  egyedi szavazatok lekérése (nyilt szavazásnál, titkositottnál csak a képviselők)
+  szavazok (állapot függő és attól is függ az user szavazott-e már)
+  vissza a szavazás oldalára
+  vissza a témakör oldalra
+  vissza a témakörök listájához
+  
+szavazás eredmény részletesebb levezetés
+========================================
+témakör kiirása
+szavazás kiirása
+alternativák felsorolása 
+   - hányaj javasolták első helyre, második helyre.....
+shulze féle legerősebb utvonal mátrix   
+shulze féle "páros-mérközés" mátrix   
+szavazás condorce - shilze módszerrel kiértékelt sorrendje
+
+Akciók:
+  szavazok (állapot függő és attól is függ az user szavazott-e már)
+  vissza a szavazás oldalára
+  vissza a témakör oldalra
+  vissza a témakörök listájához
+
+egyedi szavazatok lekérdezése
+=============================
+témakör kiirása
+szavazás kiirása
+(ha csak a képviselőjelöltek látszanak akkor erről tájékoztató szöveg)
+szürő képernyő
+  (név részlet)
+list az egyedi szavazatokról
+
+Akciók
+  lista lapozás
+  szürés
+  szavazok (állapot függő és attól is függ az user szavazott-e már)
+  vissza a szavazás oldalára
+  vissza a témakör oldalra
+  vissza a témakörök listájához
+
+Szavazó polgárok
+================
+
+publikus személyi adatok
+eddigi szavazások lapozható, szürhető, rendezhető listája
+
+Akciók:
+  lista lapozásd
+  szürés
+  rendezés
+  vissza a hívó oldalra
+  vissza a témakörök listájához
+          

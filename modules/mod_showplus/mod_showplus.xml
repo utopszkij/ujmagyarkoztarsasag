@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="module" method="upgrade" client="site">
+	<name>showplus</name>
+	<author>Levente Hunyadi</author>
+	<creationDate>Aug 31, 2013</creationDate>
+	<copyright>© 2011 Levente Hunyadi. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorUrl>http://hunyadi.info.hu/projects/showplus</authorUrl>
+	<version>1.0.5.4</version>
+	<downloadUrl>http://joomlacode.org/gf/project/showplus/frs/</downloadUrl>
+	<description>SHOWPLUS_DESCRIPTION</description>
+	<files>
+		<filename module="mod_showplus">mod_showplus.php</filename>
+		<folder>css</folder>
+		<folder>fields</folder>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+		<filename>index.html</filename>
+		<filename>exception.php</filename>
+		<filename>helper.php</filename>
+		<filename>librarian.php</filename>
+		<filename>params.php</filename>
+		<filename>thumbs.php</filename>
+		<filename>utility.php</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB.mod_showplus.ini</language>
+		<language tag="en-GB">en-GB.mod_showplus.sys.ini</language>
+		<language tag="pl-PL">pl-PL.mod_showplus.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="modules/mod_showplus/fields/">
+				<field name="folder" type="text" default="images/sampledata/fruitshop" label="SHOWPLUS_FOLDER" description="SHOWPLUS_FOLDER_DESCRIPTION" />
+				<field name="labels_exists" type="labels" label="SHOWPLUS_LABELS_EXISTS" description="SHOWPLUS_LABELS_EXISTS_DESCRIPTION" />
+				<field name="width" type="text" default="600" label="SHOWPLUS_WIDTH" description="SHOWPLUS_WIDTH_DESCRIPTION" />
+				<field name="height" type="text" default="400" label="SHOWPLUS_HEIGHT" description="SHOWPLUS_HEIGHT_DESCRIPTION" />
+				<field name="alignment" type="list" default="center" label="SHOWPLUS_ALIGNMENT" description="SHOWPLUS_ALIGNMENT_DESCRIPTION">
+					<option value="before-clear">SHOWPLUS_ALIGNMENT_BEFORE</option>
+					<option value="before-float">SHOWPLUS_ALIGNMENT_BEFORE_FLOAT</option>
+					<option value="center">SHOWPLUS_ALIGNMENT_CENTER</option>
+					<option value="after-clear">SHOWPLUS_ALIGNMENT_AFTER</option>
+					<option value="after-float">SHOWPLUS_ALIGNMENT_AFTER_FLOAT</option>
+				</field>
+				<field name="orientation" type="list" default="horizontal-bottom" label="SHOWPLUS_ORIENTATION" description="SHOWPLUS_ORIENTATION_DESCRIPTION">
+					<option value="disabled">SHOWPLUS_ORIENTATION_DISABLED</option>
+					<option value="horizontal-top">SHOWPLUS_ORIENTATION_HORIZONTAL_TOP</option>
+					<option value="horizontal-bottom">SHOWPLUS_ORIENTATION_HORIZONTAL_BOTTOM</option>
+					<option value="vertical-left">SHOWPLUS_ORIENTATION_VERTICAL_LEFT</option>
+					<option value="vertical-right">SHOWPLUS_ORIENTATION_VERTICAL_RIGHT</option>
+				</field>
+				<field name="autohide" type="radio" default="0" label="SHOWPLUS_AUTOHIDE" description="SHOWPLUS_AUTOHIDE_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="buttons" type="list" default="" label="SHOWPLUS_BUTTONS" description="SHOWPLUS_BUTTONS_DESCRIPTION">
+					<option value="">SHOWPLUS_BUTTONS_NONE</option>
+					<option value="minimalistic">SHOWPLUS_BUTTONS_MINIMALISTIC</option>
+					<option value="full">SHOWPLUS_BUTTONS_FULL</option>
+				</field>
+				<field name="captions" type="radio" default="1" label="SHOWPLUS_CAPTIONS" description="SHOWPLUS_CAPTIONS_DESCRIPTION">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field name="defcaption" type="textarea" cols="40" label="SHOWPLUS_CAPTION_DEFAULT" description="SHOWPLUS_CAPTION_DEFAULT_DESCRIPTION" />
+				<field name="deflink" type="textarea" cols="40" label="SHOWPLUS_LINK_DEFAULT" description="SHOWPLUS_LINK_DEFAULT_DESCRIPTION" />
+				<field name="target" type="list" default="_self" label="SHOWPLUS_TARGET" description="SHOWPLUS_TARGET_DESCRIPTION">
+					<option value="_self">SHOWPLUS_TARGET_SELF</option>
+					<option value="_blank">SHOWPLUS_TARGET_BLANK</option>
+					<option value="_parent">SHOWPLUS_TARGET_PARENT</option>
+					<option value="_top">SHOWPLUS_TARGET_TOP</option>
+				</field>
+				<field name="delay" type="text" default="3000" label="SHOWPLUS_DELAY" description="SHOWPLUS_DELAY_DESCRIPTION" />
+				<field name="duration" type="text" default="800" label="SHOWPLUS_DURATION" description="SHOWPLUS_DURATION_DESCRIPTION" />
+				<field name="transition" type="list" default="fade" label="SHOWPLUS_TRANSITION" description="SHOWPLUS_TRANSITION_DESCRIPTION">
+					<option value="fade">SHOWPLUS_TRANSITION_FADE</option>
+					<option value="flash">SHOWPLUS_TRANSITION_FLASH</option>
+					<option value="fold">SHOWPLUS_TRANSITION_FOLD</option>
+					<option value="kenburns">SHOWPLUS_TRANSITION_KENBURNS</option>
+					<option value="push">SHOWPLUS_TRANSITION_PUSH</option>
+				</field>
+				<field name="transition_easing" type="list" default="linear" label="SHOWPLUS_TRANSITION_EASING" description="SHOWPLUS_TRANSITION_EASING_DESCRIPTION">
+					<option value="linear">SHOWPLUS_TRANSITION_EASING_LINEAR</option>
+					<option value="quad">SHOWPLUS_TRANSITION_EASING_QUAD</option>
+					<option value="cubic">SHOWPLUS_TRANSITION_EASING_CUBIC</option>
+					<option value="quart">SHOWPLUS_TRANSITION_EASING_QUART</option>
+					<option value="quint">SHOWPLUS_TRANSITION_EASING_QUINT</option>
+					<option value="expo">SHOWPLUS_TRANSITION_EASING_EXPO</option>
+					<option value="circ">SHOWPLUS_TRANSITION_EASING_CIRC</option>
+					<option value="sine">SHOWPLUS_TRANSITION_EASING_SINE</option>
+					<option value="back">SHOWPLUS_TRANSITION_EASING_BACK</option>
+					<option value="bounce">SHOWPLUS_TRANSITION_EASING_BOUNCE</option>
+					<option value="elastic">SHOWPLUS_TRANSITION_EASING_ELASTIC</option>
+				</field>
+				<field name="transition_pan" type="text" default="100" label="SHOWPLUS_TRANSITION_PAN" description="SHOWPLUS_TRANSITION_PAN_DESCRIPTION" />
+				<field name="transition_zoom" type="text" default="50" label="SHOWPLUS_TRANSITION_ZOOM" description="SHOWPLUS_TRANSITION_ZOOM_DESCRIPTION" />
+				<field name="scroll_speed" type="text" default="50" label="SHOWPLUS_SCROLL_SPEED" description="SHOWPLUS_SCROLL_SPEED_DESCRIPTION" />
+				<field name="margin" type="text" default="" label="SHOWPLUS_CSS_MARGIN" description="SHOWPLUS_CSS_MARGIN_DESCRIPTION" />
+				<field name="border_style" type="list" default="" label="SHOWPLUS_CSS_BORDER_STYLE" description="SHOWPLUS_CSS_BORDER_STYLE_DESCRIPTION">
+					<option value="">SHOWPLUS_CSS_BORDER_DEFAULT</option>
+					<option value="none">SHOWPLUS_CSS_BORDER_NONE</option>
+					<option value="dotted">SHOWPLUS_CSS_BORDER_DOTTED</option>
+					<option value="dashed">SHOWPLUS_CSS_BORDER_DASHED</option>
+					<option value="solid">SHOWPLUS_CSS_BORDER_SOLID</option>
+					<option value="double">SHOWPLUS_CSS_BORDER_DOUBLE</option>
+					<option value="groove">SHOWPLUS_CSS_BORDER_GROOVE</option>
+					<option value="ridge">SHOWPLUS_CSS_BORDER_RIDGE</option>
+					<option value="inset">SHOWPLUS_CSS_BORDER_INSET</option>
+					<option value="outset">SHOWPLUS_CSS_BORDER_OUTSET</option>
+				</field>
+				<field name="border_width" type="text" default="" label="SHOWPLUS_CSS_BORDER_WIDTH" description="SHOWPLUS_CSS_BORDER_WIDTH_DESCRIPTION" />
+				<field name="border_color" type="color" default="" label="SHOWPLUS_CSS_BORDER_COLOR" description="SHOWPLUS_CSS_BORDER_COLOR_DESCRIPTION" />
+				<field name="padding" type="text" default="" label="SHOWPLUS_CSS_PADDING" description="SHOWPLUS_CSS_PADDING_DESCRIPTION" />
+				<field name="background_color" type="color" default="" label="SHOWPLUS_CSS_BACKGROUND_COLOR" description="SHOWPLUS_CSS_BACKGROUND_COLOR_DESCRIPTION" />
+				<field name="thumb_width" type="text" default="60" label="SHOWPLUS_THUMB_WIDTH" description="SHOWPLUS_THUMB_WIDTH_DESCRIPTION" />
+				<field name="thumb_height" type="text" default="40" label="SHOWPLUS_THUMB_HEIGHT" description="SHOWPLUS_THUMB_HEIGHT_DESCRIPTION" />
+				<field name="links" type="radio" default="1" label="SHOWPLUS_LINKS" description="SHOWPLUS_LINKS_DESCRIPTION">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field name="overlay_position" type="list" default="none" label="SHOWPLUS_OVERLAY_POSITION" description="SHOWPLUS_OVERLAY_POSITION_DESCRIPTION">
+					<option value="none">SHOWPLUS_OVERLAY_NONE</option>
+					<option value="left-top">SHOWPLUS_OVERLAY_LEFT_TOP</option>
+					<option value="left-center">SHOWPLUS_OVERLAY_LEFT_CENTER</option>
+					<option value="left-bottom">SHOWPLUS_OVERLAY_LEFT_BOTTOM</option>
+					<option value="center-top">SHOWPLUS_OVERLAY_CENTER_TOP</option>
+					<option value="center-center">SHOWPLUS_OVERLAY_CENTER_CENTER</option>
+					<option value="center-bottom">SHOWPLUS_OVERLAY_CENTER_BOTTOM</option>
+					<option value="right-top">SHOWPLUS_OVERLAY_RIGHT_TOP</option>
+					<option value="right-center">SHOWPLUS_OVERLAY_RIGHT_CENTER</option>
+					<option value="right-bottom">SHOWPLUS_OVERLAY_RIGHT_BOTTOM</option>
+				</field>
+				<field name="overlay_source" type="text" label="SHOWPLUS_OVERLAY_SOURCE" description="SHOWPLUS_OVERLAY_SOURCE_DESCRIPTION" />
+				<field name="overlay_text" type="textarea" cols="40" label="SHOWPLUS_OVERLAY_TEXT" description="SHOWPLUS_OVERLAY_TEXT_DESCRIPTION" filter="raw" />
+			</fieldset>
+			<fieldset name="advanced" addfieldpath="modules/mod_showplus/fields/">
+				<field name="thumb_cache" type="radio" default="1" label="SHOWPLUS_THUMB_CACHE" description="SHOWPLUS_THUMB_CACHE_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="thumb_folder" type="text" default="thumbs" label="SHOWPLUS_THUMB_FOLDER" description="SHOWPLUS_THUMB_FOLDER_DESCRIPTION" />
+				<field name="thumb_quality" type="text" default="85" label="SHOWPLUS_THUMB_QUALITY" description="SHOWPLUS_THUMB_QUALITY_DESCRIPTION" />
+				<field name="labels" type="text" default="labels" label="SHOWPLUS_LABELS" description="SHOWPLUS_LABELS_DESCRIPTION" />
+				<field name="labels_multilingual" type="radio" default="0" label="SHOWPLUS_LABELS_MULTILINGUAL" description="SHOWPLUS_LABELS_MULTILINGUAL_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<!--
+				<field name="labels_update" type="radio" default="1" label="SHOWPLUS_LABELS_UPDATE" description="SHOWPLUS_LABELS_UPDATE_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				-->
+				<field name="labels_captions" type="textarea" cols="40" label="SHOWPLUS_LABELS_CUSTOM" description="SHOWPLUS_LABELS_CUSTOM_DESCRIPTION" filter="raw" />
+				<field name="sort_criterion" type="list" default="labels-filename" label="SHOWPLUS_SORT_CRITERION" description="SHOWPLUS_SORT_CRITERION_DESCRIPTION">
+					<option value="labels-filename">SHOWPLUS_SORT_CRITERION_LABELS_FILENAME</option>
+					<option value="labels-mtime">SHOWPLUS_SORT_CRITERION_LABELS_MTIME</option>
+					<option value="filename">SHOWPLUS_SORT_CRITERION_FILENAME</option>
+					<option value="mtime">SHOWPLUS_SORT_CRITERION_MTIME</option>
+					<option value="random">SHOWPLUS_SORT_CRITERION_RANDOM</option>
+					<option value="randomlabels">SHOWPLUS_SORT_CRITERION_RANDOMLABELS</option>
+				</field>
+				<field name="sort_order" type="list" default="0" label="SHOWPLUS_SORT_ORDER" description="SHOWPLUS_SORT_ORDER_DESCRIPTION">
+					<option value="0">SHOWPLUS_SORT_ORDER_ASCENDING</option>
+					<option value="1">SHOWPLUS_SORT_ORDER_DESCENDING</option>
+				</field>
+				<field name="library" type="imagelibrarylist" default="default" label="SHOWPLUS_LIBRARY" description="SHOWPLUS_LIBRARY_DESCRIPTION">
+					<option value="none">SHOWPLUS_LIBRARY_NONE</option>
+					<option value="default">SHOWPLUS_LIBRARY_DEFAULT</option>
+					<option value="gd">SHOWPLUS_LIBRARY_GD</option>
+					<option value="imagick">SHOWPLUS_LIBRARY_IMAGEMAGICK</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" default="" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="debug" type="radio" default="0" label="SHOWPLUS_DEBUG" description="SHOWPLUS_DEBUG_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

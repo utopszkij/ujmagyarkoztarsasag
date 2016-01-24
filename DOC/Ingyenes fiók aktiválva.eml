@@ -1,0 +1,138 @@
+Return-path: <000001454a66fc2c-19144ab2-d5ae-41a2-b24f-855c814fdb7c-000000@amazonses.com>
+Envelope-to: foglert@robitbt.hu
+Delivery-date: Thu, 10 Apr 2014 08:50:41 +0200
+Received: from a10-171.smtp-out.amazonses.com ([54.240.10.171]:48226)
+	by ivancsy.lanten.hu with esmtps (TLSv1:AES256-SHA:256)
+	(Exim 4.82)
+	(envelope-from <000001454a66fc2c-19144ab2-d5ae-41a2-b24f-855c814fdb7c-000000@amazonses.com>)
+	id 1WY8on-0008ab-MR
+	for foglert@robitbt.hu; Thu, 10 Apr 2014 08:50:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=xi3wo43jag2kbbobprzii5acvqdvqtba; d=hostinger.com; t=1397112634;
+	h=To:Subject:From:Date:Content-Type:MIME-Version:Message-ID;
+	bh=oCq4j70PWSYpQ0l7wuIrkoZNccXaHaKe2DNuaSoVE1o=;
+	b=EyEiH5iqW2AYty30sOgfS9Tg7pjsAjap2gkqARnC2zR6bZm8J64ukJPAWTHEcEmz
+	P+NDl7qIi0fh1EpEnydBHVWzYc8+m9VjctxL1HGWlm+sIg0o+MPaYjRh2k51ml+eFex
+	oITpXPjo+d5tvmvhP7Rm6wJZnaD7F/iw3B0i+6G4=
+To: Fogler Tibor <foglert@robitbt.hu>
+Subject: =?UTF-8?Q?Ingyenes=20fi=C3=B3k=20aktiv=C3=A1lva?=
+From: =?UTF-8?Q?Hostinger=20Magyarorsz=C3=A1g?= <gere@hostinger.com>
+Date: Thu, 10 Apr 2014 06:50:34 +0000
+Content-Type: multipart/alternative;
+ boundary="=_bd216d5ef87503c6356c9b890fa2f7ca"
+MIME-Version: 1.0
+Message-ID: <000001454a66fc2c-19144ab2-d5ae-41a2-b24f-855c814fdb7c-000000@email.amazonses.com>
+X-SES-Outgoing: 2014.04.10-54.240.10.171
+X-Spam-Status: No, score=-0.4
+X-Spam-Score: -3
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "ivancsy.lanten.hu", has
+ identified this incoming email as possible spam.  The original message
+ has been attached to this so you can view it (if it isn't spam) or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ 
+ Content preview:  Tisztelt Fogler Tibor , Ks007anjk002c00200068006fgy rendelt
+    tÅln006b002e00200041 tr0068ely fik006a0061 lt0072e lett hozva, ez az email
+    tartalmazza az informc0069k00610074, amelyek szk007300670065sek a fik005c006ehasznl0061th006fz.
+    [...] 
+ 
+ Content analysis details:   (-0.4 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at http://www.dnswl.org/, no
+                             trust
+                             [54.240.10.171 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.3 RP_MATCHES_RCVD        Envelope sender domain matches handover relay domain
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.0 BAYES_20               BODY: Bayes spam probability is 5 to 20%
+                             [score: 0.1369]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+X-Spam-Flag: NO
+
+--=_bd216d5ef87503c6356c9b890fa2f7ca
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Tisztelt Fogler Tibor , =0A=0AKs007anjk002c00200068006fgy rendelt t=C5=
+=91ln006b002e00200041 tr0068ely fik006a0061 lt0072e lett hozva, ez=0Aaz=
+ email tartalmazza az informc0069k00610074, amelyek szk007300670065sek a=
+ fik005c006ehasznl0061th006fz. =0A=0AHa rendelt egy domain nevet is a re=
+gisztrlsa sorn002c vegye=0Afigyelembe, hogy ez nem lesz azonnal jelen az=
+ interneten. Ezt a=0Afolyamatot DNS terjeds006eek nevezik, s002048 r0069=
+g is eltarthat. Ameddig=0Aa domain neve terjedik, a honlapja s0020az ema=
+il fik006a0061i nem fognak=0Am=C5=B1kd006e0069. =0A=0AJ FIK ADATAI: =0A=
+=0ATr0068ely csomag: Ingyenes =0A=0ADomn003a li-de.url.ph=0AIP Cm003a 31=
+.220.16.18 =0A=0AVEZRL=C5=90PANEL BELPSI ADATOK: =0A=0AEmail cm003a fogl=
+ert@robitbt.hu=0AJelsz:0020002a********* =0A=0AVezr006c=C5=91panel URL:=
+ http://cpanel.hostinger.hu=0A[http://cpanel.hostinger.hu] =0A=0ASZERVER=
+ ADATOK =0A=0ASzerver nv003a server48.hostinger.hu=0ASzerver IP: 31.220.=
+16.1 =0A=0AHa a meglev=C5=91 domn0020cmt szeretn 0068asznl006ei szolgl00=
+74ats0061inkkal,=0Afrisst0065nie kell a nv0073zervereket a kv00650074kez=
+=C5=91kre: =0A=0ANv0073zerver 1: ns1.hostinger.hu 31.170.163.241=0ANv007=
+3zerver 2: ns2.hostinger.hu 31.220.23.1=0ANv0073zerver 3: ns3.hostinger.=
+hu 173.192.183.247=0ANv0073zerver 4: ns4.hostinger.hu 31.170.164.249 =0A=
+=0AHONLAP FELTLTSE =0A=0AHasznl0068atja a kv00650074kez=C5=91 cm0065t a=
+ honlap feltl0074sh0065z: =0A=0AIdeiglenes FTP hosztnv003a 31.220.16.18=
+=0ATeljes FTP hosztnv003a ftp.li-de.url.ph=0AFTP felhasznlnv003a u195636=
+555=0AFTP jelsz:002000313Marika =0A=0AA fj006cokat kt0065006cez=C5=91 md=
+006f006e a PUBLIC_HTML mappn0020bell002000680065006cyezze el! =0A=0AEMAI=
+L BELLTSOK =0A=0AAz email fik006f006b bel006ctsh006fz hasznl006aa a kv00=
+650074kez=C5=91 adatokat: =0A=0APOP3 Hoszt Cm003a mx1.hostinger.hu=0ASMT=
+P Hoszt Cm003a mx1.hostinger.hu=0AFelhasznl: Az email cm005cnJelsz:00200=
+041z email cm0020lt0072ehozs0061 sorn0020bel006ct006ftt =0A=0AKs007anjk0=
+02c00200068006fgy minket vl0061sztott. =0A=0AHostinger Magyarorsz=C3=A1g=
+=0Ahttp://www.hostinger.hu [http://www.hostinger.hu]
+
+--=_bd216d5ef87503c6356c9b890fa2f7ca
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p>Tisztelt Fogler Tibor ,</p>=0D=0A<p>K&ouml;sz&ouml;nj&uuml;k, hogy re=
+ndelt t=C5=91l&uuml;nk. A t&aacute;rhely fi&oacute;kja l&eacute;tre lett=
+ hozva, ez az email tartalmazza az inform&aacute;ci&oacute;kat, amelyek=
+ sz&uuml;ks&eacute;gesek a fi&oacute;k haszn&aacute;lat&aacute;hoz.</p>=
+=0D=0A<p>Ha rendelt egy domain nevet is a regisztr&aacute;l&aacute;sa so=
+r&aacute;n, vegye figyelembe, hogy ez nem lesz azonnal jelen az internet=
+en. Ezt a folyamatot DNS terjed&eacute;snek nevezik, &eacute;s 48 &oacut=
+e;r&aacute;ig is eltarthat. Ameddig a domain neve terjedik, a honlapja &=
+eacute;s az email fi&oacute;kjai nem fognak m=C5=B1k&ouml;dni.</p>=0D=0A=
+<p><strong>&Uacute;j fi&oacute;k adatai:</strong></p>=0D=0A<p><strong>&n=
+bsp;</strong>T&aacute;rhely csomag: Ingyenes</p>=0D=0A<p>Dom&eacute;n: l=
+i-de.url.ph<br />IP C&iacute;m: 31.220.16.18</p>=0D=0A<p><strong>Vez&eac=
+ute;rl=C5=91panel bel&eacute;p&eacute;si adatok:</strong></p>=0D=0A<p><s=
+trong></strong>Email c&iacute;m: foglert@robitbt.hu<br />Jelsz&oacute;:=
+ &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</p>=0D=0A<=
+p>Vez&eacute;rl=C5=91panel URL: <a href=3D"http://cpanel.hostinger.hu">h=
+ttp://cpanel.hostinger.hu</a></p>=0D=0A<p><strong>Szerver adatok</strong=
+></p>=0D=0A<p>Szerver n&eacute;v: server48.hostinger.hu<br />Szerver&nbs=
+p;IP: 31.220.16.1</p>=0D=0A<p>Ha a meglev=C5=91 dom&eacute;n c&iacute;m&=
+eacute;t szeretn&eacute; haszn&aacute;lni szolg&aacute;ltat&aacute;saink=
+kal, friss&iacute;tenie kell a n&eacute;vszervereket a k&ouml;vetkez=C5=
+=91kre:</p>=0D=0A<p>N&eacute;vszerver 1: ns1.hostinger.hu 31.170.163.241=
+<br />N&eacute;vszerver&nbsp;2: ns2.hostinger.hu 31.220.23.1<br />N&eacu=
+te;vszerver&nbsp;3: ns3.hostinger.hu 173.192.183.247<br />N&eacute;vszer=
+ver&nbsp;4: ns4.hostinger.hu 31.170.164.249</p>=0D=0A<p><strong>Honlap f=
+elt&ouml;lt&eacute;se</strong></p>=0D=0A<p>Haszn&aacute;lhatja a k&ouml;=
+vetkez=C5=91 c&iacute;met a honlap felt&ouml;lt&eacute;s&eacute;hez:</p>=
+=0D=0A<p>Ideiglenes FTP hosztn&eacute;v: 31.220.16.18<br />Teljes FTP ho=
+sztn&eacute;v: ftp.li-de.url.ph<br />FTP&nbsp;felhaszn&aacute;l&oacute;n=
+&eacute;v: u195636555<br />FTP jelsz&oacute;: 13Marika</p>=0D=0A<p>A f&a=
+acute;jlokat k&ouml;telez=C5=91 m&oacute;don a&nbsp;<strong>public_html<=
+/strong>&nbsp;mapp&aacute;n bel&uuml;l helyezze el!</p>=0D=0A<p><strong>=
+Email be&aacute;ll&iacute;t&aacute;sok</strong></p>=0D=0A<p>Az email fi&=
+oacute;kok be&aacute;ll&iacute;t&aacute;s&aacute;hoz haszn&aacute;lja a=
+ k&ouml;vetkez=C5=91 adatokat:</p>=0D=0A<p>POP3 Hoszt C&iacute;m: mx1.ho=
+stinger.hu<br />SMTP&nbsp;Hoszt&nbsp;C&iacute;m: mx1.hostinger.hu<br />F=
+elhaszn&aacute;l&oacute;: Az email c&iacute;m<br />Jelsz&oacute;: Az ema=
+il c&iacute;m l&eacute;trehoz&aacute;sa sor&aacute;n be&aacute;ll&iacute=
+;tott</p>=0D=0A<p>K&ouml;sz&ouml;nj&uuml;k, hogy minket v&aacute;lasztot=
+t.</p>=0D=0A<p>Hostinger Magyarorsz=C3=A1g<br /><a href=3D"http://www.ho=
+stinger.hu">http://www.hostinger.hu</a></p>
+
+--=_bd216d5ef87503c6356c9b890fa2f7ca--

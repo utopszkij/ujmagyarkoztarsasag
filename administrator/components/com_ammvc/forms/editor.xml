@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			id="side"
+			name="side"
+			type="list"
+			required="true"
+			label="SIDE"
+			description="site or administrator"
+			size="1">
+      <option value="site">SITE</option>
+      <option value="administrator">ADMINISTRATOR</option>
+    </field>						
+		
+    <field
+			name="branch"
+			type="text"
+			default=""
+			required="true"
+      label="BRANCH"
+      size="40"
+			readonly="false"/>							
+
+    <field
+			name="component"
+			type="text"
+			default=""
+			required="true"
+      label="COMPONENT"
+      size="40"
+			readonly="false"/>							
+
+    <field
+			name="class"
+			type="text"
+			default=""
+			required="true"
+      label="CLASS"
+      size="40"
+			readonly="false"/>							
+
+    <field
+			name="method"
+			type="text"
+			default=""
+			required="true"
+      label="METHOD"
+      size="40"
+			readonly="false"/>		
+      					
+		<field
+			id="description"
+			name="description"
+			type="textarea"
+			required="false"
+			label="DESCRIPTION"
+			description=""
+			size="1000000"/>						
+															
+		<field
+			id="code"
+			name="code"
+			type="textarea"
+			required="false"
+			label="CODE"
+			description=""
+			size="1000000"/>						
+								
+		<field
+			id="resulttype"
+			name="resulttype"
+			type="list"
+			required="true"
+			label="RESULTTYPE"
+			description=""
+			size="1">
+      <option value="void">VOID</option>
+      <option value="integer">INTEGER</option>
+      <option value="string">STRING</option>
+      <option value="array">ARRAY</option>
+      <option value="bool">BOOLEAN</option>
+      <option value="object">OBJECT</option>
+      <option value="mixed">MIXED</option>
+    </field>			
+    
+		<field
+			id="nexts"
+			name="nexts"
+			type="text"
+			required="false"
+			label="NEXTS"
+			description=""
+			size="120"/>						
+
+		<field
+			id="status"
+			name="status"
+			type="list"
+			required="true"
+			label="STATUS"
+			description=""
+			size="1">
+      <option value="0">STAUS_ENABLED</option>
+      <option value="1">STATUS_DISABLED</option>
+    </field>  						
+    			
+		<field
+			id="branches"
+			name="branches"
+			type="list"
+			required="false"
+			label="BRANCHES"
+			description=""
+			size="1">
+    </field>			
+
+		<field
+			id="components"
+			name="components"
+			type="list"
+			required="false"
+			label="COMPONENTS"
+			description=""
+			size="1">
+    </field>			
+
+		<field
+			id="classes"
+			name="classes"
+			type="list"
+			required="false"
+			label="CLASSES"
+			description=""
+			size="1">
+    </field>			
+
+		<field
+			id="methods"
+			name="methods"
+			type="list"
+			required="false"
+			label="METHODS"
+			description=""
+			size="1">
+    </field>			
+                
+	</fields>
+</form>	

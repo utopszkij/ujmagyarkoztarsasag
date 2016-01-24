@@ -1,0 +1,84 @@
+Return-path: <000001454a6421de-43fb3f00-c946-4f78-882f-bd8697dc6e67-000000@amazonses.com>
+Envelope-to: foglert@robitbt.hu
+Delivery-date: Thu, 10 Apr 2014 08:47:36 +0200
+Received: from a10-101.smtp-out.amazonses.com ([54.240.10.101]:54778)
+	by ivancsy.lanten.hu with esmtps (TLSv1:AES256-SHA:256)
+	(Exim 4.82)
+	(envelope-from <000001454a6421de-43fb3f00-c946-4f78-882f-bd8697dc6e67-000000@amazonses.com>)
+	id 1WY8ln-0005xG-IB
+	for foglert@robitbt.hu; Thu, 10 Apr 2014 08:47:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=xi3wo43jag2kbbobprzii5acvqdvqtba; d=hostinger.com; t=1397112447;
+	h=To:Subject:From:Date:Content-Type:MIME-Version:Message-ID;
+	bh=+bTyCYXgPetreDc2RJJ9pT5Er6Ev1Adlh5/agiztPrM=;
+	b=IZOB7BvpS4yM7K0BKKsm5qWob13mGusTU7jSY33G/ZrTiBnHk+p+/GQwxiockhzN
+	US4x2mk5wvSYOzE1qMEcKSc9eItPPWzPPUkfGs+1RGJtHKIir+jiolyl+YpUDR3z1k7
+	Vc9aYxn5AOTDJgapdYPUtxDt/idhRuTLLWfGHpO4=
+To: Fogler Tibor <foglert@robitbt.hu>
+Subject: =?UTF-8?Q?Felhaszn=C3=A1l=C3=B3=20regisztr=C3=A1l=C3=A1sa?=
+From: =?UTF-8?Q?Hostinger=20Magyarorsz=C3=A1g?= <gere@hostinger.com>
+Date: Thu, 10 Apr 2014 06:47:27 +0000
+Content-Type: multipart/alternative;
+ boundary="=_28d87e55ec7570907c53f4a12fd8e0b2"
+MIME-Version: 1.0
+Message-ID: <000001454a6421de-43fb3f00-c946-4f78-882f-bd8697dc6e67-000000@email.amazonses.com>
+X-SES-Outgoing: 2014.04.10-54.240.10.101
+X-Spam-Status: No, score=0.4
+X-Spam-Score: 4
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "ivancsy.lanten.hu", has
+ identified this incoming email as possible spam.  The original message
+ has been attached to this so you can view it (if it isn't spam) or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ 
+ Content preview:  Tisztelt Fogler Tibor , Ks007anjk002c00200068006fgy regisztrl0074
+    szolgl0074ats0061inkra. Az j002000660069k006a0061 lt0072e lett hozva, a kv00650074kező
+    adatok segt0073gvel be tud lp006ei a felhasznli fell0065007400620065: [...]
+    
+ 
+ Content analysis details:   (0.4 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at http://www.dnswl.org/, no
+                             trust
+                             [54.240.10.101 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.3 RP_MATCHES_RCVD        Envelope sender domain matches handover relay domain
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.8 BAYES_50               BODY: Bayes spam probability is 40 to 60%
+                             [score: 0.4999]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+X-Spam-Flag: NO
+
+--=_28d87e55ec7570907c53f4a12fd8e0b2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Tisztelt Fogler Tibor , =0A=0AKs007anjk002c00200068006fgy regisztrl0074=
+ szolgl0074ats0061inkra. Az j002000660069k006a0061 lt0072e=0Alett hozva,=
+ a kv00650074kez=C5=91 adatok segt0073gvel be tud lp006ei a=0Afelhasznli=
+ fell0065007400620065: =0A=0AEmail cm003a foglert@robitbt.hu=0A Jesz:002=
+000313Marika =0A=0ABelpshez lt006fgassa meg a http://cpanel.hostinger.hu=
+=0A[http://cpanel.hostinger.hu] cm0065t. =0A=0AHostinger Magyarorsz=C3=
+=A1g=0Ahttp://www.hostinger.hu [http://www.hostinger.hu]
+
+--=_28d87e55ec7570907c53f4a12fd8e0b2
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p>Tisztelt Fogler Tibor ,</p>=0D=0A<p>K&ouml;sz&ouml;nj&uuml;k, hogy re=
+gisztr&aacute;lt szolg&aacute;ltat&aacute;sainkra. Az &uacute;j fi&oacut=
+e;kja l&eacute;tre lett hozva, a k&ouml;vetkez=C5=91 adatok seg&iacute;t=
+s&eacute;g&eacute;vel be tud l&eacute;pni a felhaszn&aacute;l&oacute;i f=
+el&uuml;letbe:</p>=0D=0A<p>Email c&iacute;m: foglert@robitbt.hu<br /> Je=
+sz&oacute;: 13Marika</p>=0D=0A<p>Bel&eacute;p&eacute;shez l&aacute;togas=
+sa meg a <a href=3D"http://cpanel.hostinger.hu">http://cpanel.hostinger.=
+hu</a> c&iacute;met.</p>=0D=0A<p>Hostinger Magyarorsz=C3=A1g<br /><a hre=
+f=3D"http://www.hostinger.hu">http://www.hostinger.hu</a></p>
+
+--=_28d87e55ec7570907c53f4a12fd8e0b2--

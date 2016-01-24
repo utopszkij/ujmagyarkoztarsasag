@@ -1,0 +1,316 @@
+Ez a modul a közösség alkotó, termelő tevékyenységének informatikai
+megoldását képezné
+
+Logikai adatmodel
+=================
+
+Fuggoseg
+  relacio       OR | AND | XOR | ( | ) | üres
+  eroforras     project|alaktrész|müvelet|kapacitas|
+  mennyiseg     szám
+  igeny         elkészült|nem készült el|folyamatban|nincs folyamatban|rendelkezésre áll|nem áll rendelkezésre
+     
+
+Projekt
+  id
+  template_id  lehet nulla is
+  temakor_id
+  projekt_jelleg (template, termék, részegyseg )
+  megnevezes
+  leiras
+  mennyiség  (projekt_templete esetén 1)
+  menniség egység
+  kezdési_időpont
+  tervezett_elkeszules_idopontja
+  normaido
+  határidő
+  prioritás
+  egységár
+  pénznem
+  megrendelo   
+    név
+    szirsz, sztelepules, szcim
+    pirsz, ptelepules, pcim
+    adoszam, euadoszam
+    knev, email
+  menedzserek  array of user_id -k 
+  resztvevok   array of user_id -k
+  muveletek    array of Muvelet
+  fuggosegek   array of Fuggoseg
+  allapot      elökészületben, nem inditható, inditható, folyamatban,  felfüggesztve, kész
+  tenyleges_elkészülés_időpontja
+  létrehozó
+  létrehozva
+  
+Muveletek       (alapanyag, részegység beszerzés is lehet!)
+  id
+  project_id
+  sorrend
+  megnevezes
+  leiras
+  kezdés_időpontja
+  elkészülés_időpontja
+  normaido
+  határidő
+  prioritás
+  állapot     nem inditható, inditható, folyamatban, felfüggsztve, kész
+  kepessegek  array of képesség_id -k amik a müvelet elvégzéséhez szükségesek
+  felelősök   array of user_id -k 
+  függőségek  array of (fuggoseg_tipus, fuggoseg_id, mennyiseg, mee)
+  létrehozó
+  létrehozva
+  
+Képességek
+  id
+  megnevezes
+  leiras
+    
+Függőségek
+  id
+  projekt_id
+  muvelet_id
+  tipus          elkészült müvelet, nem folyamatban lévő müvelet, 
+                 alprojekt elkészülte, kivülről beszerzett termék megléte
+  fuggoseg_id    müvelet_id, projekt_id, beszerzendő külső termék kódja
+  mennyiseg
+  mee
+
+Dolgozok
+  id
+  user_id
+  kepessegek
+  kapacitas 
+  
+Megrendelok
+    id
+    név
+    szirsz, 
+    sztelepules, 
+    szcim
+    pirsz, 
+    ptelepules, 
+    pcim
+    adoszam, 
+    euadoszam
+    knev, email
+    
+Mennyisegegysegek
+    kod
+    megnevezes
+    
+Pénznemek
+    kod
+    megnevezes
+       
+
+Képernyők, interakciók
+=======================
+
+Projektek listája
+-----------------
+  Egy adott témakörben lévő projektek listája,
+  Oszlopok:id, megnevezés, állapot, határidő, prioritás, user_menedzser?
+  Ikonokkal kiemelve a "sürgős" és "priritásos" projektek
+  Interakciók:
+    - Új Template létrehozása
+    - Új projekt template alapján
+    - Új projekt egyedi felvitellel
+    - Szürés start  (név,leírás, csak az aktivak, csak amiben érintett vagyok)
+    - Szürés stop
+    - Reorder
+    - ItemClick: Projekt müveleteinek listája
+
+Új projekt vagy új template egyedi felvitellel
+----------------------------------------------
+  Form : megnevezés, leírás, jelleg .....
+       a menedzserek és a közremüködök résznél több vihető fel popup ablakban userValasztas
+       a függőségeknél több vihető fel popup ablakban függőség felvitel
+       a müveleteknél több vihető fel popup ablakban 
+  Interakciok
+    - OK
+    - Mégsem --> Projektek listája
+
+  +----------------------------------------------------------------------------+
+  |                           Projekt                                          |
+  |                                                                            |
+  }  Témakör:  [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx[v]                       |
+  |  Template: xxxxxxxxxxxxxxxxxxxxxxxxxx   Jelleg: [xxxxxxxxxxx[v]            |
+  |  Megnevezés: [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |  Leíyrás:    [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |              [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |              [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |  Mennyiség:[#####] m.e.: [xxxxxxxx[v] Egységár:[########][xxx]             |
+  |  Start: [xxxx-xx-xx[v] Hetáridő:[xxxx-xx-xx[v] Prioritás:[xxxxxxxxx[v]     |
+  |  Állapot: [xxxxxxxxxxxxxxxxxx[v]               Elkészült:[xxxx-xx-xx[v]    |
+  |                                                                            |
+  |  Megrendelő:[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |  Számlázási cím: [xxxx] [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |                  [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |  Postázási cím:  [xxxx] [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |                  [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] |
+  |  Ország:[xx] Adószám: [xxxxxxxxxxxxxxx] EU adószám:[xxxxxxxxxxxxxxxxx]     |
+  |  E-mail: [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]             |
+  |  Kapcsolattartó: [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]             |
+  |                                                                            |
+  |  Menedzserek                                                               |  
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      [______________________________[v] [ADD]                              |
+  |                                                                            |
+  |  Résztvevők                                                                |  
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      [______________________________[v] [ADD]                              |
+  |                                                                            |
+  |  Függőségek                                                                |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Müvelet elkészült [DEL]                 |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Müvelet elkészült [DEL]                 |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Projekt elkészült [DEL]                 |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Külső feltétel [DEL]                    |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Müvelet nincs folyamatban [DEL]         |
+  |      [Müvelet elkészült[v] [__________________________[v] [ADD]            |  
+  |                                                                            |
+  | Létrehozó: xxxxxxxxxxxxxxxxxxxxxxxxxx Létrehozva: xxxx-xx-xx               |
+  |                                                                            |
+  |            [Tárolás és tovább a müveletekhez] [Mégsem]                     |
+  |                                                                            |   
+  +----------------------------------------------------------------------------+
+  Megjegyzés: az új Függőség képernyőn van egy projekt választó kombó, 
+  egy müvelet választó kombo és egy külső erőforrás input mező, ezek közül
+  a választott függőség tipus szerint minig az egyik látszik.
+  A mendzser, résztvevő, függőség add gombok letárolják az adatot és visszatérnek
+  erre a képernyőre. A mégsem gomb amennyiben eredetileg felvitelről volt szó
+  akkor törli az eddig felvitt dolgokat.
+  Az "Tárolás" gomb tárolja a projektet (lehet hogy insert lehet 
+  hogy update - ha alrekord ADD  miatt már tárolva volt)
+  (minden rekordhoz, alrekordhoz van rejtett id mező is, ebből állapitható meg,
+  hogy volt-e korábban tárolva vagy nem)
+    
+  +----------------------------------------------------------------------------+
+  |                           Müveletek                                        |
+  |                                                                            |
+  |  Témakör:  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                           |
+  |  Projekt:  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                           |
+  |                                                                            |
+  |  sorszám  megnevezés                             határidő   állapot        |
+  |  ###  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxx-xx-xx xxxxxxx [D][E] |
+  |  ###  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxx-xx-xx xxxxxxx [D][E] |
+  |                                                                            | 
+  |  Új müvelet                                                                |
+  |  Sorszám: ##### Tipus: [xxxxxxxxx[v]  mennyiség:[xxxxxxxx] m.e:[xxxxxxxx[v]|
+  |  Megnevezes: [_______________________________________________________]     |
+  |  Leírás:     [_______________________________________________________]     |
+  |              [_______________________________________________________]     |
+  |              [_______________________________________________________]     |
+  |  Érték: [__________] [xxxxx[v] Start: xxxxx-xx-xx  Elkészült:xxxx-xx-xx    |
+  |  Határidő:[xxxx-xx-xx] Prioritás:[xxxxxxxxxx[v] Állapot:[xxxxxxxxxx[v]     |
+  |                                                                            |
+  |  Szükséges képességek                                                      |           |  
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      [______________________________[v] [ADD]                              |
+  |                                                                            |
+  |  Felelősök                                                                 |  
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [DEL]                                |
+  |      [______________________________[v] [ADD]                              |
+  |                                                                            |
+  |  Függőségek                                                                |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Müvelet elkészült [DEL]                 |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Müvelet elkészült [DEL]                 |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Projekt elkészült [DEL]                 |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Külső feltétel [DEL]                    |
+  |      xxxxxxxxxxxxxxxxxxxxxxxxxxxx  Müvelet nincs folyamatban [DEL]         |
+  |      [Müvelet elkészült[v] [__________________________[v] [ADD]            |  
+  |  Létrehozó: xxxxxxxxxxxxxxxxxxxxxxxxxx Létrehozva: xxxx-xx-xx              |
+  |                                                                            |
+  |                   [Új müvelet tárolása] [Mégsem]                           |
+  |                                                                            |   
+  +----------------------------------------------------------------------------+
+  Megjegyzés: az új Függőség képernyőn van egy projekt választó kombó, 
+  egy müvelet választó kombo és egy külső erőforrás input mező, ezek közül
+  a választott függőség tipus szerint minig az egyik látszik.
+  A felelős, képességek, függőség add gombok letárolják az adatot és visszatérnek
+  erre a képernyőre. A mégsem gomb amennyiben eredetileg felvitelről volt szó
+  akkor törli az eddig felvitt dolgokat.
+  Az "Új müvelet tárolása" gomb tárolja a müveletet (lehet hogy insert lehet 
+  hogy update - ha alrekord ADD  miatt már tárolva volt)
+  (minden rekordhoz, alrekordhoz van rejtett id mező is, ebből állapitható meg,
+  hogy volt-e korábban tárolva vagy nem)
+    
+    
+projekt módosítása
+-------------------
+  Form : megnevezés, leírás, jelleg .....
+       a menedzserek és a közremüködök résznél lehet törölni, új vihető fel popup ablakban userValasztas
+       a függőségeknél lehet törölni, új vihető fel popup ablakban függőség felvitel
+       a müveleteknél lehet törölni, modositani, új vihető fel (NEM popup ablakban!) 
+       (lásd fentebb)
+       
+  Interakciok
+    - OK
+    - Mégsem --> Projektek listája
+    
+
+Új projekt template alapján
+---------------------------
+  1. popup -ban Templéte választás
+     template alapján új projekt generálása, értelemszerü hivatkozás id -kátszámolásával,
+     előkészületben állapottal, felvivó beírása menedzsernek --> Projekt müveletek listája.
+     
+Projekt müveletek listája
+-------------------------
+  Lista a projekt müveleteiről, projekt adatok az is látszik, hogy az aktuális
+  user menedzser vagy nem. 
+  Oszlopok: id.megnevezés, állapot, határidő, prioritás, user_felelos?
+  Ikonokkal kiemelve a "sürgős" és "priritások" müveletek
+  Interakciók
+    - Új Müvelet létrehozása
+    - Szürés start  (név,leírás, csak az aktivak, csak amiben érintett vagyok)
+    - Szürés stop
+    - Reorder
+    - Projekt adatok módosítása
+    - Projekt menedzserkClik --> adatlap (levél küldési lehetőséggel) 
+    - Projekt függőségek popup ablakba lekérdezhetőek, azon egyesek modosithatóak is
+    - vissza a projektek listájához
+    - anyagszükséglet összesítés
+    - munkaidő szükséglet összesítés
+    - érték kalkuláció
+    - ItemClick: Müvelet adatlap
+        
+Müvelet adatlap
+---------------
+  projekt fő adatok, látszik, hogy a user menedzser-e?
+  
+  projekt menedzserek, müvelet felelősök számára form, másoknak csak show a müvelet adatairól
+  felelősök törölhetőek,
+  új felelősok popup ablakban lévő user választóval vehetők fel,
+  függőségek törölhetőek,
+  új függőségek popup ablakban vihetőek fel.
+  A sorrend 'mi elé ill. végére' comboboxal vihető fel
+  Interakciók:
+     - projekt módosítása
+     - OK
+     - Mégsem --> projekt müveletek listája
+     - Vissza a projekek listájához
+     - felelősök törlése, új felelős felvitele poup ablakban
+     - függőségek törlése, új függőség felvitele popup ablakban
+     
+     A müvelet tárolása után ha a müvelet "elkészült" akkor átértékelődik a 
+     függőségben érintett müveletek, projektek állapota "varakozik" -ból "indithatóra"
+     Hasonlóan ha az "Elkészült" státusz visszavonásra kerül akkor a függőséggel érintett
+     "inditható" állapotok vissza mennek "várakozik"-ra az esetleges
+     "folyamatban" és "elkészült" státuszokról hibajelentés készül.
+     Ha a projekt összes müvelete "elkészült" akkor a projekt maga is "elkészült", ellenkező
+     esetben a projekt nem lehet "elkészült" (ha mégis az volt visszaáll "folyamatban"-ra)
+     
+     A projekt modositás tárolása után a müveletek sürgössége és prioritása
+     is átértékelésre kerül (részben örökli a projekt jellemzőit). Itt is történhet 
+     a függőségben érintett müveletek, projektek állapot modosítása iletve hibaüzenet generálása.
+     
+     Ha a projekt "felfügestésre" kerül akkor a "várakozik" és "inditható" müveletek átiródnak
+     "felfügesztve" állapotra, a többi változatlan marad.
+     
+     Ha a projekt "felfüggesztce" állapotból "folyamatban"-ra változik akoor a müveletei közül
+     a "felfüggesztve" állapotuak "várakozik" vagy "inditható" állapotba kerülnek.
+          

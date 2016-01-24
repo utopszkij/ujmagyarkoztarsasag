@@ -1,0 +1,176 @@
+Objekt orientált termelési rendszer koncepció
+=============================================
+
+A közösségnek közös anyag készlete (kód. mennyiség,zárolt) 
+és termelő eszközei (kód, kapacitás, zárolt) van
+  /a zárolt az a menyiség, kapacitás ami a már elinditott müveletkehez szükséges/
+A résztvevő személyeknek külön-külön van szaktudásuk és kapacitásuk 
+  (szaktudás kód, kapacitás, zárolt).
+  
+Ezek az adatok interaktivan az adminok által kezelhetőek  
+Ezen kivül van néhány szótár szerü tábla (anyagkodok, kapacitás kodok, szakma kodok)  
+
+Projektek definiálhatóak, a projektek müveletekből állnak.
+
+A projektek és müveletek inditásának feltételei adhatóak meg, a progrmtól
+lekérhetőek az éppen inditható projektek, müveletek. Az egyes projekteknél,
+müveleteknél lekérhetőek az inditási akadályok.
+
+Müvelet inditásnál a program zárolja a müvelet elvégzéséhez szükséges anyag 
+mennyiségeket, termelő kapacitásokat és emberi kapacitásokat. Ez utobbiaskat 
+egyenletesen osztja szét a müvelet felelősök között.
+
+Müvelet lezárásnál a program felhozza a projekt most inditható müveleteit, 
+mód van azok közül indítani egyet vagy többet. A müvelet zárás megvizsgálja a 
+projekt készültségét és adott esetben azt is lezárja.
+
+Globals:
+--------
+$projekts            array of Projekt
+$aktProjekt          Projekt
+$anyagok             Anyagok
+$kapacitasok         Kapacitasok 
+$users               array of User
+ 
+ 
+Models
+-----
+Project
+  item:
+    id                                                                 11 
+    kod                                                                10
+    temakor                                                            10
+    megnevezes                                                        100
+    leiras                                                           1000
+    mennyiseg                                                          10
+    mee                                                                10
+    kezdes                                                             10
+    hatarido                                                           10
+    feltetel                                                         1000
+  getItem(id)
+  getItems()
+  save(item)
+  delete(id)
+  check(item)
+  bind(item)
+  canDelete(item)
+  getFelelosok() --> Felelosok
+  getResztvevok() --> Resztvevok
+  getMuveletek --> Muveletek
+  getEsemenyek() -->Esemenyek
+  indithato() --> I / akadály lista
+      a projekt inditó feltételeket kiértékeli
+      result IGEN vagy hibalista  
+  folyamatban() --> I/N
+  kesz() --> I/N
+  inditas() 
+  lezaras()
+  indithatoMuveletek() --> Muveletek
+  selejtezes(mennyiseg,info)
+  felfuggesztes(info)
+  anyagSzukseglet() --> Anyagok       
+  kapacitasIgeny()  --> Kapacitások   
+  szaktudasIgeny()  --> Szaktudasok
+  határidőzés()     
+  
+Felelosok
+  item:
+    id
+    projekt_id
+    muvelet_id
+    user_id
+  getItem(id)
+  getItems()
+  save(item)
+  delete(id)
+  check(item)
+  bind(item)
+  canDelete(item)
+    
+Resztvevok
+  item:
+    id
+    projekt_id
+    user_id
+  getItem(id)
+  getItems()
+  save(item)
+  delete(id)
+  check(item)
+  bind(item)
+  canDelete(item)
+ 
+Anyagok
+  item:
+    id
+    kod
+    projekt_id
+    muvelet_id
+    megnevezes
+    leiras
+    mee
+    mennyiseg
+    zarolt
+    igeny
+  getItem(id)
+  getItems()
+  save(item)
+  delete(id)
+  check(item)
+  bind(item)
+  canDelete(item)
+  beszerzes(kod,mennyiseg,datum,info)
+  getKeszlet()
+  getEsemenyek()
+    
+Kapacitasok
+  item:
+    id
+    kod
+    projekt_id
+    muvelet_id
+    megnevezes
+    leiras
+    kapacitas array of integer key: dátumok
+    zarolt    array of integer key: dátumok
+    igeny     array of integer key: dátumok
+  getItem(id)
+  getItems()
+  save(item)
+  delete(id)
+  check(item)
+  bind(item)
+  canDelete(item)
+  delIdoszak(datumtol,datumig)
+  getKapacitas(kod,datumtol,datumig)
+  getEsemenyek()
+
+Szaktudasok
+  item:
+    id
+    kod
+    projekt_id
+    muvelet_id
+    user_id
+    megnevezes
+    leiras
+  getItem(id)
+  getItems()
+  save(item)
+  delete(id)
+  check(item)
+  bind(item)
+  canDelete(item)
+  getMegfeleles(szakmakod)
+  getEsemenyek()
+
+Esemenyek 
+   id
+   idopont
+   projekt_id
+   muvelet_id
+   user_id
+   esemenyTipus
+   mennyiseg
+   info
+   felvivoUser_id

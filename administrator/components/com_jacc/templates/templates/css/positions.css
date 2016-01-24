@@ -1,0 +1,76 @@
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+#pageouter, #footer, #top {
+	margin: 0px auto 0 auto;
+	padding: 0 0 0 0px;
+}
+
+#footerwrap {
+	padding: 0;
+}
+
+#pathway {
+	margin: 0px 15px 0px 15px;
+	padding: 0 0 0 0;
+}
+
+#topmenu {
+	margin: 0 0 0 0;
+	padding: 0;
+}
+
+#headerwrap {
+	margin: 0px 0 0 0;
+	padding: 0;
+}
+
+#header {
+	padding: 0;
+	height: 118px;	
+}
+
+#logo {
+	margin: 0 0 0 0;
+	padding: 17px 0 0 0;
+}
+
+
+#wrap {
+	text-align: left;
+	margin: 0 0px;
+	padding: 5px 0px 15px 0px;
+}
+
+#main {
+	margin: 0;
+	padding: 15px 0 0 0;
+}
+
+#content-outer {
+	float: left;
+	display: inline;
+	padding: 0;
+	margin: 0px 0px 0 0px;
+}
+
+#content {
+	padding: 0 0px 10px 0px;
+}
+
+#footer {
+	padding: 7px 0 7px 0;
+	
+}
+
+#bottom {
+	height:12px;
+}
+
+.clr {
+	clear:both;
+}

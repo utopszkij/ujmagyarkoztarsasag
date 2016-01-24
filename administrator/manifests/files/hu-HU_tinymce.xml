@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="file" version="3.1" method="upgrade">
+   <name>TinyMCE hu-HU</name>
+   <version>3.5.6</version>
+   <creationDate>2013-04-28</creationDate>
+   <author>Joomla! User Association Hungary</author>
+   <authorEmail>info@joomla.org.hu</authorEmail>
+   <authorUrl>http://www.joomla.org.hu</authorUrl>
+   <copyright>Copyright (C) 2007-2013 Joomla! User Association Hungary. All rights reserved.</copyright>
+   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+   <description><![CDATA[
+      <h2>TinyMCE 3.5.6 for Joomla 3.1 Hungarian language in formal style successfully installed.</h2>
+      <h2>A TinyMCE 3.5.6 for Joomla 3.1 magázó stílusú magyar nyelvi csomagjának telepítése sikerült.</h2>
+      Ha az angolon és a magyaron kívül más nyelveket is használ, akkor győződjön meg róla, telepítette-e a többi TinyMCE nyelvi csomagot az "Automatikus nyelvválasztás" beállítás következő lépéseken keresztüli engedélyezésével:<br/>
+      <ol>
+      <li>Bővítmények</li>
+      <li>Beépülőmodul-kezelő</li>
+      <li><a href="index.php?option=com_plugins&amp;view=plugins&amp;filter_search=TinyMCE">Szerkesztő - TinyMCE</a></li>
+      <li>Alapbeállítások</li>
+      <li>Működési mód :: Bővített (elhagyható -- ha a TinyMCE összes funkcióját akarja használni)</li>
+      <li>Automatikus nyelvválasztás :: Igen</li>
+      </ol>
+      ]]>
+   </description>
+   <!-- Fileset definition -->
+   <fileset>
+      <files target="media/editors">
+         <filename>tinymce/jscripts/tiny_mce/langs/hu.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/advhr/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/advimage/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/advlink/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/autosave/langs/hu.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/emotions/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/fullpage/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/media/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/paste/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/searchreplace/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/style/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/table/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/template/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/plugins/xhtmlxtras/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/themes/advanced/langs/hu.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/themes/advanced/langs/hu_dlg.js</filename>
+         <filename>tinymce/jscripts/tiny_mce/themes/simple/langs/hu.js</filename>
+      </files>
+   </fileset>
+</extension>

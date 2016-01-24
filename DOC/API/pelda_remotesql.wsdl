@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="RemoteSql"
+  targetNamespace="urn:RemoteSql"
+  xmlns:tns="urn:RemoteSql"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+
+    <!-- Típusok definíciója -->
+    <types>
+        <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Remote">
+            <xsd:element name="getName" type="xsd:string" />
+            <xsd:element name="getPassword" type="xsd:string" />
+               <!-- psw: md5 hash -->
+            <xsd:element name="getSql" type="xsd:string" />
+              <!-- sql: encrypted by MYSQL AES_128 -->
+            <xsd:element name="getAction" type="xsd:string" />
+            <xsd:element name="RemoteResponse" type="xsd:string" />
+              <!-- 
+               respose: JSON_string {"status":0, "msg":"", "records":""}
+               records: string CSV data table
+               - field terminated by coma
+               - record terminated by \n
+               - field escaped: none
+               - first row is fieldNames
+               - all fieldName and value encrypted by MYSQL AES_128 
+              -->
+        </xsd:schema>
+    </types>
+
+    <!-- Üzenetek definíciója -->
+    <message name="doRemote">
+        <!-- doRemote üzenet -->
+        <part name="yourName" type="tns:getName" />
+        <part name="yourPassword" type="tns:getPassword" />
+        <part name="yourAction" type="tns:getAction" />
+        <part name="yourSql" type="tns:getSql" />
+    </message>
+    <message name="doRemoteResponse">
+        <!-- válaszüzenet a doRemote üzenetre  -->
+        <part name="result" type="tns:RemoteResponse" />
+    </message>
+
+    <!-- Támogatott műveletek -->
+    <portType name="RemotePort">
+        <!-- doRemote művelet -->
+        <operation name="doRemote">
+            <input message="tns:doRemote" />
+            <output message="tns:doRemoteResponse" />
+        </operation>
+    </portType>
+
+    <!-- Protokoll kötések -->
+    <binding name="RemoteBinding" type="tns:RemotePort">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="doRemote">
+            <soap:operation soapAction="urn:RemoteAction" />
+            <input>
+                <soap:body use="encoded" namespace="urn:Remote" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:Remote" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+
+    <!-- Szolgáltatás elérhetősége -->
+    <service name="RemoteService">
+        <port name="RemotePort" binding="tns:RemoteBinding">
+            <soap:address location="http://robitc/systemmedia/remotesql/remotesql.php" />
+        </port>
+    </service>
+
+</definitions>

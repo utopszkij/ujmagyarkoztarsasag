@@ -1,0 +1,40 @@
+.icon-48-tracktime, .icon-48-liveupdate{background: url("../images/tracktime-48.png") no-repeat scroll 0 0 transparent !important}
+.icon-32-exportPdf{background-image:url("../images/acrobat_32.png")}
+.icon-32-exportCsv{background-image:url("../images/spreadsheet_32.png")}
+.icon-32-startTracker{background-image:url("../images/chronometer_32.png")}
+.icon-32-report{background-image:url("../images/report_32.png")}
+
+#tracktime .calendar{vertical-align:bottom;margin-left:3px}
+#tracktime .hidden{display:none}
+#tracktime fieldset.border{border:1px solid #CCC}
+/*#tracktime fieldset input, #tracktime fieldset textarea, #tracktime fieldset select,
+#tracktime fieldset img, #tracktime fieldset button{margin:5px 5px 5px 0}*/
+#tracktime .waitingBG{background: url("../images/circleLoader2_16.gif") no-repeat scroll 50% 0 transparent}
+
+table.adminlist img{float:none;margin:0}
+
+#tracktime label.main {
+    background: none repeat scroll 0 0 #E0E0E0;
+    border-bottom: 1px solid gray;
+    display: inline-block;
+    margin:5px;
+    padding: 2px;
+    width: 45%;
+    max-width:200px;
+}
+
+#tracktime label.radiobtn{clear:none;min-width:auto}
+#tracktime label.inline{max-width:150px;clear:none}
+#tracktime label.required{font-weight: bold;font-size:12px}
+#tracktime label.filterLabel{cursor:pointer;display:block;width:100%}
+.akeeba-bootstrap thead select{width:auto}
+#tracktime thead th{text-align: center}
+
+span.hour_ratio_green{color:#00AB00}
+span.hour_ratio_red{color:#E10000}
+
+#proFeatures{margin:10px 0 0 30px}
+#proFeatures li{list-style:disc;padding:0}
+
+#ui-datepicker-div{cursor:move}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {cursor: auto;}

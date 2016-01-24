@@ -1,0 +1,98 @@
+/**
+ *------------------------------------------------------------------------------
+ *	CSS Common - iCagenda v3 by Jooml!C
+ *------------------------------------------------------------------------------
+ * @package     com_icagenda
+ * @copyright   Copyright (c)2012-2015 Cyril Rezé, Jooml!C - All rights reserved
+ *
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ * @author      Cyril Rezé (Lyr!C)
+ * @link        http://www.joomlic.com
+ *
+ * @version     3.5.4 2015-04-02
+ * @since       3.5.0
+ *------------------------------------------------------------------------------
+*/
+
+/* -- IC TEXT CHARACTERS COUNTER -------------------- */
+.ic-counter-container {
+	display: block;
+	text-align: right;
+	vertical-align: bottom !important;
+	color: #777;
+	font-size: 0.9em;
+}
+.ic-counter {
+	display: inline-block;
+}
+.ic-counter input {
+	width: auto !important;
+	float: none !important; /* admin j2.5 */
+	vertical-align: bottom !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	text-align: right !important;
+	background: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	font-size: 1em;
+}
+.ic-counter-limit {
+	font-weight: bold;
+	color: red;
+}
+
+/* -- GOOGLE MAPS ----------------------------------- */
+.map-wrapper {
+	float:left;
+	width: 92%;
+	margin: 0 10px 0 10px;
+}
+#map {
+	border: 1px solid #DDD;
+	width: 100%;
+	height: 300px;
+	margin: 10px 0 10px 0;
+	-webkit-box-shadow: #AAA 0px 0px 15px;
+}
+/* Fixed Known conflict Bootstrap/Google Maps */
+#map img {
+	max-width: none;
+}
+#legend {
+	font-size: 12px;
+	font-style: italic;
+}
+.icmap-box {
+	margin-top: 30px;
+}
+/* For img in the map remove borders, shadow, no margin and no max-width */
+.map img, .svPanel img {
+    border: 0px;
+    box-shadow: none;
+    margin: 0px !important;
+    padding: 0px !important;
+    max-width: none !important;
+    background: none !important;
+}
+/* Fixed Known conflict Bootstrap/Google Maps (joomla 3.2) */
+.icagenda_map img {
+	max-width: none;
+}
+/* Make sure the directions are below the map */
+.directions {
+    clear: left;
+}
+.adp-directions {
+    width: 100%;
+}
+/* Solve problems in chrome with the show of the direction steps in full width */
+.adp-placemark {
+    width : 100%;
+}
+/* Padding for image overlay */
+.controlDiv {
+    padding : 5px;
+}
+.google-map-canvas,
+.google-map-canvas * { .box-sizing(content-box); }

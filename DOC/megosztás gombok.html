@@ -1,0 +1,32 @@
+g+
+==
+
+<!-- Helyezd el ezt a címkét a head szakaszban vagy közvetlenül a záró body címke elé. -->
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'hu'}
+</script>
+
+<!-- Helyezd el ezt a címkét ott, ahol a(z) +1 gomb modult meg szeretnéd jeleníteni. -->
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+
+facebook
+========
+
+<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width=200&amp;layout=standard&amp;action=recommend&amp;show_faces=true&amp;share=true&amp;height=80&amp;appId=366904500111535" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:80px;" allowTransparency="true"></iframe>
+
+
+twitter
+=======
+
+Hogyan illeszthet weboldalába Twitter megosztó linket, gombot?
+
+A Twitter képes a webcímben fogadni üzenetet. Ez úgy történik, hogy ön elhelyez a weboldal egy linket így: twitter.com/home?status= és amit az egyenlőség jel után ír az az oldal megnyitásakor már a szövegdobozban lesz. WordPress oldalak esetében például így érdemes beilleszteni a linket:
+
+<a href="http://twitter.com/home?status=<?php the_title(); ?>: < ?php the_permalink() ?>” – < ?php the_permalink() ?>‘)” target=”_blank”></a>
+
+Itt is látható, hogy így amikor a látogató rákattint a linkre akkor megnyílik neki a Twitter és automatikusan ki lesz töltve a szöveg mező az ön oldalának címével és linkjével. S ez teljesen automatikus, amelyik bejegyzésnél tart a látogató mindig annak a leírása és címe lesz benne. Ennek az oldalnak az alján is láthat ilyen linket, próbálja ki, ossza meg másokkal.
+
+
+
+

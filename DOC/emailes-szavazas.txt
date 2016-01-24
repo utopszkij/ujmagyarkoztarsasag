@@ -1,0 +1,158 @@
+Koncepció
+=========
+
+com_emailesszavazas
+
+Létrehozhatók "emailses szavazás" -ok. Ezek tárolás szempontjából normál 
+titkos szavazások . Az alternativalist képernyőjén van egy új gomb
+"meghiv e-mailes szavazásra"
+
+taskok: 'szavazat'|'tovabbit'|'form'
+
+Jrequest szavazas  szavazásID
+         alternativa  csak 'szavazat' eseten'
+         data= kodolt adat
+                 task='szavazat' esetén:
+                       szavazóEmail
+                 task='tovabbit' esetén
+                       küldő email
+                 task='form' esetén
+                       küldő email      
+                      
+                 kodolás:
+                   define("ENCRYPTION_KEY", "!@#$%^&*");
+                   $string = "This is the original data string!";
+                   $decrypted = urlencode(encrypt($origstrig,ENCRYPTION_KEY));
+                 dekodolás
+                   $origstr = decrypt(urldecode($encrypted), ENCRYPTION_KEY);
+
+                      
+                      
+         emails (csak 'tovabbit' esetén)
+         szoveg (csak 'tovabbit' esetén) 
+   
+müködés
+'szavazat'
+      A data adat alapján beolvassa a szavazas és a hozzá tartozó 
+      alternativak adatait. Ellenörzi az "#__emailszavazat" tábla lapján,
+      email szerint, hogy nem szavazott-e már, és kapott-e szavazó email-t?
+      
+      #__emailszavazat
+         id
+         szavazas_id
+         email
+         szavazott 1 vagy 0
+      
+      
+      Ha szavazott akkor megjeleniti a továbbitó formot figyelmeztető üzenettel.
+      Ha nincs meg a #__emailszavazat táblában akkor illegális aktiválás.
+       
+      Ha még nem szavazott akkor tárol egy új szavazatot a data -ban megadott 
+      alternativa az 1-es, az összes többi 2-es.
+      Ha az email alapján talált joomla usert akkor tárolja hogy ez a user már szavazott,
+      A #__emailszavazat -ban jelzi, hogy már szavazott.
+      
+      Megjeleniti a továbbitó formot szavazást megköszönö üzenettel
+      
+'form'
+      A data adat alpján beolvassa a szavazás és a hozzá tartozó alternativák
+      adatait.
+      Megpróbálja choki -ból kiolvasni a korábban tárolt emails adatokat. 
+      Megpróbálja choki -ból kiolvasni a korábban tárolt szoveg adatokat. 
+      Megjeleniti a továbbitó formot (lehet hogy üzenetet is kell 
+      megjeleniteni) az esetleg chokibol olvasott emails felhasználásával
+    
+'tovabbit'
+      A data adat alpján beolvassa a szavazás és a hozzá tartozó alternativák
+      adatait.
+      A Jrequest ben érkezett emails adatokat letárolja chokiba.
+      A Jrequest ben érkezett szoveg adatot letárolja chokiba.
+      Ellenörzi hogy az emails ben szereplők szavaztak-e már, 
+      kaptak-e már emailt?
+      Aki még nem azokhoz generál #__emailszavazok rekordot (szavazott=0) 
+      és elküld egy szavazó levelet.
+      Megjeleniti a továbbitó formot tájékoztató üzenettel.
+
+FONTOS
+      Az ilyen szavazásnál az eredmény lekérdezés login nélkül is müködjön      
+
+Levél forma:
+--------------------------------------------------------------------------------
+
+SZAVAZÁS CÍME
+e-mailes szavazás
+
+Érdekel a váleményed. Kérlek szavazz a 
+http://li-de.tk internetes e-demokrácia rendszerben indított szavazáson.
+Ezen a szavazáson regisztráció nélkül vehetsz részt, egyszerüen kattints a neked
+legjobban tetsző alternativára!
+
+szavazás leírása blabla blabla blabla blabla blabla blabla blabla blabla blabla
+blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla
+blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla
+blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla
+
+
+- első alternatíva(link)
+- második alternatíva(link)
+- harmadik alternatíva(link))
+--------------------------------------------------------------------------------
+                    
+A meghívó személy által megadott kiegészítő szöveg                    
+                      
+A szavazásra xxxxxxxxxx@yyyyyyyy.xx e-mail cimről hívtak meg.
+
+Hivd meg ismerőseidet is erre a szavazásra!
+Egy sorba egy e-mail cinet irjál, max 20 címet adhatsz meg:
++----------------------------------------------------------+
+|                                                          |
+|                                                          |
+|                                                          |
++----------------------------------------------------------+
+Kiegészitő szöveg a meghívó levél aljára
+(ha szükségesnek tartod itt add meg a nevedet)
++----------------------------------------------------------+
+|                                                          |
+|                                                          |
+|                                                          |
++----------------------------------------------------------+
+A meghívottak tájékoztatást kapnak arról, hogy a xxxxxxxxxx@yyyyyyyyyy email 
+címről történt a meghívás.
+
+                 [meghivások elküldése]
+
+További meghívó levelek elküldéséhez kattints ide(link)!
+
+--------------------------------------------------------------------------------
+
+
+meghivó levél küldés képernyő terv:
+--------------------------------------------------------------------------------
+email meghívó küldése a
+SZAVAZÁS CÍME
+szavazásra.
+Ird ide az e-mail cimeket, egy sorba egy címet írjál, max 20 címet adhatsz meg:
++---------------------------------------------------------+
+|                                                         |
+|                                                         |
+|                                                         |
++---------------------------------------------------------+
+
+kiegészítő szöveg a levél végére
+(ha szükségesnek tartod itt add meg a te neved):
++----------------------------------------------------------+
+|                                                          |
+|                                                          |
+|                                                          |
++----------------------------------------------------------+
+A meghívottak tájékoztatást kapnak arról, hogy a xxxxxxxxxx@yyyyyyyyyy email 
+címről történt a meghívás.
+
+                   [RENDBEN]  [MÉGSEM]
+
+--------------------------------------------------------------------------------
+
+
+
+
+                                          

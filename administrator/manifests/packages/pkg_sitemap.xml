@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="package" version="2.5">
+
+	<name>Qlue Sitemap Package</name>
+	<author>Jon Boutell</author>
+	<creationDate>October 2012</creationDate>
+	<packagename>sitemap</packagename>
+	<version>1.0</version>
+	<url>http://www.qlue.co.uk</url>
+	<packager>Jon Boutell</packager>
+	<packagerurl>http://www.qlue.co.uk</packagerurl>
+	<description>Package installer for the Qlue Sitemap component and the necessary plugins</description>
+
+	<files folder="packages">
+		<file type="component" id="com_sitemap">com_sitemap.zip</file>
+		<file type="plugin" id="categories" group="qmap">plg_qmap_categories.zip</file>
+		<file type="plugin" id="content" group="qmap">plg_qmap_content.zip</file>
+		<file type="plugin" id="menu" group="qmap">plg_qmap_menu.zip</file>
+	</files>
+	
+</extension>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+
+        <field
+            name="id"
+            type="text"
+            default="0"
+            required="true"
+      label="ORGANIZATION_ID"
+            readonly="true"/>                            
+                                                            
+        <field
+            id="title"
+            name="title"
+            type="text"
+            required="true"
+            label="ORGANIZATION_TITLE"
+            description=""
+            class="inputbox"
+            size="40"/>                        
+                                
+                        
+        <field
+            name="ordering"
+            type="text"
+            requied="true"
+      label="ORGANIZATION_ORDERING"
+      description="ORGANIZATIONS_ORDERING_DESC"
+      classd="inputbox"
+      size="3" />                          
+                                                            
+        <field
+            id="parent"
+            name="parent"
+            type="sql"
+      query="select id , title from #__organizations union select '',' nincs szülő' order by 2"
+      key_field="id"
+      value_field="title"
+            required="false"
+            label="ORGANIZATION_PARENT"
+            description="ORGANIZATIONS_PARENT_DESC"
+            class="inputbox"
+            size="1"/>                        
+                                
+                                                        
+        <field
+            id="publish"
+            name="publish"
+            type="checkbox"
+            required="false"
+            label="ORGANIZATION_PUBLISH"
+            description="ORGANIZATIONS_PUBLISH_DESC"
+            class="inputbox"
+            size="40"/>                        
+                                
+                                                        
+        <field
+            id="type"
+            name="type"
+            type="list"
+            required="true"
+            label="ORGANIZATIONS_TYPE"
+            description=""
+            class="inputbox"
+            size="1">
+      <option value="party">ORGANIZATIONS_PARTY</option>
+      <option value="association">PRGANIZATIONS_ASSOCIATION</option>
+      <option value="club">ORGANIZATIONS_CLUB</option>
+      <option value="informal">ORGANIZATION_INFORMAL</option>
+      <option value="economic">ORGANIZATION_ECONOMIC</option>
+      <option value="other">ORGANOZATION_OTHER</option>
+    </field>                        
+                                
+        <field
+            id="loginmode"
+            name="loginmode"
+            type="list"
+            required="true"
+            label="ORGANIZATION_LOGINMODE"
+            description=""
+            class="inputbox"
+            size="1">
+      <option value="open">ORGANIZATION_LOGIN_OPEN</option>
+      <option value="invited">ORGANIZATION_LOGIN_INVITED</option>
+      <option value="closed">ORGANIZATION_LOGIN_CLOSED</option>
+    </field>                          
+                                
+        <field
+            id="logo"
+            name="logo"
+            type="filelist"
+      directory="images"
+      filter=""
+            required="false"
+            label="ORGANIZATION_LOGO"
+            description="logo_Desc"
+            class="inputbox"
+            size="1"/>                        
+                                
+                        
+        <field
+            id="intro"
+            name="intro"
+            type="editor"
+            label="ORGANIZATION_INTRO"
+            description="ORGANIZATIONS_INTRO_DESC"
+            required="true"
+            class="inputbox"
+      filter="safehtml"
+            buttons="false" />
+                            
+        <field
+            id="fulltext"
+            name="fulltext"
+            type="editor"
+            label="ORGANIZATION_FULLTEXT"
+            description=""
+            required="true"
+            class="inputbox"
+      filter="safehtml"
+            buttons="false"/>
+                                                            
+        <field
+            id="status"
+            name="status"
+            type="list"
+            required="true"
+            label="ORGANIZATION_STATUS"
+            description=""
+            class="inputbox"
+            size="1">
+      <option value="contructing">ORGANIZATION_CONTRUCTING</option>
+      <option value="active">ORGANIZATION_ACTIVE</option>
+      <option value="paused">ORGANIZATION_PAUSED</option>
+      <option value="finished">ORGANIZATION_FINISHED</option>
+    </field>                          
+                                                        
+        <field
+            id="opened"
+            name="opened"
+            type="calendar"
+            required="false"
+            label="ORGANIZATION_OPENED"
+            description=""
+            class="inputbox"
+            size="40"/>                        
+                                
+                                                        
+        <field
+            id="closed"
+            name="closed"
+            type="calendar"
+            required="false"
+            label="ORGANIZATION_CLOSED"
+            description=""
+            class="inputbox"
+            size="40"/>                        
+                                
+    </fields>    
+        
+    <fields name="params">
+        <fieldset
+            name="basic">        
+            <field
+                name="example_param"
+                type="list"
+                label="Params_Example_Label"
+                description="Params_Example_Desc">
+                <option
+                    value="0">No</option>
+                <option
+                    value="1">Yes</option>
+            </field>
+        </fieldset>
+    </fields>
+        
+</form>    

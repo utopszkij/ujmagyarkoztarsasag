@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset addfieldpath="/administrator/components/com_icagenda/models/fields">
+
+		<field
+			name="id"
+			type="text"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC"
+			size="10"
+			default="0"
+			readonly="true"
+		/>
+
+		<field
+			name="title"
+			type="text"
+			label="COM_ICAGENDA_FORM_FEATURE_TITLE_LABEL"
+			description="COM_ICAGENDA_FORM_FEATURE_TITLE_DESC"
+			size="30"
+			required="true"
+		/>
+
+		<field
+			name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC"
+		/>
+
+		<field
+			name="icon"
+			type="imagelist"
+			directory="images/icagenda/feature_icons/16_bit"
+			exclude="\.(?:html|htm)$"
+			hide_none="false"
+			hide_default="true"
+			label="COM_ICAGENDA_FORM_FEATURE_ICON_LABEL"
+			description="COM_ICAGENDA_FORM_FEATURE_ICON_DESC"
+			required="false"
+		/>
+
+		<field
+			name="new_icon"
+			type="media"
+			label="COM_ICAGENDA_FORM_FEATURE_NEW_ICON_LABEL"
+			description="COM_ICAGENDA_FORM_FEATURE_NEW_ICON_LABEL"
+			filter="safehtml"
+		/>
+
+		<field
+			name="icon_alt"
+			type="text"
+			label="COM_ICAGENDA_FORM_FEATURE_ICON_ALT_LABEL"
+			description="COM_ICAGENDA_FORM_FEATURE_ICON_ALT_DESC"
+			size="30"
+			required="false"
+		/>
+
+		<field
+			name="show_filter"
+			type="radio"
+			class="btn-group"
+			default="1"
+			label="COM_ICAGENDA_FORM_FEATURE_SHOW_FILTER_LABEL"
+			description="COM_ICAGENDA_FORM_FEATURE_SHOW_FILTER_DESC">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="desc"
+			type="editor"
+			buttons="readmore,pagebreak"
+			class="inputbox"
+			filter="JComponentHelper::filterText"
+			label="COM_ICAGENDA_FORM_FEATURE_DESCRIPTION_LABEL"
+			description="COM_ICAGENDA_FORM_FEATURE_DESCRIPTION_DESC"
+		/>
+
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="span12 small"
+			filter="intval"
+			size="1"
+			default="1">
+				<option value="1">JPUBLISHED</option>
+				<option value="0">JUNPUBLISHED</option>
+		</field>
+
+		<field name="checked_out" type="hidden" filter="unset" />
+		<field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+</form>

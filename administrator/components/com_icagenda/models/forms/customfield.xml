@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset addfieldpath="/administrator/components/com_icagenda/models/fields">
+		<field
+			name="id"
+			type="text"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC"
+			size="10"
+			default="0"
+			readonly="true"
+			/>
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="span12 small"
+			filter="intval"
+			size="1"
+			default="1"
+			>
+				<option value="1">JPUBLISHED</option>
+				<option value="0">JUNPUBLISHED</option>
+		</field>
+		<field
+			name="title"
+			type="text"
+			label="COM_ICAGENDA_CUSTOMFIELD_TITLE_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_TITLE_DESC"
+			size="30"
+			required="true"
+			/>
+		<field
+			name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC"
+			/>
+		<field
+			name="slug"
+			type="text"
+			label="COM_ICAGENDA_CUSTOMFIELD_SLUG_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_SLUG_DESC"
+			/>
+		<field
+			name="description"
+			type="editor"
+			buttons="readmore,pagebreak"
+			class="inputbox"
+			filter="JComponentHelper::filterText"
+			label="COM_ICAGENDA_CUSTOMFIELD_DESCRIPTION_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_DESCRIPTION_DESC"
+			/>
+		<field
+			name="parent_form"
+			type="list"
+			filter="intval"
+			required="true"
+			label="COM_ICAGENDA_CUSTOMFIELD_PARENT_FORM_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_PARENT_FORM_DESC"
+			default=""
+			>
+				<option value="">COM_ICAGENDA_CUSTOMFIELD_PARENT_SELECT</option>
+				<option value="1">COM_ICAGENDA_CUSTOMFIELD_PARENT_REGISTRATION_FORM</option>
+				<option value="2">COM_ICAGENDA_CUSTOMFIELD_PARENT_EVENT_EDIT</option>
+		</field>
+		<field
+			name="type"
+			type="list"
+			required="true"
+			label="COM_ICAGENDA_CUSTOMFIELD_TYPE_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_TYPE_DESC"
+			default=""
+			>
+				<option value="">COM_ICAGENDA_CUSTOMFIELD_TYPE_SELECT</option>
+				<option value="text">COM_ICAGENDA_CUSTOMFIELD_TYPE_TEXT</option>
+				<option value="list">COM_ICAGENDA_CUSTOMFIELD_TYPE_LIST</option>
+				<option value="radio">COM_ICAGENDA_CUSTOMFIELD_TYPE_RADIO</option>
+		</field>
+		<field
+			name="options"
+			type="textarea"
+			label="COM_ICAGENDA_CUSTOMFIELD_OPTIONS_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_OPTIONS_DESC"
+			/>
+		<field
+			name="default"
+			type="text"
+			label="COM_ICAGENDA_CUSTOMFIELD_DEFAULT_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_DEFAULT_DESC"
+			/>
+		<field
+			name="required"
+			type="radio"
+			label="COM_ICAGENDA_CUSTOMFIELD_REQUIRED_LBL"
+			description="COM_ICAGENDA_CUSTOMFIELD_REQUIRED_DESC"
+			labelclass="control-label"
+			class="btn-group"
+			default="0"
+			>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+		<field
+			name="language"
+			type="contentlanguage"
+			label="JFIELD_LANGUAGE_LABEL"
+			description="COM_ICAGENDA_CUSTOMFIELD_LANGUAGE_DESC"
+			class="span12 small"
+			>
+				<option value="*">JALL</option>
+		</field>
+		<field
+			name="created"
+			type="calendar"
+			label="JGLOBAL_FIELD_CREATED_LABEL"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+			labelclass="control-label"
+			/>
+		<field
+			name="created_by"
+			type="user"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_DESC"
+			labelclass="control-label"
+			/>
+		<!-- created_by_alias to be removed ? Not really needed there... -->
+		<field
+			name="created_by_alias"
+			type="text"
+			label="JGLOBAL_FIELD_CREATED_BY_ALIAS_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox"
+			size="20"
+			labelclass="control-label"
+			/>
+		<field
+			name="modified"
+			type="calendar"
+			class="readonly"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL"
+			size="22"
+			readonly="true"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+			labelclass="control-label"
+			/>
+		<field
+			name="modified_by"
+			type="user"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+			description="JGLOBAL_FIELD_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+			labelclass="control-label"
+			/>
+		<field name="checked_out" type="hidden" filter="unset" />
+		<field name="checked_out_time" type="hidden" filter="unset" />
+	</fieldset>
+</form>

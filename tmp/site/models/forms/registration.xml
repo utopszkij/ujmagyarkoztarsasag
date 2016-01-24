@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset addfieldpath="/administrator/components/com_icagenda/models/fields" >
+		<field
+			name="captcha"
+			type="captcha"
+			label="COM_ICAGENDA_CAPTCHA_LABEL"
+			description="COM_ICAGENDA_CAPTCHA_DESC"
+			validate="captcha"
+			namespace="registration"
+		/>
+		<field
+			name="date"
+			type="calendar"
+			label="COM_ICAGENDA_CAPTCHA_LABEL"
+			description="COM_ICAGENDA_CAPTCHA_DESC"
+		/>
+	</fieldset>
+</form>

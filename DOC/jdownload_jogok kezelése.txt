@@ -1,0 +1,10 @@
+
+
+a jdownloads views/category/view.html.php
+                  /form/view.html.php
+  -ban a $user->asuthorize  és hasonló hívások helyett más kell
+  - category -ban az uploadurl-t is modositani kell, küldje el a catid -t is!
+  - a formon a kategory select -et is ki kell tölteni (ezzel nagy baj van mert GET -ben most nem kapja meg)
+
+könnyen lehet, hogy még valahol a douploadnál is bele kell nyulni a dologba.
+  

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+							
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="json"
+			name="json"
+			type="textarea"
+			required="false"
+			label="JSON"
+			description=""
+			class="inputbox"
+      rows="10"
+      cols="60" />
+								
+								
+	</fields>	
+		
+</form>	

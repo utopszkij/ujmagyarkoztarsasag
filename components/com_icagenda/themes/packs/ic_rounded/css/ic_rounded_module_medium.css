@@ -1,0 +1,6 @@
+/*
+ * MOD_ICCALENDAR
+ * Medium devices (usually a laptop computer)
+ * 'Medium Screen Threshold' < SCREEN WIDTH < ('Large Screen Threshold' - 1)
+ * Default : 769 < SCREEN WIDTH < 1200
+ */

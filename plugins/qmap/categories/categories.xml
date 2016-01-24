@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="qmap" method="upgrade">
+	<name>QMap - Categories</name>
+	<author>Jon B</author>
+	<creationDate>18/10/2012</creationDate>
+	<authorEmail>Hello@hello.com</authorEmail>
+	<authorUrl>http://google.com</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0</version>
+	<description>Description of this plugin</description>
+	<files>
+		<filename plugin="categories">categories.php</filename>
+	</files>
+</extension>

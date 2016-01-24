@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+   <params>
+   		<param name="author" type="text" default="xauthor" label="Author" description="Authors Name" />
+   		<param name="sauthor" type="text" default="xauthor" label="Author Short" description="Authors Short Name" />
+   		<param name="website" type="text" default="http://www.example.com" label="Authors URL" description="Authors Website" />
+   		<param name="email" type="text" default="info@example.com" label="Authors Email" description="Authors Email" />
+   		<param name="license" type="text" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" label="License" description="License" />
+   </params>
+   
+	<fieldset
+		name="Common"
+		label="Common"
+		description="Common">
+		<field name="author" type="text" default="xauthor" label="Author" description="Authors Name" />
+   		<field name="sauthor" type="text" default="xauthor" label="Author Short" description="Authors Short Name" />
+   		<field name="website" type="text" default="http://www.example.com" label="Authors URL" description="Authors Website" />
+   		<field name="email" type="text" default="info@example.com" label="Authors Email" description="Authors Email" />
+   		<field name="license" type="text" default="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL" label="License" description="License" />
+				
+	</fieldset>		   
+</config>

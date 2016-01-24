@@ -1,0 +1,22 @@
+if (!defined('_JEXEC')) {
+    define( '_JEXEC', 1 );
+    define('JPATH_BASE', realpath(dirname(__FILE__)));
+    require_once ( JPATH_BASE .'/includes/defines.php' );
+    require_once ( JPATH_BASE .'/includes/framework.php' );
+    defined('DS') or define('DS', DIRECTORY_SEPARATOR);
+}
+$app = JFactory::getApplication('site');
+
+$category_data['id'] = 0;
+$category_data['parent_id'] = 0;
+$category_data['title'] = 'My Category Title';
+$category_data['alias'] = 'my-categegory-title-alias';
+$category_data['extension'] = 'com_content';
+$category_data['published'] = 1;
+$category_data['language'] = '*';
+$category_data['params'] = array('category_layout' => '','image' => '');
+$category_data['metadata'] = array('author' => '','robots' => '');
+
+$category_id = createCategory($category_data);
+if(!$category_id){
+    echo "Category create failed!";

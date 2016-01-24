@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5.0" type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_IC_LIBRARY</name>
+	<author>Cyril Rezé / Jooml!C</author>
+	<creationDate>2014-11-09</creationDate>
+	<copyright>Copyright (c)2014-2015 Cyril Rezé, Jooml!C - All rights reserved</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorUrl>www.joomlic.com</authorUrl>
+	<description>PLG_SYSTEM_IC_LIBRARY_XML_DESCRIPTION</description>
+	<version>1.2</version>
+	<files>
+		<filename plugin="ic_library">ic_library.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_system_ic_library.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_system_ic_library.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.plg_system_ic_library.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.plg_system_ic_library.sys.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.plg_system_ic_library.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.plg_system_ic_library.sys.ini</language>
+	</languages>
+	<config>
+	</config>
+</extension>

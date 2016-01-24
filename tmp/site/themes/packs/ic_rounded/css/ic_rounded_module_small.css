@@ -1,0 +1,51 @@
+/*
+ * MOD_ICCALENDAR
+ * Small devices (usually a tablet computer)
+ * 'Small Screen Threshold' < SCREEN WIDTH < ('Medium Screen Threshold' - 1)
+ * Default : 481 < SCREEN WIDTH < 768
+ */
+
+.ic_rounded.iccalendar table td .icevent a:hover,
+.ic_rounded.iccalendar table td .icevent a:focus {
+	border-radius:3px;
+	background:#333;
+}
+.ic_rounded.iccalendar table td .icevent a:hover .bright,
+.ic_rounded.iccalendar table td .icevent a:focus .bright {
+	border-radius:3px;
+	color:#fff;
+	background:#333;
+}
+.ic_rounded.iccalendar table td .icmulti a:hover,
+.ic_rounded.iccalendar table td .icevent a:focus {
+	background:#333;
+}
+.ic_rounded.iccalendar table td .icmulti a:hover .bright,
+.ic_rounded.iccalendar table td .icevent a:focus .bright {
+	color:#fff;
+	background:#333;
+}
+
+/* Arrows Over */
+.ic_rounded .icnav .backic:hover,
+.ic_rounded .icnav .nextic:hover,
+.ic_rounded .icnav .backicY:hover,
+.ic_rounded .icnav .nexticY:hover {
+	color:#333333;
+	background:none;
+	cursor:pointer;
+}
+#ictip a.close:hover {
+	color:black;
+	background:none;
+	cursor:pointer;
+}
+#ictip div.linkTo:hover {
+	color:#000;
+	background:#ddd;
+	text-decoration:none;
+	border-radius:3px;
+}
+#ictip a:hover {
+	background:none;
+}

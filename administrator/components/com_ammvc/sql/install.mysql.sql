@@ -1,0 +1,50 @@
+CREATE TABLE IF NOT EXISTS `#__amcomponents` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) DEFAULT NULL,
+  `title` varchar(80) DEFAULT NULL,
+  `description` text,
+  `author` varchar(32) DEFAULT NULL,
+  `authoremail` varchar(60) DEFAULT NULL,
+  `licence` varchar(60) DEFAULT NULL,
+  `version` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `#__ammvc_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `asset_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `lft` int(11) NOT NULL DEFAULT '0',
+  `rgt` int(11) NOT NULL DEFAULT '0',
+  `level` int(10) unsigned NOT NULL DEFAULT '0',
+  `path` varchar(255) NOT NULL,
+  `extension` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `description` varchar(5120) NOT NULL,
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `checked_out` int(11) unsigned NOT NULL DEFAULT '0',
+  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `access` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `params` varchar(2048) NOT NULL,
+  `metadesc` varchar(1024) NOT NULL,
+  `metakey` varchar(1024) NOT NULL,
+  `metadata` varchar(2048) NOT NULL,
+  `created_user_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_user_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `modified_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `hits` int(10) unsigned NOT NULL DEFAULT '0',
+  `language` varchar(7) NOT NULL,
+  `section` int(11) NOT NULL,
+  `ordering` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cat_idx` (`extension`,`published`,`access`),
+  KEY `idx_access` (`access`),
+  KEY `idx_checkout` (`checked_out`),
+  KEY `idx_path` (`path`),
+  KEY `idx_left_right` (`lft`,`rgt`),
+  KEY `idx_alias` (`alias`)
+) TYPE=MyISAM;
+Replace INTO `#__ammvc_categories`  VALUES(1, 0, 0, 0, 5, 0, '', 'system', 'ROOT', 'root', '', 1, 0, '0000-00-00 00:00:00', 1, '{}', '', '', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, '', 0, 0);

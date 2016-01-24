@@ -1,0 +1,123 @@
+SOAP API
+
+funkciok:
+  addCategory       param xml <category>...</category>
+                    result categoryID
+  getCategory       param categoryID
+                    result xml <category>...</category>                   
+  addPoll           param: xml <poll> ..</poll>
+                    result pollID
+  addAlternatives   param pollId + xml <alternatives>...</alternatives>
+  addVotes          param pollid + xml <votes>...</votes>
+  getPoll           param pollId + optional userID
+                    result xml <poll> ..</poll>
+  getResult         param: pollId
+                    result xml <result>...</result>                    
+  addUser           param xml <users>....<users>
+                    result UserID
+  getUser           param (email vagy nick név)
+                    result xml <user>..</user>
+                                                            
+  poll XML forma
+  poll
+    [id]  // csak outputnál
+    title
+    description
+    category
+      [id]    // csak outoputnál
+      title
+      description
+      creator
+      createdTime
+      public
+    creator
+    createdTime
+    publicType
+    memberType
+    status
+    consultantTermin1
+    consultantTermin2
+    voteTermin
+    [alternatives
+      alternative
+        [id]   // csak outoputnál
+        title
+        description
+        created
+      alternative
+      ....
+     ] 
+   [votes
+     vote
+       [id] // csak outoputnál
+       userId
+       positions
+         position [posNo] value: alternativeNo 
+         position
+         ....
+     vote
+     ....
+    ]      
+   [result
+     resultPosition
+       accepted
+       shulzValue
+       alternativeTitle
+     resultPosition
+     .....
+   ]    
+       
+   users xml
+   users
+     user
+       [id]
+       nick
+       name
+       email  csak add-nál !!!!!!
+       [psw]  csak add-nál !!!!!!
+     user
+     ....
+         
+         
+         
+  poll SimpleXML forma
+  ======================
+  
+  poll->id
+      ->title
+      ->description
+      ->category
+        ->id
+        ->title
+        ->description
+        ->creator
+        ->createdTime
+        ->public
+      ->creator
+      ->createdTime
+      ->publicType
+      ->memberType
+      ->status
+      ->consultantTermin1
+      ->consultantTermin2
+      ->voteTermin
+      ->alternatives
+        ->alternative[i]   
+          ->id
+          ->title
+          ->description
+          ->created
+          
+      ->votes
+        ->vote[i]
+           ->id
+           ->userId
+           ->positions[i]
+              ->position[i] value: alternativeNo 
+                            ['posNo']  
+       ->result
+          ->resultItem[i]
+            ->alternativeTitle
+            ->accepted
+            ->shulzValue
+         

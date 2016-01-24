@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.4" method="upgrade">
+	<name>Hungarian Language Pack (Formal)</name>
+	<packagename>hu-HU</packagename>
+	<version>3.4.8.1</version>
+	<creationDate>2015-12-25</creationDate>
+	<author>Joomla! Hungary</author>
+	<authorEmail>szerk@joomlacms.hu</authorEmail>
+	<authorUrl>http://joomlacms.hu</authorUrl>
+    <copyright>Copyright (C) 2013 - 2015 Joomla! Hungary and Open Source Matters, Inc. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<url></url>
+	<packager>Joomla! Hungarian</packager>
+	<packagerurl>joomlacms.hu</packagerurl>
+	<description>
+		<![CDATA[
+		<div style="text-align:left;">
+		<h3>Full Hungarian (hu-HU) Language Package in formal style for Joomla! 3.4.8 - Version 3.4.8v1</h3>
+		<h3>Teljes magyar (hu-HU) magázó stílusú nyelvi csomag Joomla! 3.4.8-hoz - Verzió: 3.4.8v1</h3>
+		</div>
+		]]>
+	</description>
+	<files>
+		<file type="language" client="site" id="hu-HU">site_hu-HU.zip</file>
+		<file type="language" client="administrator" id="hu-HU">admin_hu-HU.zip</file>
+	</files>
+    <updateservers>
+        <server type="collection" priority="1" name="Accredited Joomla! Translations">http://update.joomla.org/language/translationlist_3.xml</server>
+    </updateservers>
+</extension>

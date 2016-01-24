@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Canvas Shape Edge Detection (for Arrow)</title>
+  <style type="text/css">
+    body { background:#eee; margin:2em 4em; text-align:center; }
+    canvas { background:#fff; border:1px solid #666 }
+  </style>
+</head>
+<body id ="body">
+  <div id ="buttons">
+        NEW 
+        <button type="button" onclick="newItemClick('text')">TEXT</button>
+        <button type="button" onclick="newItemClick('oval')">OVAL</button>
+        <button type="button" onclick="newItemClick('box')">BOX</button>
+        <button type="button" onclick="newItemClick('subr')">SUBR</button>
+        <button type="button" onclick="newItemClick('display')">DISPLAY</button>
+        <button type="button" onclick="newItemClick('print')">PRINT</button>
+        <button type="button" onclick="newItemClick('disc')">DISC</button>
+        <button type="button" onclick="newItemClick('choice')">CHOICE</button>
+        <button type="button" onclick="newItemClick('cloud')">CLOUD</button>
+        <button type="button" onclick="newItemClick('corner')">CORNER</button>
+        <button type="button" id="newTrButton" onclick="newTrClick()">TRANSITION</button>
+        <button type="button" onclick="">XML</button>
+        <button type="button" onclick="">Save</button>
+        <button type="button" onclick="preViewClick()">Preview</button>
+  </div>
+  <canvas width="800" height="600" id="myCanvas"></canvas>
+  <div id="container"></div>
+
+  <script type="text/javascript">
+    // globals
+    canvas = null;
+    fc = null; // flowChart object
+    ctx = null; // context object
+    dragged = false;
+    dragged_x = 0; 
+    dragged_y = 0; 
+    inNewTr = false;
+    trStart = false;
+    trEnd = false;
+    popupWindow = false;
+    editorMode = true;
+
+    function flowChart() {
+       this.items = new Array();
+       this.draw = function(ctx) {
+         document.getElementById("container").innerHTML="";
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         var i = 0;
+         for (i=0; i < this.items.length; i++) {
+           this.items[i].draw(ctx,false);
+         }
+         return true;
+       };
+       this.getItemById = function(id) {
+          var result = false;
+          var i = 0;
+          for (i=0; i < this.items.length; i++) {
+            if (this.items[i].id == id) {
+              result = this.items[i];
+            }
+          }
+          return result;
+       };
+       this.getItemCount = function() {
+         return this.items.length;
+       };
+       this.loadFromString = function(str) {
+         this.items = new Array();
+         var xml = loadXMLString(str);
+         var w = xml.documentElement;
+         var i = false;
+         w = w.firstChild;
+         while (w) {
+           if (w.nodeName == 'box') {
+             i = new flowChartBox();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'text') {
+             i = new flowChartText();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'corner') {
+             i = new flowChartCorner();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'subroutine') {
+             i = new flowChartSubroutine();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'choice') {
+             i = new flowChartChoice();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'print') {
+             i = new flowChartPrint();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'cloud') {
+             i = new flowChartCloud();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'oval') {
+             i = new flowChartOval();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'display') {
+             i = new flowChartDisplay();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'disc') {
+             i = new flowChartDisc();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } else if (w.nodeName == 'transition') {
+             i = new flowChartTransition();
+             i.loadFromXML(w);
+             this.items.push(i);
+           } 
+           w = w.nextSibling;
+         }
+         return true;
+       }
+       this.toString = function() {
+         var result = '<flowChart>\n';
+         var i = 0;
+         for (i=0; i < this.items.length; i++) {
+            result += this.items[i].toString() + "\n";
+         }
+         result += '</flowChart>\n';
+         return result;
+       }
+     }  // flowChar object
+
+     // ================== items ===================================
+     
+     var flowChartBox = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.type = 'box';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.lineCap = 'round';
+         ctx.beginPath();
+         ctx.moveTo(this.x,this.y);
+         ctx.lineTo(this.x + this.w,this.y);
+         ctx.lineTo(this.x + this.w,this.y + this.h);
+         ctx.lineTo(this.x,this.y + this.h);
+         ctx.lineTo(this.x,this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+       }
+       this._drawTxt = function() {
+         if ((this.url != '') & (editorMode == false)) {
+           a = document.createElement("A");
+           a.href = this.url;
+         } else {
+           a = document.createElement("DIV");
+           if (this.url != '') a.style.textDecoration = 'underline';
+         }
+         a.id = this.id;
+         if (editorMode) {
+           a.innerHTML = '#'+this.id+' '+this.text;
+         } else {
+           a.innerHTML = this.text;
+         }  
+         a.style.position="absolute";
+         a.style.width=this.w+'px';
+         a.style.height=this.h+'px';
+         a.style.textAlign='center';
+         a.style.padding='5px';
+         if (editorMode) {
+           a.style.cursor='move';
+           a.style.draggable = false;
+           a.draggable = false;
+           a.onmousedown = mouseDown;
+           a.onmouseup = mouseUp;
+         }
+         a.style.left = (this.x + canvas.offsetLeft) + "px";
+         a.style.top = (this.y + canvas.offsetTop) + "px";
+         document.getElementById("container").appendChild(a);
+       }
+       this.draw = function(ctx,stronged) {
+         var result = {"x":0,"y":0};
+         this._drawGraph(ctx,stronged);
+         this._drawTxt();
+       }
+       this._getPoint_l = function() {
+         var result = {"x":0,"y":0};
+         result.x = this.x;
+         result.y = Math.round(this.y + (this.h/2)); 
+         return result;
+       }
+       this._getPoint_t = function() {
+         var result = {"x":0,"y":0};
+         result.x = Math.round(this.x + (this.w/2));
+         result.y = this.y;
+         return result;
+       }
+       this._getPoint_r = function() {
+          var result = {"x":0,"y":0};
+          result.x = this.x + this.w;
+          result.y = Math.round(this.y + (this.h/2)); 
+         return result;
+       }
+       this._getPoint_b = function() {
+          var result = {"x":0,"y":0};
+          result.x = Math.round(this.x + (this.w/2));
+          result.y = this.y + this.h;
+          return result;
+       }
+       this._getPoint_tl = function() {
+          var result = {"x":0,"y":0};
+          result.x = this.x;
+          result.y = this.y;
+          return result;
+      }
+       this._getPoint_tr = function() {
+         var result = {"x":0,"y":0};
+         result.x = this.x + this.w;
+         result.y = this.y;
+         return result;
+       }
+       this._getPoint_bl = function() {
+         var result = {"x":0,"y":0};
+         result.x = this.x;
+         result.y = this.y + this.h;
+         return result;
+       }
+       this._getPoint_br = function() {
+         var result = {"x":0,"y":0};
+         result.x = this.x + this.w;
+         result.y = this.y + this.h;
+         return result;
+       }
+       this.getPoint = function(pointType) {
+         var result = {"x":0,"y":0};
+         if (pointType == 'l') {
+            result = this._getPoint_l();
+         } else if (pointType == 'r') {
+            result = this._getPoint_r();
+         } else if (pointType == 't') {
+            result = this._getPoint_t();
+         } else if (pointType == 'b') {
+            result = this._getPoint_b();
+         } else if (pointType == 'tl') {
+            result = this._getPoint_tl();
+         } else if (pointType == 'tr') {
+            result = this._getPoint_tr();
+         } else if (pointType == 'bl') {
+            result = this._getPoint_bl();
+         } else if (pointType == 'br') {
+            result = this._getPoint_br();
+         }
+         return result;
+       }
+       this.toString = function() {
+         var result = '';
+         result += '<'+this.type+' id="'+this.id+'" '+
+                   ' x="'+this.x+'"'+
+                   ' y="'+this.y+'"'+
+                   ' w="'+this.w+'"'+
+                   ' h="'+this.h+'"'+
+                   ' backGroundColor="'+this.backGroundColor+'"'+
+                   ' url="'+this.url+'">'+this.text+'</'+this.type+'>';
+         return result;
+       }
+       this.loadFromXML = function(XMLtag) {
+          this.id = XMLtag.getAttribute("id")
+          this.text = XMLtag.firstChild.nodeValue;
+          this.x = Number(XMLtag.getAttribute("x"));
+          this.y = Number(XMLtag.getAttribute("y"));
+          this.w = Number(XMLtag.getAttribute("w"));
+          this.h = Number(XMLtag.getAttribute("h"));
+          this.backGroundColor = XMLtag.getAttribute("backGroundColor");
+          this.url = XMLtag.getAttribute("url");
+       }
+       this._option = function(color) {
+         var result = '';
+         if (this.backGroundColor == color) {
+           result = '<option value="'+color+'" selected="selected">'+color+'</option>';
+         } else {
+           result = '<option value="'+color+'">'+color+'</option>';
+         }
+         return result;
+       }
+       this.propertyForm = function() {
+         var wi = this;
+         var result = '';
+         result = '<!DOCTYPE html>\n'+
+                  '<html><head>\n'+
+                  '<meta charset="utf-8">\n'+
+                  '<title>Propertys</title>\n'+
+                  '</head>\n'+
+                  '<body>\n'+
+                  '<h2>property window id='+wi.id+'</h2>'+
+                  '<br />tpye='+wi.type+
+                  '<br />x=<input id="_x" value="'+wi.x+'" />'+
+                  '<br />y=<input id="_y" value="'+wi.y+'" />'+
+                  '<br />w=<input id="_w" value="'+wi.w+'" />'+
+                  '<br />h=<input id="_h" value="'+wi.h+'" />'+
+                  '<br />backGroundColor=<select id="_backGroundColor">'+
+                  this._option('White')+
+                  this._option('Aqua')+
+                  this._option('Bisque')+
+                  this._option('Coral')+
+                  this._option('LemonChiffon')+
+                  this._option('OrangeRed')+
+                  this._option('Orange')+
+                  this._option('SpringGreen')+
+                  '</select>'+
+                  '<br />text=<input id="_text" value="'+wi.text+'" />'+
+                  '<br />url=<input id="_url" value="'+wi.url+'" />'+
+                  '<input type="hidden" id="_fromId" value="'+wi.fromId+'" />'+
+                  '<input type="hidden" id="_fromPointType" value="'+wi.fromPointType+'" />'+
+                  '<input type="hidden" id="_toId" value="'+wi.toId+'" />'+
+                  '<input type="hidden" id="_toPointType" value="'+wi.toPointType+'" />'+
+                  '<br /><button type="button" onclick="opener.itemOK('+"'"+wi.id+"'"+',document)">OK</button>'+                             
+                  '<button type="button" onclick="opener.itemDelete('+"'"+wi.id+"'"+',document)">Delete</button>'+                             
+                  '</body\n'+
+                  '</html>';
+          return result;
+        }
+     } // flowChartBox
+     
+     var flowChartSubroutine = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.type = 'subroutine';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.beginPath();
+         ctx.moveTo(this.x, this.y);
+         ctx.lineTo(this.x + this.w, this.y);
+         ctx.lineTo(this.x + this.w, this.y + this.h);
+         ctx.lineTo(this.x, this.y + this.h);
+         ctx.lineTo(this.x, this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+         ctx.moveTo(this.x + 5, this.y);
+         ctx.lineTo(this.x + 5, this.y + this.h);
+         ctx.moveTo(this.x + this.w - 5, this.y + this.h);
+         ctx.lineTo(this.x + this.w - 5, this.y);
+         ctx.stroke();
+       }
+     } // flowChartSubroutine
+     flowChartSubroutine.prototype = new flowChartBox();
+     
+     var flowChartText = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.type = 'text';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.beginPath();
+         ctx.moveTo(this.x, this.y);
+         ctx.lineTo(this.x + this.w, this.y);
+         ctx.lineTo(this.x + this.w, this.y + this.h);
+         ctx.lineTo(this.x, this.y + this.h);
+         ctx.lineTo(this.x, this.y);
+         ctx.closePath();
+         if (stronged) {
+            ctx.stroke();
+         }   
+         ctx.fill();
+       }
+     } // flowChartText
+     flowChartText.prototype = new flowChartBox();
+
+     var flowChartCorner = function(id,x,y) {
+       this.type = 'corner';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = 5;
+       this.h = 5;
+       this.backGroundColor = '#fff';
+       if (editorMode) {
+         this.text = 'X';
+       } else {
+         this.text = ' ';
+       }  
+       this.url = '';
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         this.stronged = stronged;
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.beginPath();
+         ctx.moveTo(this.x, this.y);
+         ctx.lineTo(this.x + this.w, this.y);
+         ctx.lineTo(this.x + this.w, this.y + this.h);
+         ctx.lineTo(this.x, this.y + this.h);
+         ctx.lineTo(this.x, this.y);
+         ctx.closePath();
+         if (stronged) {
+            ctx.stroke();
+         }   
+         ctx.fill();
+       }
+       this._drawTxt = function() {
+         a = document.createElement("DIV");
+         if (this.stronged) a.style.color = 'red';
+         a.id = this.id;
+         a.innerHTML = this.text;
+         a.style.position="absolute";
+         a.style.width=this.w+'px';
+         a.style.height=this.h+'px';
+         a.style.textAlign='center';
+         a.style.padding='0px';
+         if (editorMode) {
+           a.style.cursor='move';
+           a.style.draggable = false;
+           a.onmousedown = mouseDown;
+           a.onmouseup = mouseUp;
+         }  
+         a.style.left = (this.x + canvas.offsetLeft - 3) + "px";
+         a.style.top = (this.y + canvas.offsetTop - 5) + "px";
+         document.getElementById("container").appendChild(a);
+       }
+       this.propertyForm = function() {
+         var wi = this;
+         var result = '';
+         result = '<!DOCTYPE html>\n'+
+                  '<html><head>\n'+
+                  '<meta charset="utf-8">\n'+
+                  '<title>Propertys</title>\n'+
+                  '</head>\n'+
+                  '<body>\n'+
+                  '<h2>property window id='+wi.id+'</h2>'+
+                  '<br />tpye='+wi.type+
+                  '<br />x=<input id="_x" value="'+wi.x+'" />'+
+                  '<br />y=<input id="_y" value="'+wi.y+'" />'+
+                  '<input type="hidden" id="_w" value="'+wi.w+'" />'+
+                  '<input type="hidden" id="_h" value="'+wi.h+'" />'+
+                  '<input type="hidden" id="_backGroundColor" value="'+wi.backGroundColor+'" />'+
+                  '<input type="hidden" id="_text" value="'+wi.text+'" />'+
+                  '<input type="hidden" id="_url" value="'+wi.url+'" />'+
+                  '<input type="hidden" id="_fromId" value="'+wi.fromId+'" />'+
+                  '<input type="hidden" id="_fromPointType" value="'+wi.fromPointType+'" />'+
+                  '<input type="hidden" id="_toId" value="'+wi.toId+'" />'+
+                  '<input type="hidden" id="_toPointType" value="'+wi.toPointType+'" />'+
+                  '<br /><button type="button" onclick="opener.itemOK('+"'"+wi.id+"'"+',document)">OK</button>'+                             
+                  '<button type="button" onclick="opener.itemDelete('+"'"+wi.id+"'"+',document)">Delete</button>'+                             
+                  '</body\n'+
+                  '</html>';
+          return result;
+        }
+     } // flowChartCorner
+     flowChartCorner.prototype = new flowChartBox();
+
+     
+     var flowChartDisplay = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.type = 'display';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         var radius = Math.round(this.w / 3);
+         if (this.h < 10) {
+           this.h = 10;
+         }
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.beginPath();
+         ctx.moveTo(this.x + radius, this.y);
+         ctx.lineTo(this.x + this.w - 5, this.y);
+         ctx.quadraticCurveTo(this.x + this.w, this.y, this.x + this.w, this.y + 5);
+         ctx.lineTo(this.x + this.w, this.y + this.h - 5);
+         ctx.quadraticCurveTo(this.x + this.w - 5, this.y + this.h, this.x + this.w - 5, this.y + this.h);
+         ctx.lineTo(this.x + radius, this.y + this.h);
+         ctx.quadraticCurveTo(this.x, this.y + this.h, this.x, this.y + Math.round(this.h / 2));
+         ctx.quadraticCurveTo(this.x, this.y, this.x + radius, this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+       }
+       this._getPoint_tl = function() {
+         return $this._getPoint_l();
+       }
+       this._getPoint_bl = function() {
+         return $this._getPoint_l();
+       }
+       this._getPoint_tr = function() {
+         return $this._getPoint_l();
+       }
+       this._getPoint_br = function() {
+         return $this._getPoint_l();
+       }
+     } // flowChartDisplay
+     flowChartDisplay.prototype = new flowChartBox();
+     
+     var flowChartOval = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.type = 'oval';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         var radius = Math.round(this.h / 2);
+         if (this.w < (2*radius)) {
+           this.w = 2*radius;
+         }
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.beginPath();
+         ctx.moveTo(this.x + radius, this.y);
+         ctx.lineTo(this.x + this.w - radius, this.y);
+         ctx.quadraticCurveTo(this.x + this.w, this.y, this.x + this.w, this.y + radius);
+         ctx.lineTo(this.x + this.w, this.y + this.h - radius);
+         ctx.quadraticCurveTo(this.x + this.w, this.y + this.h, this.x + this.w - radius, this.y + this.h);
+         ctx.lineTo(this.x + radius, this.y + this.h);
+         ctx.quadraticCurveTo(this.x, this.y + this.h, this.x, this.y + this.h - radius);
+         ctx.lineTo(this.x, this.y + radius);
+         ctx.quadraticCurveTo(this.x, this.y, this.x + radius, this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+       }
+       this._getPoint_tl = function() {
+         return $this._getPoint_l();
+       }
+       this._getPoint_bl = function() {
+         return $this._getPoint_l();
+       }
+       this._getPoint_tr = function() {
+         return $this._getPoint_l();
+       }
+       this._getPoint_br = function() {
+         return $this._getPoint_l();
+       }
+     } // flowChartOval
+     flowChartOval.prototype = new flowChartBox();
+     
+     var flowChartPrint = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.type = 'print';
+       this.id = id;
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         var radius = Math.round(this.w / 4);
+         if (this.h < (3*radius)) {
+           this.h = 3*radius;
+         }
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         ctx.beginPath();
+         ctx.moveTo(this.x, this.y);
+         ctx.lineTo(this.x + this.w, this.y);
+         ctx.lineTo(this.x + this.w, this.y + this.h);
+         ctx.quadraticCurveTo(this.x + this.w, this.y + this.h - (2*radius),
+                              this.x + this.w - radius, this.y + this.h - (2*radius));
+         ctx.quadraticCurveTo(this.x + this.w - (2*radius), this.y + this.h - (2*radius), 
+                              this.x + this.w - (2*radius), this.y + this.h - radius);
+         ctx.quadraticCurveTo(this.x + (2*radius), this.y + this.h, 
+                              this.x + radius, this.y + this.h);
+         ctx.quadraticCurveTo(this.x, this.y + this.h, 
+                              this.x, this.y + this.h - radius);
+         ctx.lineTo(this.x, this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+       }
+       this._getPoint_bl = function() {
+         var radius = Math.round(this.w / 4);
+         var result = {"x":0, "y":0};
+         result.x = this.x + radius;
+         result.y = this.y + this.h;
+         return result;
+       }
+       this._getPoint_br = function() {
+         return this._getPoint_bl();
+       }
+       this._getPoint_b = function() {
+         return this._getPoint_bl();
+       }
+     }  
+     flowChartPrint.prototype = new flowChartBox();
+     
+     var flowChartCloud = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.id = id;
+       this.type = 'cloud';
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         var radius = Math.round(this.h / 4);
+         if (this.w < (6 * radius)) {
+           this.w = 6 * radius;
+         }
+         ctx.beginPath();
+         ctx.moveTo(this.x, this.y + (3*radius));
+         ctx.quadraticCurveTo(this.x, this.y + (2*radius),
+                              this.x + radius, this.y +(2*radius));
+         ctx.quadraticCurveTo(this.x + radius, this.y,
+                              this.x + this.w - (4*radius), this.y);
+         ctx.quadraticCurveTo(this.x + this.w - (2*radius), this.y,
+                              this.x + this.w - (2*radius), this.y + (2*radius));
+         ctx.quadraticCurveTo(this.x + this.w - (2*radius), this.y + radius,
+                              this.x + this.w - radius, this.y + radius);
+         ctx.quadraticCurveTo(this.x + this.w , this.y + radius,
+                              this.x + this.w, this.y + (2*radius));
+         ctx.quadraticCurveTo(this.x + this.w , this.y + (3*radius),
+                              this.x + this.w - radius, this.y + (3*radius));
+         ctx.quadraticCurveTo(this.x + this.w  - radius, this.y + this.h,
+                              this.x + this.w - (2*radius), this.y + this.h);
+         ctx.quadraticCurveTo(this.x, this.y + this.h,
+                              this.x , this.y + (3*radius));
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+       }
+       this._drawTxt = function() {
+         if (this.url != '') {
+           a = document.createElement("A");
+           a.href = this.url;
+         } else {
+           a = document.createElement("DIV");
+         }
+         a.id = this.id;
+         if (editorMode) {
+           a.innerHTML = '#'+this.id+' '+this.text;
+         } else {
+           a.innerHTML = this.text;
+         }  
+         a.style.position="absolute";
+         a.style.width=this.w+'px';
+         a.style.height=this.h+'px';
+         a.style.textAlign='center';
+         a.style.padding='5px 5px 5px 5px';
+         if (editorMode) {
+           a.style.cursor='move';
+           a.style.draggable = false;
+           a.onmousedown = mouseDown;
+           a.onmouseup = mouseUp;
+         }  
+         a.style.left = (this.x + canvas.offsetLeft) + "px";
+         a.style.top = (this.y + canvas.offsetTop) + "px";
+         document.getElementById("container").appendChild(a);
+       }
+       this.getPoint = function(pointType) {
+         var result = {"x":0,"y":0};
+         var radius = Math.round(this.h / 4);
+         if (pointType == 'l') {
+            result.x = this.x;
+            result.y = this.y + (3*radius); 
+         } else if (pointType == 'r') {
+            result.x = this.x + this.w;
+            result.y = this.y + (2*radius); 
+         } else if (pointType == 't') {
+            result.x = this.x + this.w - (4*radius);
+            result.y = this.y;
+         } else if (pointType == 'b') {
+            result.x = this.x + this.w - (2*radius);
+            result.y = this.y + this.h;
+         } else if (pointType == 'tl') {
+            result.x = this.x;
+            result.y = this.y + (3*radius); 
+         } else if (pointType == 'tr') {
+            result.x = this.x + this.w;
+            result.y = this.y + (2*radius); 
+         } else if (pointType == 'bl') {
+            result.x = this.x;
+            result.y = this.y + (3*radius); 
+         } else if (pointType == 'br') {
+            result.x = this.x + this.w;
+            result.y = this.y + (2*radius); 
+         }
+         return result;
+       }
+     } // flowChartCloud
+     flowChartCloud.prototype = new flowChartBox();
+     
+     var flowChartDisc = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.id = id;
+       this.type = 'disc';
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         var radius = Math.round(this.w / 2);
+         ctx.beginPath();
+         ctx.moveTo(this.x + radius, this.y);
+         ctx.lineTo(this.x + this.w - radius, this.y);
+         ctx.quadraticCurveTo(this.x + this.w, this.y, this.x + this.w, this.y + 10);
+         ctx.lineTo(this.x + this.w, this.y + this.h - 10);
+         ctx.quadraticCurveTo(this.x + this.w, this.y + this.h, this.x + this.w - radius, this.y + this.h);
+         ctx.lineTo(this.x + radius, this.y + this.h);
+         ctx.quadraticCurveTo(this.x, this.y + this.h, this.x, this.y + this.h - 10);
+         ctx.lineTo(this.x, this.y + 10);
+         ctx.quadraticCurveTo(this.x, this.y, this.x + radius, this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+         ctx.moveTo(this.x, this.y + 10);
+         ctx.quadraticCurveTo(this.x, this.y + 20, this.x + radius, this.y + 20);
+         ctx.lineTo(this.x + this.w - radius, this.y + 20);
+         ctx.quadraticCurveTo(this.x + this.w, this.y + 20, this.x + this.w, this.y + 10);
+         ctx.stroke();
+       }
+       this._drawTxt = function() {
+         if ((this.url != '') & (editorMode==false)) {
+           a = document.createElement("A");
+           a.href = this.url;
+         } else {
+           a = document.createElement("DIV");
+           if (this.url != '') a.style.textDecoration = 'underline';
+         }
+         a.id = this.id;
+         if (editorMode) {
+           a.innerHTML = '#'+this.id+' '+this.text;
+         } else {
+           a.innerHTML = this.text;
+         }  
+         a.style.position="absolute";
+         a.style.width=this.w+'px';
+         a.style.height=this.h+'px';
+         a.style.textAlign='center';
+         a.style.padding='15px 5px 5px 5px';
+         if (editorMode) {
+           a.style.cursor='move';
+           a.style.draggable = false;
+           a.draggable = false;
+           a.onmousedown = mouseDown;
+           a.onmouseup = mouseUp;
+         }  
+         a.style.left = (this.x + canvas.offsetLeft) + "px";
+         a.style.top = (this.y + canvas.offsetTop) + "px";
+         document.getElementById("container").appendChild(a);
+       }
+       this._getPont_tl = function() {
+         return this._getPoint_t();
+       }
+       this._getPont_tr = function() {
+         return this._getPoint_t();
+       }
+       this._getPont_bl = function() {
+         return this._getPoint_b();
+       }
+       this._getPont_br = function() {
+         return this._getPoint_b();
+       }
+     } // flowChartDisc
+     flowChartDisc.prototype = new flowChartBox();
+     
+     var flowChartChoice = function(id,x,y,w,h,backGroundColor,text,url) {
+       this.id = id;
+       this.type = 'choice';
+       this.x = x;
+       this.y = y;
+       this.w = w;
+       this.h = h;
+       this.backGroundColor = backGroundColor;
+       this.text = text;
+       this.url = url;
+       this.fromId = '';
+       this.fromPointType = '';
+       this.toId = '';
+       this.toPointType = '';
+       this._drawGraph = function(ctx,stronged) {
+         if (stronged) {
+           ctx.strokeStyle = '#f00';
+         } else {
+           ctx.strokeStyle = '#000';
+         }  
+         ctx.fillStyle=this.backGroundColor;
+         var radius1 = 5;
+         var radius2 = 5;
+         if (this.w < (radius1 + radius2)) {
+           this.w = radius1 + radius2;
+         }
+         ctx.beginPath();
+         ctx.moveTo(this.x, this.y);
+         ctx.lineTo(this.x + this.w, this.y);
+         ctx.lineTo(this.x + this.w, this.y + this.h / 2);
+         ctx.lineTo(this.x + this.w/2, this.y + this.h);
+         ctx.lineTo(this.x, this.y + this.h/2);
+         ctx.lineTo(this.x, this.y);
+         ctx.closePath();
+         ctx.stroke();
+         ctx.fill();
+        }
+        this._getPoint_bl = function() {
+          return this._getPoint_b();
+        }
+        this._getPoint_br = function() {
+          return this._getPoint_b();
+        }
+     } // flowChartChoice
+     flowChartChoice.prototype = new flowChartBox();
+
+
+     var flowChartTransition = function(id,fromId,fromPointType,toId,toPointType) {
+       this.id = id;
+       this.type = 'transition';
+       this.fromId = fromId;
+       this.toId = toId;
+       this.fromPointType = fromPointType;
+       this.toPointType = toPointType;
+       this.x = 0;
+       this.y = 0;
+       this.h = 0;
+       this.w = 0;
+       this.text = '';
+       this.url = '';
+       this.backGroundColor = '#000';
+       this.draw = function(stronged) {  
+         var i1 = fc.getItemById(this.fromId);
+         var i2 = fc.getItemById(this.toId);
+         if (i1==false) {
+           return;
+         }
+         if (i2==false) {
+           return;
+         }
+         var p1 = i1.getPoint(this.fromPointType);
+         var p2 = i2.getPoint(this.toPointType);
+         this.x = Math.round((p1.x + p2.x)/2) - 7;
+         this.y = Math.round((p1.y + p2.y)/2) - 8;
+         ctx.strokeStyle = this.backGroundColor;
+         ctx.fillStyle = this.backGroundColor;
+         arrow(ctx,p1,p2,10);
+         this._drawText();
+       }  
+       this._drawText = function() {
+         a = document.createElement('DIV');
+         a.id = this.id;
+         a.innerHTML = ' ';
+         a.style.position="absolute";
+         a.style.width='10px';
+         a.style.height='10px';
+         a.style.textAlign='center';
+         a.style.padding='1px';
+         if (editorMode) {
+           a.innerHTML = 'O';
+           a.style.cursor='move';
+           a.style.draggable = false;
+           a.draggable = false;
+           a.onmousedown = mouseDown;
+           a.onmouseup = mouseUp;
+         }  
+         a.style.left = (this.x + canvas.offsetLeft) + "px";
+         a.style.top = (this.y + canvas.offsetTop) + "px";
+         document.getElementById("container").appendChild(a);
+       }
+       this.getPoint = function(pointType) {
+         result = {"x":0,"y":0};
+         result.x = this.x;
+         result.y = this.y;
+         return result;
+       }
+       this.toString = function() {
+         var result = '';
+         result = '<transition'+
+                  ' id="'+this.id+'"'+ 
+                  ' fromId="'+this.fromId+'"'+ 
+                  ' fromPointType="'+this.fromPointType+'"'+ 
+                  ' toId="'+this.toId+'"'+ 
+                  ' toPointType="'+this.toPointType+'" />'; 
+         return result;
+       }
+       this.loadFromXML = function(XMLtag) {
+          this.id = XMLtag.getAttribute("id");
+          this.x = 0;
+          this.y = 0;
+          this.w = 0;
+          this.h = 0;
+          this.backGroundColor = '#000';
+          this.fromId = XMLtag.getAttribute("fromId");
+          this.fromPointType = XMLtag.getAttribute("fromPointType");
+          this.toId = XMLtag.getAttribute("toId");
+          this.toPointType = XMLtag.getAttribute("toPointType");
+       }
+       this._option = function(pointType, label, value) {
+           var result = '';
+           if (pointType == value) {
+             result = '<option value="'+pointType+'" selected="selected">'+label+'</option>';
+           } else {
+             result = '<option value="'+pointType+'">'+label+'</option>';
+           }
+           return result;
+       }
+       this.propertyForm = function() {
+         var wi = this;
+         var result = '';
+         result = '<!DOCTYPE html>\n'+
+                  '<html><head>\n'+
+                  '<meta charset="utf-8">\n'+
+                  '<title>Propertys</title>\n'+
+                  '</head>\n'+
+                  '<body>\n'+
+                  '<h2>property window id='+wi.id+'</h2>'+
+                  '<br />tpye='+wi.type+
+                  '<input type="hidden" id="_x" value="'+wi.x+'" />'+
+                  '<input type="hidden" id="_y" value="'+wi.y+'" />'+
+                  '<input type="hidden" id="_w" value="'+wi.w+'" />'+
+                  '<input type="hidden" id="_h" value="'+wi.h+'" />'+
+                  '<input type="hidden" id="_backGroundColor" value="'+wi.backGroundColor+'" />'+
+                  '<input type="hidden" id="_text" value="'+wi.text+'" />'+
+                  '<input type="hidden" id="_url" value="'+wi.url+'" />'+
+                  '<br />fromId=<input id="_fromId" value="'+wi.fromId+'" />'+
+                  '<br />fromPointType=<select id="_fromPointType">'+
+                  this._option('t','Top',wi.fromPointType)+
+                  this._option('r','Right',wi.fromPointType)+
+                  this._option('b','Bottom',wi.fromPointType)+
+                  this._option('l','Left',wi.fromPointType)+
+                  this._option('tl','Top-Left',wi.fromPointType)+
+                  this._option('tr','Top-Right',wi.fromPointType)+
+                  this._option('bl','Bottom-Left',wi.fromPointType)+
+                  this._option('br','Bottom-Right',wi.fromPointType)+
+                  '</select>'+
+                  '<br />toId=<input id="_toId" value="'+wi.toId+'" />'+
+                  '<br />toPointType=<select id="_toPointType">'+
+                  this._option('t','Top',wi.toPointType)+
+                  this._option('r','Right',wi.toPointType)+
+                  this._option('b','Bottom',wi.toPointType)+
+                  this._option('l','Left',wi.toPointType)+
+                  this._option('tl','Top-Left',wi.toPointType)+
+                  this._option('tr','Top-Right',wi.toPointType)+
+                  this._option('bl','Bottom-Left',wi.toPointType)+
+                  this._option('br','Bottom-Right',wi.toPointType)+
+                  '</select>'+
+                  '<br /><button type="button" onclick="opener.itemOK('+"'"+wi.id+"'"+',document)">OK</button>'+                             
+                  '<button type="button" onclick="opener.itemDelete('+"'"+wi.id+"'"+',document)">Delete</button>'+
+                  '<p>pointType:<br /> l-left, r-right, t-top, b-bottom, tl-topLeft,<br /> tr-topRight, bl-bottomLeft, br-bottomRight</p>'+                             
+                  '</body\n'+
+                  '</html>';
+          return result;
+        }
+     } // flowChartTransition
+     flowChartTransition.prototype = new flowChartBox();
+     
+
+    /**
+     * nyil rajzolása  két alakzat közé
+     * @param canvas.contex ctx
+     * @param {x,y} p1 start point           
+     * @param {x,y} p2 start point
+     * &param integer size  nyíl mérete px -ben     
+     * @return void                
+     */         
+    function arrow(ctx,p1,p2,size){
+      ctx.save();
+
+      // ha a köv. sorok ki vannak kommentezve akkor egyszerüen p1->p2 nyilat rajzol
+      // egyébként a p1,p2 -t körülvevő alakzatok külső szélet köti össze     
+      //var points = edges(ctx,p1,p2);
+      //if (points.length < 2) return 
+      //p1 = points[0], p2=points[points.length-1];
+
+      // Rotate the context to point along the path
+      var dx = p2.x-p1.x, dy=p2.y-p1.y, len=Math.sqrt(dx*dx+dy*dy);
+      ctx.translate(p2.x,p2.y);
+      ctx.rotate(Math.atan2(dy,dx));
+
+      // line
+      ctx.lineCap = 'round';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.lineTo(-len,0);
+      ctx.closePath();
+      ctx.stroke();
+
+      // arrowhead
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.lineTo(-size,-size/2);
+      ctx.lineTo(-size, size/2);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    /**
+     * Find all transparent/opaque transitions between two points
+     * Uses http://en.wikipedia.org/wiki/Bresenham's_line_algorithm
+     * @param canvas.contex ctx
+     * @param {x,y} p1 start point
+     * @param {x,y} p2 start point
+     * @param ????? cutoff
+     * @return array of {x,y}                   
+     */      
+    function edges(ctx,p1,p2,cutoff){
+      if (!cutoff) cutoff = 220; // alpha threshold
+      var dx = Math.abs(p2.x - p1.x), dy = Math.abs(p2.y - p1.y),
+          sx = p2.x > p1.x ? 1 : -1,  sy = p2.y > p1.y ? 1 : -1;
+      var x0 = Math.min(p1.x,p2.x), y0=Math.min(p1.y,p2.y);
+      var pixels = ctx.getImageData(x0,y0,dx+1,dy+1).data;
+      var hits=[], over=null;
+      for (x=p1.x,y=p1.y,e=dx-dy; x!=p2.x||y!=p2.y;){
+        var alpha = pixels[((y-y0)*(dx+1)+x-x0)*4 + 3];
+        if (over!=null && (over ? alpha<cutoff : alpha>=cutoff)){
+          hits.push({x:x,y:y});
+        }
+        var e2 = 2*e;
+        if (e2 > -dy){ e-=dy; x+=sx }
+        if (e2 <  dx){ e+=dx; y+=sy  }
+        over = alpha>=cutoff;
+      }
+      return hits;
+    }
+    
+    function loadXMLString(txt) {
+        if (window.DOMParser)
+          {
+          parser=new DOMParser();
+          xmlDoc=parser.parseFromString(txt,"text/xml");
+          }
+        else // code for IE
+          {
+          xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+          xmlDoc.async=false;
+          xmlDoc.loadXML(txt); 
+          }
+        return xmlDoc;
+   }
+
+    function mouseDown(event) {
+      var target = event.target;
+      if (!inNewTr) {
+        dragged = fc.getItemById(target.id);
+        if (dragged) {
+          dragged_x = event.x;
+          dragged_y = event.y;
+          target.style.cursor = 'alias';
+          canvas.style.cursor = 'alias';
+        }
+      }
+    }
+
+    function mouseUp(event) {
+      var target = event.target;
+      var wx = 0;
+      var wi = false;
+      var newId = 0;
+      if (inNewTr) {
+        // inNewTr
+        if (target == canvas) {
+          inNewTr = false;
+          if (trStart) {
+            trStart.draw(ctx,false);
+          }
+          if (trEnd) {
+            trEnd.draw(ctx,false);
+          }
+          trStart = false;
+          trEnd = false;
+          document.getElementById('newTrButton').style.color = 'black';
+        } else if (trStart == false) {
+          trStart = fc.getItemById(target.id);
+          trStart.draw(ctx,true);
+        } else if (trEnd == false) {
+          trEnd = fc.getItemById(target.id);
+          newId = fc.items.length + 1;
+          while (fc.getItemById(newId)) {
+            newId++;
+          }
+          if (trEnd.y > (trStart.y + trStart.h)) 
+            fc.items.push( new flowChartTransition(newId, trStart.id,'b',trEnd.id,'t'));
+          else if ((trEnd.y + trEnd.h) < trStart.y) 
+            fc.items.push( new flowChartTransition(newId, trStart.id,'t',trEnd.id,'b'));
+          else if (trEnd.x > (trStart.x + trStart.w)) 
+            fc.items.push( new flowChartTransition(newId, trStart.id,'r',trEnd.id,'l'));
+          else  
+            fc.items.push( new flowChartTransition(newId, trStart.id,'l',trEnd.id,'r'));
+          fc.draw(ctx,false);
+          trStart = false;
+          trEnd = false;
+          inNewTr = false;
+          document.getElementById('newTrButton').style.color = 'black';
+        }
+      } else {
+        // end dragged
+        canvas.style.cursor = 'default';
+        if (target != canvas)
+           target.style.cursor = 'move';
+        if (dragged) {
+          if ( (Math.abs(event.x - dragged_x) + Math.abs(event.y - dragged_y)) < 5) {
+              wi = dragged;
+              dragged = false;
+              if (event.x > 500) {
+                wx = 10;
+              } else {
+                wx=500;
+              }
+              popupWindow = window.open('Propertys','','left='+wx+',top=30,width=300,height=350,resizable=yes,scrollbars=yes');
+              popupWindow.document.write(wi.propertyForm());
+          } else {
+              dragged.x = dragged.x + event.x - dragged_x;
+              dragged.y = dragged.y + event.y - dragged_y;
+              fc.draw(ctx,false);
+              dragged = false;
+          }
+        }
+      } // inNewTr ?
+    }
+
+    function itemOK(id,doc) {
+      var i = fc.getItemById(id);
+      i.x = Number(doc.getElementById('_x').value);
+      i.y = Number(doc.getElementById('_y').value);
+      i.w = Number(doc.getElementById('_w').value);
+      i.h = Number(doc.getElementById('_h').value);
+      i.text = doc.getElementById('_text').value;
+      i.url = doc.getElementById('_url').value;
+      i.fromId= doc.getElementById('_fromId').value;
+      i.fromPointType = doc.getElementById('_fromPointType').value;
+      i.toId = doc.getElementById('_toId').value;
+      i.toPointType = doc.getElementById('_toPointType').value;
+      i.backGroundColor = doc.getElementById('_backGroundColor').value;
+      fc.draw(ctx,false);
+      popupWindow.close();
+    }
+    function itemDelete(id,doc) {
+      var i = 0;
+      var j = -1;
+      for (i=0; i < fc.items.length; i++) {
+        if (fc.items[i].id == id) j = i;
+      }
+      if (j >= 0) {
+        fc.items.splice(j, 1);
+      }
+      
+      var i = 0;
+      var j = -1;
+      for (i=0; i < fc.items.length; i++) {
+        if (fc.items[i].fromId == id) j = i;
+      }
+      if (j >= 0) {
+        fc.items.splice(j, 1);
+      }
+      
+      var i = 0;
+      var j = -1;
+      for (i=0; i < fc.items.length; i++) {
+        if (fc.items[i].toId == id) j = i;
+      }
+      if (j >= 0) {
+        fc.items.splice(j, 1);
+      }
+      
+      fc.draw(ctx,false);
+      popupWindow.close();
+    }
+    
+    function newTrClick() {
+      inNewTr = true;
+      document.getElementById('newTrButton').style.color = 'red';
+    }
+    
+    function newItemClick(itemType) {
+      var  newId = fc.items.length + 1;
+      while (fc.getItemById(newId)) {
+         newId++;
+      }
+      if (itemType == 'text') {
+        fc.items.push( new flowChartText(newId,5,5,80,25,'Orange','newText',''));        
+      } else if (itemType == 'oval') {
+        fc.items.push( new flowChartOval(newId,5,5,80,25,'Orange','newOval',''));        
+      } else if (itemType == 'box') {
+        fc.items.push( new flowChartBox(newId,5,5,80,25,'Orange','newBox',''));        
+      } else if (itemType == 'subr') {
+        fc.items.push( new flowChartSubroutine(newId,5,5,80,25,'Orange','newSubr',''));        
+      } else if (itemType == 'display') {
+        fc.items.push( new flowChartDisplay(newId,5,5,80,25,'Orange','newDisplay',''));        
+      } else if (itemType == 'print') {
+        fc.items.push( new flowChartPrint(newId,5,5,80,25,'Orange','newPrint',''));        
+      } else if (itemType == 'disc') {
+        fc.items.push( new flowChartDisc(newId,5,5,80,25,'Orange','newDisc',''));        
+      } else if (itemType == 'choice') {
+        fc.items.push( new flowChartChoice(newId,5,5,80,25,'Orange','newChoice',''));        
+      } else if (itemType == 'cloud') {
+        fc.items.push( new flowChartCloud(newId,5,5,80,25,'Orange','newCloud',''));        
+      } else if (itemType == 'corner') {
+        fc.items.push( new flowChartCorner(newId,5,5));        
+      }
+      fc.draw(ctx,false);
+    }
+    
+
+    // main program
+        
+    if (editorMode)
+      document.getElementById('buttons').style.display='block';
+    else
+      document.getElementById('buttons').style.display='none';
+    canvas = document.getElementById("myCanvas");
+    canvas.onmouseup = mouseUp;
+    canvas.onmousedown='dragged=false; canvas.style.cusor="default";';
+    ctx = canvas.getContext('2d');
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#099';
+    fc = new flowChart();
+
+    // TEST flowchart definition
+    fc.items.push( new flowChartOval('start1',175,10,50,20,'Orange','start',''));
+    fc.items.push( new flowChartBox('box1',100,50,200,30,'Orange','box',''));
+    fc.items.push( new flowChartSubroutine('subroutine1',100,100,200,30,'Orange','subroutine',''));
+    fc.items.push( new flowChartDisplay('display1',100,150,200,30,'Orange','display','http://robitbt.hu'));
+    fc.items.push( new flowChartChoice('choice1',100,200,200,60,'Orange','choice',''));
+    fc.items.push( new flowChartCorner('corner1',400,200));
+    fc.items.push( new flowChartPrint('print1',10,300,200,60,'Orange','print',''));
+    fc.items.push( new flowChartCloud('cloud1',250,300,200,30,'Orange','cloud',''));
+    fc.items.push( new flowChartText('text1',300,10,50,20,'Orange','text',''));
+    fc.items.push( new flowChartDisc('disc1',100,450,200,60,'Orange','disc','http://origo.hu'));
+    fc.items.push( new flowChartTransition('t1','start1','b','box1','t'));
+    fc.items.push( new flowChartTransition('t2','box1','b','subroutine1','t'));
+    fc.items.push( new flowChartTransition('t3','subroutine1','b','display1','t'));
+    fc.items.push( new flowChartTransition('t4','display1','b','choice1','t'));
+      fc.items.push( new flowChartTransition('t5','choice1','b','print1','t'));
+      fc.items.push( new flowChartTransition('t6','choice1','b','cloud1','t'));
+    fc.items.push( new flowChartTransition('t7','print1','b','disc1','t'));
+    fc.items.push( new flowChartTransition('t8','cloud1','b','disc1','t'));
+    fc.items.push( new flowChartTransition('t9','choice1','r','corner1','t'));
+    fc.items.push( new flowChartTransition('t10','corner1','r','display1','r'));
+
+    // draw flowchart
+    fc.draw(ctx);
+
+  </script>
+</body></html>

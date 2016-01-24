@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="##Name##">
+		<help
+			key = "##Name##_DESC"
+		/>
+		<message>
+			<![CDATA[##Name##_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>##Name## Layout</name>
+		<description>##Name## Layout_DESC</description>	
+		<params>
+		</params>
+	</state>
+	
+	<!-- Fields for Joomla > 1.5. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_##component##/models/fields"
+		>
+			<field name="sample"
+				type="##component####name##"
+				description="##Name##_SELECT_DESC"
+				label="Select ##Name##"
+				required="false"
+			/>
+		</fieldset>
+	</fields>	
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

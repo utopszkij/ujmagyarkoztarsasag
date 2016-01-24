@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="megnevezes"
+			name="megnevezes"
+			type="text"
+			required="true"
+			label="Megnevezes"
+			description="megnevezes_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="temakor_id"
+			name="temakor_id"
+			type="text"
+			required="false"
+			label="Temakor_id"
+			description="temakor_id_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="leiras"
+			name="leiras"
+			type="editor"
+			label="Leiras"
+			description="leiras_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+															
+		<field
+			id="titkos"
+			name="titkos"
+			type="text"
+			required="false"
+			label="Titkos"
+			description="titkos_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="szavazok"
+			name="szavazok"
+			type="text"
+			required="false"
+			label="Szavazok"
+			description="szavazok_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="alternativajavaslok"
+			name="alternativajavaslok"
+			type="text"
+			required="false"
+			label="Alternativajavaslok"
+			description="alternativajavaslok_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="vita1_vege"
+			name="vita1_vege"
+			type="calendar"
+			required="false"
+			label="Vita1_vege"
+			description="vita1_vege_Desc"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+							
+		<field
+			id="vita2_vege"
+			name="vita2_vege"
+			type="calendar"
+			required="false"
+			label="Vita2_vege"
+			description="vita2_vege_Desc"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+							
+		<field
+			id="szavazas_vege"
+			name="szavazas_vege"
+			type="calendar"
+			required="false"
+			label="Szavazas_vege"
+			description="szavazas_vege_Desc"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+															
+		<field
+			id="vita1"
+			name="vita1"
+			type="text"
+			required="false"
+			label="Vita1"
+			description="vita1_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="vita2"
+			name="vita2"
+			type="text"
+			required="false"
+			label="Vita2"
+			description="vita2_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="szavazas"
+			name="szavazas"
+			type="text"
+			required="false"
+			label="Szavazas"
+			description="szavazas_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="lezart"
+			name="lezart"
+			type="text"
+			required="false"
+			label="Lezart"
+			description="lezart_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="letrehozo"
+			name="letrehozo"
+			type="text"
+			required="false"
+			label="Letrehozo"
+			description="letrehozo_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="letrehozva"
+			name="letrehozva"
+			type="calendar"
+			required="false"
+			label="Letrehozva"
+			description="letrehozva_Desc"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+									
+	</fields>	
+		
+</form>	

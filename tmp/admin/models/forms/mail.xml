@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field
+			name="eventid"
+			type="modal_evt"
+			label="ICEVENT"
+			description =" "
+			class="inputbox"
+			size="10"
+			default="0"
+			/>
+		<field
+			name="date"
+			type="modal_evt_date"
+			size="30"
+			class="inputbox"
+			label="COM_ICAGENDA_REGISTRATION_DATE"
+			description=" "
+			filter="safehtml"
+			/>
+		<field
+			name="subject"
+			type="text"
+			size="40"
+			class="inputbox input-xxlarge"
+			label="COM_ICAGENDA_FORM_LBL_NEWSLETTER_OBJ"
+			description="COM_ICAGENDA_FORM_DESC_NEWSLETTER_OBJ"
+			/>
+		<field
+			name="message"
+			type="editor"
+			class="inputbox"
+			buttons="readmore,pagebreak"
+			label="COM_ICAGENDA_FORM_LBL_NEWSLETTER_BODY"
+			description="COM_ICAGENDA_FORM_DESC_NEWSLETTER_BODY"
+			cols="70"
+			rows="20"
+			filter="safehtml"
+			/>
+	</fieldset>
+</form>

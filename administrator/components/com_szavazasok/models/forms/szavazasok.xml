@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="megnevezes"
+			name="megnevezes"
+			type="text"
+			required="true"
+			label="MEGNEVEZES"
+			description="MEGNEVEZES_DESC"
+			class="input500"
+			size="80"/>						
+								
+														
+		<field
+			id="temakor_id"
+			name="temakor_id"
+			type="sql"
+			required="false"
+			label="TEMAKOR_ID"
+			description="TEMAKOR_ID_DESC"
+			class="inputbox"
+      query="select id,megnevezes from #__temakorok order by 2"
+      key_field="id"
+      value_field="megnevezes"
+			size="1"/>						
+								
+						
+		<field
+			id="leiras"
+			name="leiras"
+			type="editor"
+			label="LEIRAS"
+			description="LEIRAS_DESC"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+															
+		<field
+			id="titkos"
+			name="titkos"
+			type="list"
+			required="false"
+			label="TITKOS"
+			description="TITKOS_DESC"
+			class="inputbox"
+			size="1">
+      <option value="0">NYILTSZAVAZAS</option>
+      <option value="1">TITKOSSZAVAZAS</option>
+      <option value="2">SZIGORUANTITKOSSZAVAZAS</option>
+    </field>  						
+								
+														
+		<field
+			id="szavazok"
+			name="szavazok"
+			type="list"
+			required="false"
+			label="SZAVAZOK"
+			description="SZAVAZOK_DESC"
+			class="inputbox"
+			size="1">
+      <option value="0">Mindenki</option>
+      <option value="1">REGISZTRALTAK</option>
+      <option value="2">TAGOK</option>
+      <option value="3">TAGOK_OROKOLT</option>
+      <option value="4">SSO HITELES REGISZTRÁLTAK</option>
+      <option value="5">SSO HITELES TAGOK</option>
+
+	  </field>  						
+      						
+								
+														
+		<field
+			id="alternativajavaslok"
+			name="alternativajavaslok"
+			type="list"
+			required="false"
+			label="ALTERNATIVAJAVASLOK"
+			description="ALTERNATIVAJAVASLOK_DESC"
+			class="inputbox"
+			size="1">
+      <option value="10">SZAVAZOK</option>
+      <option value="11">ADMINOK</option>
+      <option value="14">SSO HITELES REGISZTRÁLTAK</option>
+      <option value="15">SSO HITELES TAGOK</option>
+    </field>  						
+      						
+								
+						
+		<field
+			id="vita1_vege"
+			name="vita1_vege"
+			type="calendar"
+			required="false"
+			label="VITA1_VEGE"
+			description="VITA1_VEGE_DESC"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+							
+		<field
+			id="vita2_vege"
+			name="vita2_vege"
+			type="calendar"
+			required="false"
+			label="VITA2_VEGE"
+			description="VITA2_VEGE_DESC"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+							
+		<field
+			id="szavazas_vege"
+			name="szavazas_vege"
+			type="calendar"
+			required="false"
+			label="SZAVAZAS_VEGE"
+			description="SZAVAZAS_VEGE_DESC"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+															
+		<field
+			id="vita1"
+			name="vita1"
+			type="list"
+			required="false"
+			label="VITA1"
+			description="VITA1_DESC"
+			class="inputbox"
+			size="1">
+      <option value="0">NEM</option>
+      <option value="1">IGEN</option>
+    </field>  						
+
+	<field
+			id="ebiralas_alatt"
+			name="elbiralas_alatt"
+			type="list"
+			required="false"
+			label="ELBIRALAS_ALATT"
+			description=""
+			class="inputbox"
+			size="1">
+      <option value="0">NEM</option>
+      <option value="1">IGEN</option>
+    </field>  						
+								
+														
+		<field
+			id="vita2"
+			name="vita2"
+			type="list"
+			required="false"
+			label="VITA2"
+			description="VITA2_DESC"
+			class="inputbox"
+			size="1">						
+      <option value="0">NEM</option>
+      <option value="1">IGEN</option>
+    </field>  						
+								
+														
+		<field
+			id="szavazas"
+			name="szavazas"
+			type="list"
+			required="false"
+			label="SZAVAZAS"
+			description="SZAVAZAS_DESC"
+			class="inputbox"
+			size="1">						
+      <option value="0">NEM</option>
+      <option value="1">IGEN</option>
+    </field>  						
+								
+														
+		<field
+			id="lezart"
+			name="lezart"
+			type="list"
+			required="false"
+			label="LEZART"
+			description="LEZART_DESC"
+			class="inputbox"
+			size="1">						
+      <option value="0">NEM</option>
+      <option value="1">IGEN</option>
+    </field>  						
+								
+														
+		<field
+			id="letrehozo"
+			name="letrehozo"
+			type="text"
+			required="false"
+			label="LETREHOZO"
+			description="LETREHOZO_DESC"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="letrehozva"
+			name="letrehozva"
+			type="calendar"
+			required="false"
+			label="LETREHOZVA"
+			description="LETREHOZVA_DESC"
+			class="inputbox"
+			size="10"
+			format="%Y-%m-%d"/>			
+							
+		<field
+			id="elutasitva"
+			name="elutasitva"
+			type="editor"
+			label="ELUTASITVA"
+			description="ELUTASIZVA_DESC"
+			class="inputbox"
+			buttons=""/>
+									
+	</fields>	
+		
+</form>	

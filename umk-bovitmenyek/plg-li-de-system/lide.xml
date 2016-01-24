@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+<name>lide System</name>
+<author>Author</author>
+<creationDate>Month 2008</creationDate>
+<copyright>Copyright (C) 2008 Holder. All rights reserved.</copyright>
+<license>GNU General Public License</license>
+<authorEmail>email</authorEmail>
+<authorUrl>url</authorUrl>
+<version>1.0.1</version>
+<description>An example system plugin</description>
+<files>
+<filename plugin="lide">lide.php</filename>
+</files>
+</install>

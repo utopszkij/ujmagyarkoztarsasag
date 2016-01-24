@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_ICAGENDA_LIST_VIEW_DEFAULT_TITLE">
+		<message>COM_ICAGENDA_LIST_VIEW_DEFAULT_DESC</message>
+	</layout>
+
+	<fields id="params" name="params" type="fields" label="params" addfieldpath="/administrator/components/com_icagenda/models/fields">
+
+		<fieldset name="ICAGENDA" label="COM_ICAGENDA_MENU_OPTIONS" addfieldpath="/administrator/components/com_icagenda/assets/elements">
+
+			<field type="Title" label="COM_ICAGENDA_LOGO" class="styleblanck" />
+			<field
+					name="template"
+					type="modal_template"
+					label="COM_ICAGENDA_THEME_PACK_LBL"
+					description="COM_ICAGENDA_THEME_PACK_DESC"
+					size="40"
+					class="inputbox"
+					default="default"
+			/>
+
+			<field type="Title" label="COM_MENUS_FILTER_FIELDSET_LABEL"  class="stylebox lead input-xxlarge"/>
+			<field
+					name="mcatid"
+					type="modal_multicat"
+					class="inputbox"
+					multiple="multiple"
+					default="0"
+					label="COM_ICAGENDA_LBL_CATEGORY"
+					description="COM_ICAGENDA_DESC_CATEGORY"
+			/>
+			<field
+					name="time"
+					type="list"
+					class="inputbox"
+					label="COM_ICAGENDA_TIME_LBL"
+					description="COM_ICAGENDA_TIME_DESC"
+					default="">
+						<option value="">JGLOBAL_USE_GLOBAL</option>
+						<option value="2">COM_ICAGENDA_OPTION_PAST_EVENTS</option>
+						<option value="4">COM_ICAGENDA_OPTION_CURRENT_EVENTS_TODAY_EVENTS</option>
+						<option value="1">COM_ICAGENDA_OPTION_CURRENT_EVENTS_TODAY_AND_UPCOMING_EVENTS</option>
+						<option value="3">COM_ICAGENDA_OPTION_UPCOMING_EVENTS</option>
+						<option value="0">COM_ICAGENDA_OPTION_ALL_EVENTS</option>
+			</field>
+			<field
+					name="orderby"
+					type="list"
+					label="COM_ICAGENDA_LBL_DATE"
+					description="COM_ICAGENDA_DESC_DATE"
+					default="">
+						<option value="">JGLOBAL_USE_GLOBAL</option>
+						<option value="1">COM_ICAGENDA_DATE_DESC</option>
+						<option value="2">COM_ICAGENDA_DATE_ASC</option>
+			</field>
+			<field
+					name="datesDisplay"
+					type="radio"
+					label="COM_ICAGENDA_LIST_TYPE_LBL"
+					description="COM_ICAGENDA_LIST_TYPE_DESC"
+					class="btn-group"
+					labelclass="control-label"
+					onchange="icalert()"
+					default="">
+						<option value="">JGLOBAL_USE_GLOBAL</option>
+						<option value="1">JYES</option>
+						<option value="2">JNO</option>
+						<!--option value="1">COM_ICAGENDA_LIST_ALL_DATES</option>
+						<option value="2">COM_ICAGENDA_LIST_ALL_EVENTS</option-->
+			</field>
+			<field
+					name="eventsfile_error"
+					type="modal_icalert_msg"
+					label="COM_ICAGENDA_THEME_PACKS_COMPATIBILITY"
+					description="COM_ICAGENDA_ALERT_EVENTS_FILE_MISSING_DESC"
+			/>
+			<field
+					name="features_filter"
+					type="sql"
+					query="SELECT id AS value, title AS features_filter FROM #__icagenda_feature WHERE state=1 AND show_filter=1 ORDER BY features_filter"
+					multiple="true"
+					class="inputbox"
+					label="COM_ICAGENDA_FORM_LBL_EVENT_FEATURES"
+					description="COM_ICAGENDA_FORM_DESC_EVENT_FEATURES_FILTER"
+			/>
+			<field
+					name="features_incl_excl"
+					type="radio"
+					label="COM_ICAGENDA_MENU_EVENT_FEATURES_INCLUDE_EXCLUDE_LBL"
+					description="COM_ICAGENDA_MENU_EVENT_FEATURES_INCLUDE_EXCLUDE_DESC"
+					default="1"
+					class="btn-group">
+						<option value="1">COM_ICAGENDA_MENU_EVENT_FEATURES_INCLUDE</option>
+						<option value="0">COM_ICAGENDA_MENU_EVENT_FEATURES_EXCLUDE</option>
+			</field>
+			<field
+					name="features_any_all"
+					type="radio"
+					label="COM_ICAGENDA_MENU_EVENT_FEATURES_ALL_OR_ANY_LBL"
+					description="COM_ICAGENDA_MENU_EVENT_FEATURES_ALL_OR_ANY_DESC"
+					default="1"
+					class="btn-group">
+						<option value="1">COM_ICAGENDA_MENU_EVENT_FEATURES_ANY_ONE_FEATURE</option>
+						<option value="2">COM_ICAGENDA_MENU_EVENT_FEATURES_ALL_FEATURES_REQUIRED</option>
+			</field>
+
+			<field type="Title" label=" " class="stylenote" />
+			<field type="Title" label="COM_MENUS_VIEW_FIELDSET_LABEL"  class="stylebox lead input-xxlarge"/>
+
+			<field
+					name="displayCatDesc_menu"
+					type="modal_icmulti_opt"
+					default=""
+					label="COM_ICAGENDA_DISPLAY_CATINFOS_LABEL"
+					description="COM_ICAGENDA_DISPLAY_CATINFOS_DESC"
+					labelclass="control-label"
+			/>
+			<field
+					name="displayCatDesc_checkbox"
+					type="modal_icmulti_checkbox"
+					class="checkbox"
+					label=" "
+					labelclass="control-label"
+			/>
+			<field
+					name="number"
+					type="text"
+					label="COM_ICAGENDA_LBL_NUMERO"
+					description="COM_ICAGENDA_DESC_NUMERO"
+					size="5"
+					class="inputbox"
+					default="5"
+			/>
+
+			<field type="Title" label="COM_ICAGENDA_LBL_FORMAT" class="styleblanck" />
+			<field
+					name="format"
+					type="iclist_globalization"
+					class="inputbox"
+					default=""
+					label="COM_ICAGENDA_LBL_FORMAT"
+					description="COM_ICAGENDA_LBL_FORMAT"
+			/>
+			<field
+					name="date_separator"
+					type="text"
+					label="COM_ICAGENDA_LBL_DATE_SEPARATOR"
+					description="COM_ICAGENDA_DESC_DATE_COMPONENTS_SEPARATOR"
+					size="5"
+					class="inputbox"
+					default=""
+			/>
+			<field type="TitleImg" label="COM_ICAGENDA_DATE_FORMAT_NOTE1"
+				class="stylenote alert alert-info input-xxlarge" icimage="info.png"
+			/>
+			<field type="TitleImg" label="COM_ICAGENDA_DATE_FORMAT_NOTE2"
+				class="stylenotep alert alert-block input-xxlarge" icimage="blanck.png"
+			/>
+
+			<field type="Title" label="IC_AUTO_INTROTEXT" class="styleblanck" />
+			<field
+					name="limitGlobal"
+					type="radio"
+					label="COM_ICAGENDA_LBL_LIMIT"
+					description="COM_ICAGENDA_DESC_LIMIT"
+					default="1"
+					class="btn-group">
+						<option value="1">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+			</field>
+			<field
+					name="limit"
+					type="text"
+					label="COM_ICAGENDA_LBL_CUSTOM_VALUE"
+					description="COM_ICAGENDA_DESC_CUSTOM_VALUE"
+					size="5"
+					class="inputbox input-mini"
+					default=""
+			/>
+
+			<field type="Title" label=" " class="stylenote" />
+			<field type="Title" label="COM_ICAGENDA_LEGEND_GOOGLE_MAPS" class="styleblanck" />
+			<field
+					name="m_width"
+					type="text"
+					label="COM_ICAGENDA_LBL_MWIDTH"
+					description="COM_ICAGENDA_DESC_MWIDTH"
+					size="5"
+					class="inputbox"
+					default="100%"
+			/>
+			<field
+					name="m_height"
+					type="text"
+					label="COM_ICAGENDA_LBL_MHEIGHT"
+					description="COM_ICAGENDA_DESC_MHEIGHT"
+					size="5"
+					class="inputbox"
+					default="300px"
+			/>
+    		<field type="Title" label="COM_ICAGENDA_FOOTER" class="styleblanck input-xxlarge" />
+		</fieldset>
+		<!--fieldset name="integration" label="COM_MENUS_INTEGRATION_FIELDSET_LABEL">
+
+			<field name="show_feed_link" type="list"
+				description="JGLOBAL_SHOW_FEED_LINK_DESC"
+				label="JGLOBAL_SHOW_FEED_LINK_LABEL"
+			>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field name="feed_summary" type="list"
+				description="JGLOBAL_FEED_SUMMARY_DESC"
+				label="JGLOBAL_FEED_SUMMARY_LABEL"
+			>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JGLOBAL_INTRO_TEXT</option>
+				<option value="1">JGLOBAL_FULL_TEXT</option>
+			</field>
+		</fieldset-->
+	</fields>
+
+</metadata>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="text"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="megnevezes"
+			name="megnevezes"
+			type="text"
+			required="true"
+			label="MEGNEVEZES"
+			description="MEGNEVEZES_DESC"
+			class="input500"
+			size="60"/>						
+								
+						
+		<field
+			id="leiras"
+			name="leiras"
+			type="editor"
+			label="LEIRAS"
+			description="LEIRAS_DESC"
+			class=""
+			buttons=""/>
+															
+		<field
+			id="lathatosag"
+			name="lathatosag"
+			type="list"
+			required="false"
+			label="LATHATOSAG"
+			description="LATHATOSAG_DESC"
+			class="inputbox"
+			size="1">
+      <option value="0">MINDENKI</option>
+      <option value="1">REGISZTRALTAK</option>
+      <option value="2">TAGOK</option>
+    </field>  						
+								
+														
+		<field
+			id="szavazok"
+			name="szavazok"
+			type="list"
+			required="false"
+			label="SZAVAZOK"
+			description="SZAVAZOK_DESC"
+			class="inputbox"
+			size="1">
+      <option value="1">REGISZTRALTAK</option>
+      <option value="2">TAGOK</option>
+    </field>  						
+								
+														
+		<field
+			id="szavazasinditok"
+			name="szavazasinditok"
+			type="list"
+			required="false"
+			label="SZAVAZASINDITOK"
+			description="SZAVAZASINDITOK_DESC"
+			class="inputbox"
+			size="1">
+      <option value="1">REGISZTRALTAK</option>
+      <option value="2">TAGOK</option>
+      <option value="3">ADMINISZTRATOROK</option>
+    </field>  						
+								
+														
+		<field
+			id="allapot"
+			name="allapot"
+			type="list"
+			required="false"
+			label="ALLAPOT"
+			description="ALLAPOT_DESC"
+			class="inputbox"
+			size="1">
+      <option value="0">AKTIV</option>
+      <option value="1">LEZART</option>
+    </field>  						
+								
+														
+		<field
+			id="letrehozo"
+			name="letrehozo"
+			type="sql"
+			required="false"
+			label="LETREHOZO"
+			description="LETREHOZO_DESC"
+			class="inputbox"
+      query="select id, username from #__users"
+      key_field="id"
+      value_field="username" 
+			size="1" />
+                
+						
+		<field
+			id="letrehozva"
+			name="letrehozva"
+			type="calendar"
+			required="false"
+			label="LETREHOZVA"
+      readonly="true"
+			description="LETREHOZVA_DESC"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+															
+		<field
+			id="lezaro"
+			name="lezaro"
+			type="sql"
+			required="false"
+			label="LEZARO"
+			description="LEZARO_DESC"
+			class="inputbox"
+      query="select id, username from #__users union select 0,'---' order by 2"
+      key_field="id"
+      value_field="username" 
+			size="1"/>						
+								
+						
+		<field
+			id="lezarva"
+			name="lezarva"
+			type="calendar"
+			required="false"
+			label="LEZARVA"
+			description="LEZARVA_DESC"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"/>			
+							
+									
+	</fields>	
+		
+</form>	

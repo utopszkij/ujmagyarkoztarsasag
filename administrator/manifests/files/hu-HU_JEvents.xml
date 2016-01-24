@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension version="1.6" type="file" client="site" method="upgrade">
+<name>Hungarian translation for JEvents</name>
+<tag>hu-HU</tag>
+<packagename>hu-HU JEvents</packagename>
+<version>3.2.3</version>
+<creationDate>2015.03.17</creationDate>
+<author>Peter Csipke</author>
+<authoremail>pcsipke@googlemail.com</authoremail>
+<authorurl>www.jevents.net</authorurl>
+<copyright>
+</copyright>
+<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+<description>Magyar nyelv für JEvents</description>
+<fileset>
+<files folder="admin" target="administrator/language/hu-HU">
+	<filename>hu-HU.com_jevents.ini</filename>
+	<filename>hu-HU.com_jevents.menu.ini</filename>
+	<filename>hu-HU.com_jevents.sys.ini</filename>
+	<filename>hu-HU.mod_jevents_latest.ini</filename>
+	<filename>hu-HU.pkg_jevents.sys.ini</filename>
+	<filename>hu-HU.plg_content_jevents.ini</filename>
+	<filename>hu-HU.plg_content_jevents.sys.ini</filename>
+	<filename>hu-HU.plg_finder_jevents.ini</filename>
+	<filename>hu-HU.plg_finder_jevents.sys.ini</filename>
+	<filename>hu-HU.plg_search_eventsearch.ini</filename>
+</files>
+<files folder="site" target="language/hu-HU">
+	<filename>hu-HU.com_jevents.ini</filename>
+	<filename>hu-HU.mod_jevents_cal.ini</filename>
+	<filename>hu-HU.mod_jevents_custom.ini</filename>
+	<filename>hu-HU.mod_jevents_detail.ini</filename>
+	<filename>hu-HU.mod_jevents_latest.ini</filename>
+</files>
+</fileset>
+</extension>

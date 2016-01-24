@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="qmap" method="upgrade">
+	<name>QMap - Content</name>
+	<author>Jon B</author>
+	<creationDate>17/10/2012</creationDate>
+	<copyright>Copyright Information</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>Hello@hello.com</authorEmail>
+	<version>1.0</version>
+	<description>Description</description>
+	<files>
+		<filename plugin="content">content.php</filename>
+	</files>
+</extension>

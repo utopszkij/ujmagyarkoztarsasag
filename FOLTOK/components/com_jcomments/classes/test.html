@@ -1,0 +1,28 @@
+<html>
+<body>
+<h1>Teszt program mouse enter/lave buborék kezeléshez</h1>
+<p>próba szöveg</p>
+<p>próba szöveg</p>
+<p>próba szöveg</p>
+<p><span onmouseenter="jtxtMouseEnter(event)" onmouseleave="jtxtMouseLeave(event)">AKTÍV SZÖVEG</span></p>
+<p>próba szöveg</p>
+
+<script type="text/javascript">
+  function jtxtMouseEnter(event) {
+    var d = document.createElement("SPAN");
+    d.id="jtxtBuble";
+    d.innerHTML = "???";
+    d.style.zIndex=event.target.style.zIndex+1;
+    d.style.marginLeft = "-20px";
+    d.style.cursor="pointer";
+    event.target.appendChild(d);
+  }
+  function jtxtMouseLeave(event) {
+    var w = document.getElementById("jtxtBuble");    
+    w.parentNode.removeChild(w);
+  }
+
+</script>
+
+</body>
+</html>

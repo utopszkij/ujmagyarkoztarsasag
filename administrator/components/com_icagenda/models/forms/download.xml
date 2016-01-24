@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details" addfieldpath="/administrator/components/com_icagenda/assets/elements">
+		<field
+			type="TitleImg"
+			label="JOPTIONS"
+			class="stylebox lead input-xxlarge"
+			icicon="options"
+			/>
+		<field
+			name="event_title"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_REGISTRATION_EVENTID"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="date"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_REGISTRATION_DATE"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="tickets"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_REGISTRATION_TICKETS"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="name"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="IC_NAME"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="email"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="phone"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_REGISTRATION_PHONE"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="customfields"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_CUSTOMFIELDS"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="notes"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_REGISTRATION_NOTES_DISPLAY_LABEL"
+			default="0"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="status"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="JSTATUS"
+			default="0"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			name="created"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="JGLOBAL_FIELD_CREATED_LABEL"
+			default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field
+			type="TitleImg"
+			label="COM_ICAGENDA_REGISTRATIONS_EXPORT"
+			class="stylebox lead input-xxlarge"
+			icicon="logo"
+			/>
+		<field
+			name="basename"
+			type="text"
+			size="40"
+			label="COM_ICAGENDA_EXPORT_BASENAME_LABEL"
+			description="COM_ICAGENDA_EXPORT_BASENAME_DESC"
+			class="inputbox"
+			/>
+		<field
+			name="separator"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_EXPORT_SEPARATOR_LABEL"
+			description="COM_ICAGENDA_EXPORT_SEPARATOR_DESC"
+			default="1"
+		>
+			<option value="1">IC_COMMA</option>
+			<option value="2">IC_SEMICOLON</option>
+		</field>
+		<field
+			name="compressed"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			label="COM_ICAGENDA_EXPORT_COMPRESSED_LABEL"
+			description="COM_ICAGENDA_EXPORT_COMPRESSED_DESC"
+			default="0"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field type="Title" label=" " class="stylenote"/>
+	</fieldset>
+</form>

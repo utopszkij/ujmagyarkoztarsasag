@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Beallitasok">
+		<help
+			key = "Beallitasok_DESC"
+		/>
+		<message>
+			<![CDATA[Beallitasok_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Beallitasok Layout</name>
+		<description>Beallitasok Layout_DESC</description>	
+		<url addpath="/administrator/components/com_beallitasok/elements">
+			<param name="id" type="beallitasok" default="0" label="Select Beallitasok" description="A Beallitasok" />
+		</url>
+		<params>
+		</params>
+	</state>
+	
+	<!-- Fields for Joomla > 1.5. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_beallitasok/models/fields"
+		>
+			<field name="id"
+				type="beallitasokbeallitasok"
+				description="Beallitasok_SELECT_DESC"
+				label="Select Beallitasok"
+				required="true"
+			/>
+		</fieldset>
+	</fields>	
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

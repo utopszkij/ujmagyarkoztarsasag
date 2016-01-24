@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="name"
+			name="name"
+			type="text"
+			required="true"
+			label="Name"
+			description="name_Desc"
+			class="inputbox"
+			size="40"/>						
+		<field
+			name="version"
+			type="text"
+			required="true"		
+			label="version"
+			description="version_Desc"
+			class="inputbox"
+			size="10"/>												
+						
+		<field
+			name="description"
+			type="textarea"
+			label="Description"
+			description="Description_Desc"
+			class="inputbox"
+			cols="40"
+			rows="3"/>
+							
+		<field
+			id="created"
+			name="created"
+			type="calendar"
+			label="Created"
+			description="Created_Desc"
+			class="inputbox"
+			size="16"
+			format="%Y-%m-%d %H-%M-%S"
+			/>					
+		
+		<field
+			name="use"
+			type="radio"
+			class="inputbox"
+			default="1"
+			size="1"
+			label="Mode"
+			description="JField_ModUse_Desc">
+			<option
+				value="1">
+				JOption_Create</option>
+			<option
+				value="2">
+				JOPTION_TMPLLIVING</option>
+		</field>
+						
+		<field
+			name="published"
+			type="list"
+			class="inputbox"
+			default="1"
+			size="1"
+			label="JField_Published_Label"
+			description="JField_Published_Desc">
+			<option
+				value="1">
+				JOption_Published</option>
+			<option
+				value="0">
+				JOption_UnPublished</option>
+			<option
+				value="-1">
+				JOption_Archived</option>
+			<option
+				value="-2">
+				JOption_Trashed</option>
+		</field>					
+	</fields>	
+		
+	<fields name="params">
+		<fieldset
+			name="basic">		
+			<field
+				name="example_param"
+				type="list"
+				default=""
+				label="Params_Example_Label"
+				description="Params_Example_Desc">
+				<option
+					value="0">No</option>
+				<option
+					value="1">Yes</option>
+			</field>
+		</fieldset>
+	</fields>
+		
+</form>	

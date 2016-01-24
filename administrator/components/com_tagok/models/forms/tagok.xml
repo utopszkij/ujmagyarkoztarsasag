@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+							
+		<field
+			id="temakor_id"
+			name="temakor_id"
+			type="sql"
+			required="false"
+			label="Temakor_id"
+			description="temakor_id_Desc"
+			class="inputbox"
+      query="select id,megnevezes from #__temakorok order by 2"
+      key_filed="id"
+      value_field="megnevezes"
+			size="1"/>						
+								
+														
+		<field
+			id="user_id"
+			name="user_id"
+			type="sql"
+			required="false"
+			label="User_id"
+			description="user_id_Desc"
+			class="inputbox"
+      query="select id,username from #__users order by 2"
+      key_filed="id"
+      value_field="username"
+			size="1"/>						
+								
+														
+		<field
+			id="admin"
+			name="admin"
+			type="list"
+			required="false"
+			label="Admin"
+			description="admin_Desc"
+			class="inputbox"
+			size="1">
+      <option value="0">NEM</option>						
+      <option value="1">IGEN</option>						
+  	</field>							
+								
+	</fields>	
+		
+</form>	

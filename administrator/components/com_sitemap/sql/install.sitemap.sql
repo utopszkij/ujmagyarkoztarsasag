@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS `#__sitemap_sitemaps`;
+
+CREATE TABLE `#__sitemap_sitemaps` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(255) NOT NULL,
+	`alias` VARCHAR(255) NOT NULL,
+	`published` INT(3) NOT NULL DEFAULT 0,
+	`priority` DECIMAL(2,1) NOT NULL DEFAULT 0.5,
+	`update_freq` VARCHAR(255) NOT NULL DEFAULT 'weekly',
+	PRIMARY KEY (`id`)
+	) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

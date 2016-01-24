@@ -1,0 +1,188 @@
+Joomla MVC-IDE koncepció
+
+Logikai Adatbázis szerkezet
+===========================
+
+projekt (title, desc, versio, licence, copyright, author, authoremail, status, start, stop) 
+  1:n branch (desc, author, start, stop, status)
+      1:n component (title, desc, author, authoremail)
+          1:n wiew (title, desc, author, authoremail)
+              1:1 model (title, desc, author, authoremail)
+                  1:n property (title, proptype, datatype, len, desc, default, options)
+                  1:n uses     (component.view.model | component.wiew.helper)
+                  1:n method   (title, type result type, desc, code)
+                      1:n param (title, proptype, datatype, len, desc, default, options)
+                      1:n session (title, proptype, datatype, len, desc, default, options)
+                      1:n local (title, proptype, datatype, len, desc, default, options)
+              1:1 viewer
+                  1:n property
+                  1:n uses
+                  1:n method   (type result type, desc, code)
+                      1:n param
+                      1:n session
+                      1:n local
+                  1:n tmpl (html kód)
+                       {param}--> <?ph echo $this->param; ?> 
+                       {foreach param}...{endforeach} --> <?php foreach (param) as param_item { ?>....<?php } ?>
+                       
+                       példa:
+                       <table>
+                       <tr><th>{title1}</th><th>{title2}</th></tr>
+                       {foreach $rekords}
+                         <tr><td>{$rekords_item->a}</td><td>{$rekords_item->b}</td></tr>
+                       {endforeach}
+                       </table>
+                          
+              1:1 controller
+                  1:n property
+                  1:n uses
+                  1:n task  (type result type, desc, code)
+                      1:n param
+                      1:n session
+                      1:n local
+                      1:n nexttasks (component.view.task formában)
+              1:n helper    
+                  1:n property
+                  1:n uses
+                  1:n method (type result type, desc, code)
+                      1:n param
+                      1:n session
+                      1:n local
+                      
+                      
+                      
+amikor egy elemet modosit akkor az érintett php fájl újra generálódik az 
+adatbázis alapján. A munkamenet commit csak adatbázis bejegyzés, fájlokat nem 
+érint. A munkamenet rollback az adatbázisból törli az adott munkamenet rekorjait
+és az összes php fájlt újra generálja.                      
+  
+
+Project rekord
+  id
+  title
+  description
+  authorid
+  projekturl
+  licence
+  copyright
+  version
+
+Branch rekord
+  id
+  projektid
+  version
+  start
+  stop
+  status  (active, commited, canceled, master)
+  authorid
+
+Component rekord
+  id
+  projektid
+  branchid
+  title
+  description
+    
+Object rekord
+   id
+   projektid
+   componentid
+   branchid
+   objectType (M, V, C, H)
+   description
+   brach
+      
+Variable rekord
+   id
+   projektid
+   componentid
+   methodid
+   variableType (public property, protected propertx, private property, param, local, request, session, formField)
+   name
+   dataType
+   length
+   defaultValue
+   description
+   request
+   validatorServerSide
+   validatorClintSide
+
+Method rekord
+   id
+   projektid
+   componentid
+   objectid
+   branch
+   description
+   resultDataType
+   code
+   
+   
+   
+Varzio szám képzési rendszer
+
+Amikor új branch -et inditunk akkor a kiirt verzio:
+  baranch.verzio = projekt.verzio + 'B' + branch.verzio 
+  a branch verzió automatikus projekten belüli folyó sorszám
+              
+Amikor branchet commitálunk akkor a projekt verziót a kezelő adja meg, ilyenkor
+az adott branch rekord tartalma másolodik a master rekordokba (azt felülirva), de
+a commited statusu rekord is megmarad.
+
+
+Alapértelmezetten a program a projekthez tartozó legutolsó aktiv branchet nyitja
+meg (ha nincs aktiv branch akkor a master változatot). A kezelő kérheti az adott
+elem változás történetét (korábbi branchet infoi), ill a korábbi verziokat is 
+megnézheti
+
+A task aktiválás-request adat átadás ellenörizhetősége érdekében:
+
+a task aktiválás: 
+
+   $request = array();
+   $requests['reqName'] = value;
+   ......
+   $params = array();
+   $params['paramName'] = value;
+   .....
+   displaytemplate('temlpatename',$params,$request) 
+        a template formFieldjei bővitik a request tömböt
+   az OK button definiálása:    formSend('label',cssClassName','tmplName', 'component','task', $requests);
+   a cancel button definiálása: formCancel('label',cssClassName', 'component','task', $requests);
+   
+   task redirekt:   calltask('component','task',$request)
+   
+   
+A programban megvalósítható ellenörzések:
+=========================================
+              
+     változó használat, objektum használat, method használat, paraméterek
+     task aktiválások         
+     
+     
+Képernyőtervek
+===============
+
++-----------------------------------------------------------------------------+
+| Munkamenetek                                [new][commit][rollback][delete] |
+|                                                                             |
+| ID   author    description                      status  start  stop         |
+|                                                                             |
+| 01  ---        master                           master  xxxx    -----       |
+| xx  xxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xxxx    xxxx    xxxxx       |
+| xx  xxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xxxx    xxxx    xxxxx       |
+| xx  xxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xxxx    xxxx    xxxxx       |
+| xx  xxxxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xxxx    xxxx    xxxxx       |
+|                                                                             |
++-----------------------------------------------------------------------------+
+Egyszerre max. egy nyitott munkamenet lehet.
+Új munkamenet inditás csak akkor lehetséges ha minden létező kommitált vagy 
+master.
+Rollbackelni csak nyitott munkamenetet lehet(a masterben a rolbackelt munkamenet elemei 
+visszaállnak az elöző commitált munkamenet állapotra.
+
+
++-----------------------------------------------------------------------------+
+| Új munkamenet inditása
+     
+     

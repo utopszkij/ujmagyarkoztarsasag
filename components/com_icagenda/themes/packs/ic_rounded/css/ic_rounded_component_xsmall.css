@@ -1,0 +1,88 @@
+/*
+ * COM_ICAGENDA
+ * Extra small devices (usually a mobile phone)
+ * 0 < SCREEN WIDTH < ('Small Screen Threshold' - 1)
+ * Default : 0 < SCREEN WIDTH < 480
+ */
+
+/* Style Background alternative */
+.ic-event{
+	margin: 20px 0;
+}
+.ic-box-date {
+	width: auto;
+	float: none;
+}
+.ic-content {
+	width: auto;
+	float:none;
+}
+
+/* Style Title/Category Header (event details view) */
+.ic-event-header {
+	width: auto;
+}
+.ic-title-header {
+	width: 98%;
+	text-align: center;
+}
+.ic-title-cat {
+	width: 98%;
+	text-align: center;
+}
+
+/* Share buttons (AddThis) */
+.ic-share {
+	display:none;
+}
+
+/* Feature Icons */
+/* Event List */
+.ic-event-title > .ic-features-container {
+}
+/* Event Detail */
+.ic-event-header > .ic-features-container {
+	margin-right: 0;
+	margin-top: 0;
+}
+.ic-features-container {
+	clear: both;
+	text-align: center;
+}
+.ic-feature-icon {
+	float: none;
+	display: inline-block;
+}
+
+/* Style Information */
+.ic-info-box .ic-info-box-file {
+	width: auto;
+	float: none;
+}
+.ic-divCell {
+	float: left;
+}
+
+/* Style Input field */
+.icagenda_form input,
+.icagenda_form input[type="file"],
+.icagenda_form .input-large,
+.icagenda_form .input-xlarge,
+.icagenda_form .input-xxlarge,
+.icagenda_form .select-large,
+.icagenda_form .select-xlarge,
+.icagenda_form .select-xxlarge {
+	width: 90%;
+}
+.icagenda_form .input-small {
+	width: 90px;
+}
+.icagenda_form .select-small {
+	width: 114px;
+}
+.icagenda_form .ic-date-input {
+	width: auto;
+}
+.ic-captcha-label {
+	display: none;
+}

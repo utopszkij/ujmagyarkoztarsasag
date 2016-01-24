@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metafile version="3.4" client="administrator">
+	<tag>hu-HU</tag>
+	<name>Hungarian (formal)</name>
+	<version>3.4.8.1</version>
+	<creationDate>2015-12-25</creationDate>
+	<author>Joomla! Hungary</author>
+	<authorEmail>szerk@joomlacms.hu</authorEmail>
+	<authorUrl>joomlacms.hu</authorUrl>
+	<copyright>Copyright (C) 2013 - 2015 Joomla! Hungary and Open Source Matters, Inc. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<description>Hungarian administrator language for Joomla! 3.4.8 in formal style</description>
+	<metadata>
+		<name>Magyar</name>
+		<tag>hu-HU</tag>
+		<rtl>0</rtl>
+		<locale>hu_HU.utf8, hu_HU.UTF8, hu_HU.utf-8, hu_HU.UTF-8, hun_HU.utf8, hun_HU.UTF8, hu, hungarian, hungary</locale>
+		<firstDay>1</firstDay>
+		<weekEnd>0,6</weekEnd>
+	</metadata>
+	<params/>
+</metafile>

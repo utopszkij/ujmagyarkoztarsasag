@@ -1,0 +1,6 @@
+/*
+ * COM_ICAGENDA
+ * Small devices (usually a tablet computer)
+ * 'Small Screen Threshold' < SCREEN WIDTH < ('Medium Screen Threshold' - 1)
+ * Default : 481 < SCREEN WIDTH < 768
+ */

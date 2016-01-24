@@ -1,0 +1,24 @@
+/*
+ * COM_ICAGENDA
+ * Medium devices (usually a laptop computer)
+ * 'Medium Screen Threshold' < SCREEN WIDTH < ('Large Screen Threshold' - 1)
+ * Default : 769 < SCREEN WIDTH < 1200
+ */
+
+/* Style Information */
+.ic-info-box {
+	text-align: center;
+	width: auto;
+}
+
+.ic-info-box .ic-info-box-header {
+	width: 86%;
+}
+
+.ic-info-box .ic-info-box-content {
+	width: 64%;
+}
+
+.ic-info-box .ic-info-box-file {
+	width: 100px;
+}

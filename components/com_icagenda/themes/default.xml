@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<install method="icthemes" type="component" version="2.5.0">
+
+	<name>Default - iCagenda Theme</name>
+	<creationDate>2015-12-05</creationDate>
+	<version>3.5.13</version>
+	<author>Lyr!C</author>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorWebsite>www.Jooml!C.com</authorWebsite>
+	<authorUrl>http://www.joomlic.com</authorUrl>
+	<copyright>Copyright (c)2012-2015 Jooml!C. All Rights Reserved</copyright>
+	<license>GNU/GPLv3 or later</license>
+	<description>Theme pack by default for iCagenda (component + module)</description>
+
+	<administration>
+	</administration>
+	<files folder="site">
+		<folder>default</folder>
+		<filename>default.xml</filename>
+	</files>
+
+	<themeUpdate>http://www.joomlic.com/icupdate/themes</themeUpdate>
+</install>

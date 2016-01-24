@@ -1,0 +1,166 @@
+Ez az oldal az FB profil elérésére tartalmaz példát.
+
+using Facebook\FacebookSession;
+
+FacebookSession::setDefaultApplication('YOUR_APP_ID','YOUR_APP_SECRET');
+
+// Use one of the helper classes to get a FacebookSession object.
+//   FacebookRedirectLoginHelper
+//   FacebookCanvasLoginHelper
+//   FacebookJavaScriptLoginHelper
+// or create a FacebookSession with a valid access token:
+$session = new FacebookSession('access-token-here');
+
+// Get the GraphUser object for the current user:
+
+try {
+  $me = (new FacebookRequest(
+    $session, 'GET', '/me'
+  ))->execute()->getGraphObject(GraphUser::className());
+  
+  // main script
+  ......
+  echo $me->getName();
+  .......
+  
+  
+} catch (FacebookRequestException $e) {
+  // The Graph API returned an error
+} catch (\Exception $e) {
+  // Some other error occurred
+}
+
+
+
+
+PHP joomla auto login
+=====================
+
+e-mail cim, nick alapján a #__users -ből elérhető a user_id.
+$juser = JFactory::getUser($userid);
+$user = $juser->username;
+$pass = $juser->password;
+
+function joomla_login($user,$pass) 
+{ 
+    if ( !$user) return false;
+    if ( !$pass) return false;
+    $credentials = array( 'username' => $user, 'password' => $pass );
+    $login_site =& JFactory::getApplication('site');
+    $login_site->login($credentials, $options=array());
+    return;
+}
+
+
+facebook canvas app
+===================
+
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '741127712645416',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+
+    // ADD ADDITIONAL FACEBOOK CODE HERE
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+Setup Facebook Login
+Apps on Facebook are most useful when they are personalized based on who is using them. The following snippets of code add a basic Facebook Login integration.
+Place an element anywhere within the <body> tag where you want to greet the user:
+
+<h1 id="fb-welcome"></h1>
+
+Include a script to let a person log into your app. It should automatically open the Login Dialog when someone first uses your app. Place the code right after the FB.init call.
+
+// Place following code after FB.init call.
+
+function onLogin(response) {
+  if (response.status == 'connected') {
+    FB.api('/me?fields=first_name', function(data) {
+      var welcomeBlock = document.getElementById('fb-welcome');
+      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+    });
+  }
+}
+
+FB.getLoginStatus(function(response) {
+  // Check login status on load, and if the user is
+  // already logged in, go directly to the welcome message.
+  if (response.status == 'connected') {
+    onLogin(response);
+  } else {
+    // Otherwise, show Login dialog first.
+    FB.login(function(response) {
+      onLogin(response);
+    }, {scope: 'user_friends, email'});
+  }
+});
+
+image átvétel (pl. facebookból)
+==============================
+#__users_authentications
+   id
+   photo_url           itt érhető el az fb profilkép
+   
+#__users_extended
+   id
+   image_folder  = '00/00/00'
+   image_name     file tárolt neve név+kit, ezen a néven van meg a file az images/hsu/00/00/00 könyvtárban
+   image_raw_name file eredeti neve
+      
+fb usereknél új #__users_extended rekordot kell létrehozni
+
+/**
+ * amikor facebook vagy g+ bejelentkezéssel generálódik user, akkor nincs
+ * neki hs_user profilképe. 
+ * ez a kód egy darab hiányzó userképet pótol a facebook -ból vagy g+ -ból 
+*/
+echo '<br />hs_user kép pótlás start<br />';
+$db->setQuery('select a.id, a.photo_url
+from #__users_authentications a
+left outer join #__users_extended e on e.id = a.id
+where e.id is null
+limit 1');
+$res = $db->loadObjectList();
+if (count($res)>0) {
+  echo 'hs_user kép pótlás 1 '.$res1->url.'<br />';
+  $res1 = $res[0];
+  $url = $res1->photo_url;
+  $imgName = 'user'.$res1->id.substr($res1->photo_url,-4,4)
+  $imgFile = 'images/hsu/00/00/00/'.$imgName;
+  file_put_contents($imgFile, file_get_contents($url));
+  echo 'hs_user kép pótlás 2 '.$imgFile.'<br />';
+  $db->setquery('insert into #__users_extended (id,image_folder,image_name,image_raw_name)
+  values ('.$res1->id.',"00/00/00","'.$imgName.'","'.$imgName.'")');
+  echo 'hs_user kép pótlás 3 <br />';
+  $db->query();
+}
+
+
+$url = 'http://example.com/image.php';
+$img = '/my/folder/flower.gif';
+file_put_contents($img, file_get_contents($url));
+
+Else use cURL:
+
+$ch = curl_init('http://example.com/image.php');
+$fp = fopen('/my/folder/flower.gif', 'wb');
+curl_setopt($ch, CURLOPT_FILE, $fp);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_exec($ch);
+curl_close($ch);
+fclose($fp);

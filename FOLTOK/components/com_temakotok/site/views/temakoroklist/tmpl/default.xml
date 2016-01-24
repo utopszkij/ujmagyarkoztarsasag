@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Temakoroklist">
+		<help
+			key = "TemakorokLIST_DESC"
+		/>
+		<message>
+			<![CDATA[TemakorokLIST_DESC]]>
+		</message>
+	</layout>
+	<state>
+	<name>Temakorok List Layout</name>
+		<description>Temakorok List Layout_DESC</description>	
+		<params>
+		</params>
+	</state>
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+	</fields>
+</metadata>

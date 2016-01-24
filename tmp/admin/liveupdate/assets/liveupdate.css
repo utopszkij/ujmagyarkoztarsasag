@@ -1,0 +1,161 @@
+/**
+ * @package LiveUpdate
+ * @copyright Copyright (c)2010-2012 Nicholas K. Dionysopoulos / AkeebaBackup.com
+ * @license GNU LGPLv3 or later <http://www.gnu.org/copyleft/lesser.html>
+ */
+@CHARSET "UTF-8";
+
+.icon-48-liveupdate { background-image: url(liveupdate-48.png) }
+
+var { font-style: italic; font-weight: bold; }
+p.liveupdate-url { font-family: "Lucida Sans Mono", "Courier New", Courier, monospace; }
+
+div.liveupdate-notsupported,
+div.liveupdate-stuck {
+	border: thin solid #990000;
+	background: #fff0f0;
+	padding: 1em;
+	color: #330000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 5px 5px 5px #f9f9f9;
+	-webkit-box-shadow: 5px 5px 5px #f9f9f9;
+	box-shadow: 5px 5px 5px #f9f9f9;
+}
+div.liveupdate-notsupported h3,
+div.liveupdate-stuck h3 {
+/*	background: transparent url("fail-24.png") top left no-repeat; */
+	text-align: center;
+	min-height: 24px;
+	padding: 2px 0 0 28px;
+	font-size: x-large;
+	color: red;
+	text-shadow: 1px 1px 6px #333;
+}
+
+div.liveupdate-hasupdates {
+	border: thin solid #999900;
+	background: #2F96B4;
+	padding: 1em;
+	color: #333300;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 5px 5px 5px #f9f9f9;
+	-webkit-box-shadow: 5px 5px 5px #f9f9f9;
+	box-shadow: 5px 5px 5px #f9f9f9;
+}
+
+div.liveupdate-hasupdates h3 {
+/*	background: transparent url("warn-24.png") top left no-repeat; */
+	text-align: center;
+	min-height: 24px;
+	padding: 2px 0 12px 0;
+	font-size: x-large;
+	color: #fff;
+	text-shadow: 1px 1px 6px #333;
+}
+
+div.liveupdate-noupdates {
+	border: thin solid #009900;
+	background: #51A351;
+	padding: 1em;
+	color: #003300;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 5px 5px 5px #d4d4d4;
+	-webkit-box-shadow: 5px 5px 5px #d4d4d4;
+	box-shadow: 5px 5px 5px #d4d4d4;
+}
+
+div.liveupdate-noupdates h3 {
+/*	background: transparent url("ok-24.png") top left no-repeat; */
+	text-align: center;
+	min-height: 24px;
+	padding: 2px 0 12px 0;
+	font-size: x-large;
+	color: #fff;
+	text-shadow: 1px 1px 6px #333;
+}
+
+div.liveupdate-infotable {
+	width: 600px;
+	margin: auto auto;
+	padding: 10px;
+	border: thin solid #333;
+	background: #fefefe;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+div.liveupdate-infotable .row0 { background: #fcfcfc }
+div.liveupdate-infotable .row1 { background: #f0f0f0 }
+div.liveupdate-row { padding: 5px; }
+span.liveupdate-label { display: inline-block; vertical-align: top; width: 160px; font-weight: bold; }
+span.liveupdate-data { display: inline-block; vertical-align: top; max-width: 420px; overflow: none }
+
+p.liveupdate-buttons { text-align: center; margin: 1em; }
+
+p.liveupdate-error-needsauth {
+	margin: 1em;
+	background: #ffcccc;
+	border: medium solid #ff0000;
+	color: #660000;
+	font-size: large;
+	font-weight: bold;
+	padding: 1em;
+	text-align: center;
+	text-shadow: 1px 1px 2px white;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 5px 5px 5px #d4d4d4;
+	-webkit-box-shadow: 5px 5px 5px #d4d4d4;
+	box-shadow: 5px 5px 5px #d4d4d4;
+}
+
+p.liveupdate-poweredby { font-size: 8pt; color: silver; margin: 1em 0 0.5em 0 }
+p.liveupdate-poweredby a { color: silver; }
+div.liveupdate-ftp p { margin: 1em 2em; line-height: 140%; border: thin solid #00c; padding: 0.5em; color: #006; background-color: #f0f0ff; font-size: 12pt; text-shadow: 1px 1px 3px silver }
+
+#nagscreen {
+	margin: 1em;
+	background: #BD362F;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 1em;
+	text-align: center;
+	text-shadow: 1px 1px 2px #333;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 5px 5px 5px #d4d4d4;
+	-webkit-box-shadow: 5px 5px 5px #d4d4d4;
+	box-shadow: 5px 5px 5px #d4d4d4;
+}
+.nagversioninfo {
+	font-size: 1em;
+	text-align: center;
+	margin: 20px 15% 30px 15%;
+}
+.nagtext {
+	font-weight: normal;
+	font-size: 1.2em;
+	text-align: center;
+	margin: 20px 15%;
+}
+.nagstability {
+	font-weight: normal;
+	font-size: 1em;
+	text-align: left;
+	margin: 10px 20%
+}

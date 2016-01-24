@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site"  method="upgrade">
+	<name>mod_lide_primitiv</name>
+	<creationDate>November 05, 2015</creationDate>
+	<author>Fogler Tibor</author>
+	<license>GNU/GPLv3 General Public License</license>
+	<authorEmail>tibor.fogler@gmail.com</authorEmail>
+	<authorUrl>http://adatmagus.hu</authorUrl>
+	<version>1.0</version>
+	<description>li-de szavazás modul (egyszerü egy lehetőséget választós)
+	Cookie -val igyekszik megneheziteni, hogy egy ember többször szavazzon.
+	<br />A <a href="http://li-de.tk">http://li-de.tk</a> rendszerben inditott nyilvános témakötökben lévő olyan
+	szavazásokat, ahol mindenki szavazhat lehet modulban megjeleníteni.</description>
+
+	<files>
+		<filename module="mod_lide_primitiv">mod_lide_primitiv.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+	<languages folder="language">
+		<language tag="hu-HU">hu-HU/hu-HU.mod_lide_primitiv.ini</language>
+	</languages>
+	<config>
+      <fields name="params">
+	    <fieldset name="basic">
+		  <field 
+			name="poll_id" 
+			type="text" 
+			default="0"
+			class="input-small"
+			label="MOD_LIDE_POLL_ID"
+			description="MOD_LIDE_POLL_ID_DESC" />
+	    </fieldset>
+	  </fields>	
+   </config>
+</extension>

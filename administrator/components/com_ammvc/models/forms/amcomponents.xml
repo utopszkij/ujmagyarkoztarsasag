@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields>
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			required="true"
+			readonly="true"/>							
+															
+		<field
+			id="title"
+			name="title"
+			type="text"
+			required="true"
+			label="Title"
+			description="title_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+						
+		<field
+			id="description"
+			name="description"
+			type="editor"
+			label="Description"
+			description="description_Desc"
+			class="inputbox"
+			buttons="readmore,pagebreak"/>
+															
+		<field
+			id="name"
+			name="name"
+			type="text"
+			required="false"
+			label="Name"
+			description="name_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="author"
+			name="author"
+			type="text"
+			required="false"
+			label="Author"
+			description="author_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="authoremail"
+			name="authoremail"
+			type="text"
+			required="false"
+			label="Authoremail"
+			description="authoremail_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="licence"
+			name="licence"
+			type="text"
+			required="false"
+			label="Licence"
+			description="licence_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+														
+		<field
+			id="version"
+			name="version"
+			type="text"
+			required="false"
+			label="Version"
+			description="version_Desc"
+			class="inputbox"
+			size="40"/>						
+								
+								
+	</fields>	
+		
+</form>	

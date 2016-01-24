@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document for Joomla 3 styles IE8 */
+
+/* ----------------------
+	Special module styles
+	--------------------- */
+
+/* -------------
+	Special Grey
+	------------ */
+.specialgrey {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#e6e6e6')";
+}
+
+/* -------------
+	Special Blue
+	------------ */
+.specialblue {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#507bb9', endColorstr='#3c67a5')";
+}
+
+/* -------------
+	Special Red
+	------------ */
+.specialred {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff0000', endColorstr='#990000')";
+}
+
+/* -------------
+	Special Gold
+	------------ */
+.specialgold {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#cc9933', endColorstr='#ab7915')"; /* IE8 */
+}

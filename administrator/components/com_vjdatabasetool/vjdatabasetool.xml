@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+	<name>VJ Database Tool</name>
+	<author>VJ Tools</author>
+	<creationDate>March 2015</creationDate>
+	<copyright>Copyright (C) 2014 vj-tools.com. All rights reserved.</copyright>
+	<license>GPL v3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>info@vj-tools.com</authorEmail>
+	<authorUrl>http://www.vj-tools.com</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[VJ Database Tool - Database management tool for Joomla!.<br /><br />&copy;&nbsp;<a href="http://www.vj-tools.com">VJ Tools</a> - Fabulous Joomla! extensions.]]></description>
+	<installfile>install.vjdatabasetool.php</installfile>
+	<uninstallfile>uninstall.vjdatabasetool.php</uninstallfile> 
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		  </sql>
+		</install>
+		<uninstall>
+		  <sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		  </sql>
+	</uninstall>
+	<languages folder="lang/en-GB">
+		<language tag="en-GB">en-GB.com_vjdatabasetool.ini</language>
+		<language tag="en-GB">en-GB.com_vjdatabasetool.sys.ini</language>
+	</languages>
+    <files>
+      <folder>sql</folder>
+      <folder>lang</folder>
+    </files>
+	<administration>
+		<menu task="databasetool">VJDATABASETOOL_MENU_MAIN</menu>
+	    	<files folder="admin">
+			<filename>install.vjdatabasetool.php</filename>
+			<filename>uninstall.vjdatabasetool.php</filename>
+			<filename>vjdatabasetool.php</filename>
+			<filename>admin.vjdatabasetool.html.php</filename>
+			<filename>controller.php</filename>
+			<filename>adminer.php</filename>
+			<folder>sql</folder>
+			<folder>adminer</folder>
+			<folder>plugins</folder>
+			<folder>lang</folder>
+		</files>
+		<languages folder="admin/lang/en-GB">
+			<language tag="en-GB">en-GB.com_vjdatabasetool.ini</language>
+			<language tag="en-GB">en-GB.com_vjdatabasetool.sys.ini</language>
+		</languages>
+		<install>
+		  <sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		  </sql>
+		</install>
+		<uninstall>
+		  <sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		  </sql>
+		</uninstall>
+    <uninstall>
+    </uninstall>
+	</administration>
+</extension>

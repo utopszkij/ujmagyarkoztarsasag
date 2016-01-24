@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.1" type="template" client="site">
+	<name>umk_jui_bootrsap</name>
+	<version>1.0</version>
+	<creationDate>8-2015</creationDate>
+	<author>Joomla-CSS</author>
+	<authorEmail>info@joomla-css.nl</authorEmail>
+	<copyright>Joomla CSS</copyright>
+	<description>Base Template Joomla 3<
+	Positions:
+	positions-0 header top                   positions-8 slidebar
+	positions-4 header top 2
+	positions-5 header top 3
+	positions-6 header bottom
+	positions-1 container top
+	positions-2 content top
+	positions-3 before component 
+	   message
+	   component
+	positions-7 after component
+	footer
+	debug
+
+	
+	/description>
+
+	<files>
+		<filename>component.php</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+	</files>
+
+	<positions>
+		<position>position-0</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-7</position>
+		<position>position-8</position>
+		<position>position-9</position>
+		<position>messageIE</position>	
+		<position>debug</position>
+		<position>footer</position>
+	</positions>
+
+	<languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.tpl_umk_jui_bootrsap.ini</language>
+        <language tag="en-GB">en-GB/en-GB.tpl_umk_jui_bootrsap.sys.ini</language>
+    </languages>
+
+</extension>

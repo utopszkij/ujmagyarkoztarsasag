@@ -1,0 +1,40 @@
+/*
+ * COM_ICAGENDA
+ * Extra small devices (usually a mobile phone)
+ * 0 < SCREEN WIDTH < ('Small Screen Threshold' - 1)
+ * Default : 0 < SCREEN WIDTH < 480
+ */
+
+/* Share buttons (AddThis) */
+#icagenda .share {
+	display:none;
+}
+
+/* Style Information */
+.ic-divCell {
+	float: left;
+}
+
+/* Style Input field */
+.icagenda_form input,
+.icagenda_form input[type="file"],
+.icagenda_form .input-large,
+.icagenda_form .input-xlarge,
+.icagenda_form .input-xxlarge,
+.icagenda_form .select-large,
+.icagenda_form .select-xlarge,
+.icagenda_form .select-xxlarge {
+	width: 90%;
+}
+.icagenda_form .input-small {
+	width: 90px;
+}
+.icagenda_form .select-small {
+	width: 114px;
+}
+.icagenda_form .ic-date-input {
+	width: auto;
+}
+.ic-captcha-label {
+	display: none;
+}

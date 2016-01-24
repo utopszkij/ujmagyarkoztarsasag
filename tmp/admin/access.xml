@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<access component="com_icagenda">
+	<section name="component">
+		<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />
+		<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />
+		<action name="core.create" title="JACTION_CREATE" description="JACTION_CREATE_COMPONENT_DESC" />
+		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_COMPONENT_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="JACTION_EDITSTATE_COMPONENT_DESC" />
+		<action name="core.edit.own" title="JACTION_EDITOWN" description="JACTION_EDITOWN_COMPONENT_DESC" />
+		<action name="icagenda.access.categories" title="COM_ICAGENDA_ACCESS_VIEW_CATEGORIES"
+			description="COM_ICAGENDA_ACCESS_VIEW_CATEGORIES_DESC" />
+		<action name="icagenda.access.events" title="COM_ICAGENDA_ACCESS_VIEW_EVENTS"
+			description="COM_ICAGENDA_ACCESS_VIEW_EVENTS_DESC" />
+		<action name="icagenda.access.registrations" title="COM_ICAGENDA_ACCESS_VIEW_REGISTRATIONS"
+			description="COM_ICAGENDA_ACCESS_VIEW_REGISTRATIONS_DESC" />
+		<action name="icagenda.access.newsletter" title="COM_ICAGENDA_ACCESS_VIEW_NEWSLETTER"
+			description="COM_ICAGENDA_ACCESS_VIEW_NEWSLETTER_DESC" />
+		<action name="icagenda.access.customfields" title="COM_ICAGENDA_ACCESS_VIEW_CUSTOMFIELDS"
+			description="COM_ICAGENDA_ACCESS_VIEW_CUSTOMFIELDS_DESC" />
+		<action name="icagenda.access.features" title="COM_ICAGENDA_ACCESS_VIEW_FEATURES"
+			description="COM_ICAGENDA_ACCESS_VIEW_FEATURES_DESC" />
+		<action name="icagenda.access.themes" title="COM_ICAGENDA_ACCESS_VIEW_THEMES"
+			description="COM_ICAGENDA_ACCESS_VIEW_THEMES_DESC" />
+	</section>
+	<section name="category">
+		<action name="core.create" title="JACTION_CREATE" description="COM_CATEGORIES_ACCESS_CREATE_DESC" />
+		<action name="core.delete" title="JACTION_DELETE" description="COM_CATEGORIES_ACCESS_DELETE_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="COM_CATEGORIES_ACCESS_EDIT_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="COM_CATEGORIES_ACCESS_EDITSTATE_DESC" />
+		<action name="core.edit.own" title="JACTION_EDITOWN" description="COM_CATEGORIES_ACCESS_EDITOWN_DESC" />
+	</section>
+	<section name="event">
+		<action name="core.delete" title="JACTION_DELETE" description="COM_CONTENT_ACCESS_DELETE_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="COM_CONTENT_ACCESS_EDIT_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="COM_CONTENT_ACCESS_EDITSTATE_DESC" />
+	</section>
+</access>

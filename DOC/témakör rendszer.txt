@@ -1,0 +1,88 @@
+li-de javasolt témakör rendszer
+===============================
+
+A témakör struktúra elsosorban képviseleti - láthatósági szabályozásra való és csak másodsorban
+keresési osztályozási szempontokra. Tehát ide olyan csoportokat érdemes kialakitani amikkel 
+kapcsolatban az képzelheto el, hogy más-más képviselot akarok erre vonatkozóan megbizni  illetve
+a témakörhöz nem kapcsolt kivülállók számára el kivánom rejteni.
+
+Gazdálkodó szervezetek                     - ezen belül a szervezetek egyedi altémákat alakithatnak ki
+  Zabjegyezo ZRT
+  RoBIT számítástechnikai BT
+  ...
+Egyéni Országgyülési választó kerületek    - ennek az esetleges eloválasztásnál lehet majd szerepe
+  01 oevk xxxxxxxxx.
+  02 oevk xxxxxxxxx
+  ....
+Önkormányzatok                             - ezen belül a települések egyedi altémákat alakithatnak ki
+  Budapest
+    Bp.01.kerület
+	Bp. 02 kerület
+  Békéscsaba
+  .....  
+Társadalmi szervezetek                    - ezen belül a szervezetek egyedi altémákat alakithatnak ki  
+  MITT (Mi tudjuk a tutit) párt
+  MSZDP
+  4K
+  LMP
+  FNA egyesület
+  ....
+Mozgalmak                                - ezen belül a szervezetek egyedi altémákat alakithatnak ki
+  Segitsük együtt a menekülteket
+  li-de fejlesztok
+  FNA mozgalom
+  ...
+Általános (nem szervezethez kapcsolodó) témák
+  Belügyek és Rendészet
+  EU és egyéb külügyek
+  Honvédelem
+  Közigazgatás és Igazságügy
+  Szociális ellátás és Nyugdíj rendszer
+  Pénzügyek és adózás
+  Gazdaság
+  Kúltúra és oktatás
+  Egészségügy
+  Ökológia
+  Egyéb
+  
+Kategórizálatlan témák
+
+  A fömenüben lévö ""új szavazást inditok" menüpont ide visz fel, az adminok feladata utána 
+  az itt lévoket áthelyezni egy valós témakörbe.
+
+Cimke rendszer
+==============
+Ez csak és kizárólag keresési segédeszköz. Képviseleti jog, láthatóság nem kapcsolódik hozzá.
+(ade természetesen amikor cimkék szerint keresünk akkor is érvényesülnek a témaköröknél
+megadott láthatósági szabályok tehát olyan szavazásokat cimkébol kiindulva sem fogunk látni
+amiket a témakör beállítások szerint nem láthatunk). Egy-egy szavazás több cimkéhez is 
+besorolható
+
+  Európai Unió
+  Egyéb külügyek
+  Honvédelem
+  Rendészet
+  Közigazgatás
+  Igazságügy
+  Szociális ellátás
+  Nyugdíj rendszer
+  Munkaügy
+  Pénzügy
+  Adózás
+  Mezohazdaság
+  Vidékfejlesztés
+  Ipar
+  Kereskedelem
+  Közlekedés
+  Szállítás
+  Egyéb gazdaság
+  Kúltúra
+  Oktatás
+  Egészségügy
+  Vizügy
+  Energetika
+  Ökológia
+  Informatika
+  FNA
+  
+  

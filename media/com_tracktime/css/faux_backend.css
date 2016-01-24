@@ -1,0 +1,126 @@
+/* Icons */
+.icon-32-send						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-send.png);	}
+.icon-32-delete						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-delete.png);	}
+.icon-32-help						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-help.png);	}
+.icon-32-cancel						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-cancel.png);	}
+.icon-32-checkin					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-checkin.png);	}
+.icon-32-options					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-config.png);	}
+.icon-32-apply						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-apply.png);	}
+.icon-32-back						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-back.png);	}
+.icon-32-export						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-export.png);	}
+.icon-32-forward					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-forward.png);	}
+.icon-32-save						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-save.png);	}
+.icon-32-edit						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-edit.png);	}
+.icon-32-copy						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-copy.png);	}
+.icon-32-move						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-move.png);	}
+.icon-32-new						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-new.png);	}
+.icon-32-upload						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-upload.png);	}
+.icon-32-assign						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-publish.png);	}
+.icon-32-html						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-html.png);	}
+.icon-32-css						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-css.png);	}
+.icon-32-menus						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-menu.png);	}
+.icon-32-publish					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-publish.png);	}
+.icon-32-unblock					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-unblock.png);	}
+.icon-32-unpublish					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-unpublish.png);	}
+.icon-32-restore					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-revert.png);	}
+.icon-32-trash						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-trash.png);	}
+.icon-32-archive					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-archive.png);	}
+.icon-32-unarchive					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-unarchive.png);	}
+.icon-32-preview					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-preview.png);	}
+.icon-32-default					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-default.png);	}
+.icon-32-refresh					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-refresh.png);	}
+.icon-32-save-new					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-save-new.png);	}
+.icon-32-save-copy					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-save-copy.png);	}
+.icon-32-error						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-error.png);	}
+.icon-32-new-style					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-new-style.png);	}
+.icon-32-delete-style				{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-delete-style.png);	}
+.icon-32-purge						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-purge.png);	}
+.icon-32-remove						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-remove.png);	}
+.icon-32-featured					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-featured.png);	}
+.icon-32-stats						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-stats.png);	}
+.icon-32-print						{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-print.png);	}
+.icon-32-extension					{	background-image: url(../../../administrator/templates/bluestork/images/toolbar/icon-32-extension.png);	}
+.toolbar-inactive					{	background-position: 0 32px;  }
+
+.clr {clear: both;height: 0;overflow: hidden;}
+
+.cpanel div.icon, #cpanel div.icon {float: left;margin-bottom: 15px;margin-right: 15px;text-align: center;}
+.cpanel div.icon a, #cpanel div.icon a {
+    -moz-transition-duration: 0.8s;
+    -moz-transition-property: background-position, -moz-border-radius-bottomleft, -moz-box-shadow;
+    background-color: #FFFFFF;
+    background-position: -30px center;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    color: #565656;
+    display: block;
+    float: left;
+    height: 97px;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 108px;
+}
+#cpanel div.icon a:hover, #cpanel div.icon a:focus, #cpanel div.icon a:active, .cpanel div.icon a:hover, .cpanel div.icon a:focus, .cpanel div.icon a:active {
+    background-position: 0 center;
+    border-bottom-left-radius: 50% 20px;
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 10;
+}
+#cpanel img, .cpanel img {margin: 0 auto;padding: 10px 0;}
+#cpanel span, .cpanel span {display: block;text-align: center;}
+
+div.width-20 {width: 20%;}
+div.width-30 {width: 30%;}
+div.width-35 {width: 35%;}
+div.width-40 {width: 40%;}
+div.width-45 {width: 45%;}
+div.width-50 {width: 50%;}
+div.width-55 {width: 55%;}
+div.width-60 {width: 60%;}
+div.width-65 {width: 65%;}
+div.width-70 {width: 70%;}
+div.width-80 {width: 80%;}
+div.width-100 {width: 100%;}
+.fltlft {float: left;}
+.fltrt {float: right;}
+.fltnone {float: none;}
+div.width-20 fieldset, div.width-30 fieldset, div.width-35 fieldset, div.width-40 fieldset, div.width-45 fieldset, div.width-50 fieldset, div.width-55 fieldset, div.width-60 fieldset, div.width-65 fieldset, div.width-70 fieldset, div.width-80 fieldset, div.width-100 fieldset {
+    background-color: #FFFFFF;
+    padding: 5px 17px 17px;
+    margin-right:2px;
+    margin-left:2px;
+}
+
+#tracktime fieldset {border: 1px solid #CCCCCC;margin-bottom: 10px;text-align: left;padding:5px}
+legend {color: #146295;font-size: 1.182em;font-weight: bold;}
+
+/* Adminlist grids */
+
+table.adminlist {width: 100%;border-spacing: 1px;background-color: #f3f3f3;color: #666;}
+table.adminlist td,table.adminlist th {padding: 4px;}
+table.adminlist td {padding-left: 8px;}
+table.adminlist thead th {text-align: center;background: #f7f7f7;color: #666;border-bottom: 1px solid #CCC;border-left: 1px solid #fff;}
+table.adminlist thead th.left {text-align: left;}
+table.adminlist thead a:hover {text-decoration: none;}
+table.adminlist thead th img {vertical-align: middle;padding-left: 3px;}
+table.adminlist tbody th {font-weight: bold;}
+table.adminlist tbody tr {background-color: #fff;text-align: left;}
+table.adminlist tbody tr.row0:hover td,table.adminlist tbody tr.row1:hover td{background-color: #e8f6fe;}
+table.adminlist tbody tr td {background: #fff;border: 1px solid #fff;}
+table.adminlist tbody tr.row1 td {background: #f0f0f0;border-top: 1px solid #FFF;}
+table.adminlist tfoot tr {text-align: center;color: #333;}
+table.adminlist tfoot td,table.adminlist tfoot th {background-color: #f7f7f7;border-top: 1px solid #999;text-align: center;}
+table.adminlist td.order {text-align: center;white-space: nowrap;width: 200px;}
+table.adminlist td.order span {float: left;width: 20px;text-align: center;background-repeat: no-repeat;height: 13px;}
+table.adminlist .pagination {display: inline-block;padding: 0;margin: 0 auto;}
+
+/* Input and form styling*/
+#tracktime label.main{float:left;clear:left}
+#tracktime fieldset input, fieldset textarea, fieldset select, fieldset img, fieldset button {
+  float: left;
+  margin: 5px 5px 5px 0;
+  width: auto;
+}
+
+#tracktime input[type="radio"]{float:none}
